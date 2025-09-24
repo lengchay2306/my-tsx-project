@@ -91,7 +91,7 @@ export const getAvailableStatuses = (userRole, currentStatus) => {
   return [];
 };
 
-export const canUpdateStatus = (userRole, fromStatus, toStatus) => {
-  const availableStatuses = getAvailableStatuses(userRole, fromStatus);
+export const canUpdateStatus = (userRole, from Status, toStatus) => {
+  const availableStatuses = getAvailableStatuses(userRole, from Status);
   return availableStatuses.includes(toStatus);
 };
