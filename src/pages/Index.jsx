@@ -7,7 +7,7 @@ import { Car, Wrench, Building2, Shield, ArrowRight, LogIn } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext";
 
 const Index = () => {
-  const [selectedRole, setSelectedRole] = useState<string | null>(null);
+  const [selectedRole, setSelectedRole] = useState(null);
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -40,7 +40,7 @@ const Index = () => {
     }
   ];
 
-  const handleRoleSelect = (roleId: string) => {
+  const handleRoleSelect = (roleId) => {
     setSelectedRole(roleId);
     if (isAuthenticated) {
       // If already logged in, go directly to dashboard

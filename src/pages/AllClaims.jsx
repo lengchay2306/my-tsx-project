@@ -30,23 +30,6 @@ import {
   ArrowLeft
 } from 'lucide-react';
 
-interface Claim {
-  id: string;
-  vin: string;
-  customer: string;
-  customerPhone: string;
-  vehicle: string;
-  issue: string;
-  category: string;
-  status: 'pending' | 'approved' | 'rejected' | 'in-progress' | 'completed' | 'cancelled';
-  priority: 'low' | 'medium' | 'high';
-  technician: string;
-  createdDate: string;
-  updatedDate: string;
-  estimatedCost: string;
-  serviceCenter: string;
-}
-
 const AllClaims = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -64,7 +47,7 @@ const AllClaims = () => {
   const [selectedClaimStatus, setSelectedClaimStatus] = useState('');
 
   // Mock data - In real app would come from API
-  const allClaims: Claim[] = [
+  const allClaims = [
     {
       id: 'WC-2024-001',
       vin: '1HGBH41JXMN109186',
@@ -169,9 +152,9 @@ const AllClaims = () => {
       customerPhone: `09${String(i + 10).padStart(8, '0')}`,
       vehicle: ['EV Model X Pro', 'EV Compact Plus', 'EV SUV Premium'][i % 3] + ` ${2022 + (i % 3)}`,
       issue: ['Battery Issue', 'Motor Problem', 'Charging Error', 'Software Bug'][i % 4],
-      category: ['battery', 'motor', 'charging', 'electronics'][i % 4] as any,
-      status: ['pending', 'approved', 'rejected', 'in-progress', 'completed'][i % 5] as any,
-      priority: ['low', 'medium', 'high'][i % 3] as any,
+      category: ['battery', 'motor', 'charging', 'electronics'][i % 4],
+      status: ['pending', 'approved', 'rejected', 'in-progress', 'completed'][i % 5],
+      priority: ['low', 'medium', 'high'][i % 3],
       technician: ['Tech A', 'Tech B', 'Tech C', 'Tech D'][i % 4],
       createdDate: new Date(2024, 0, Math.max(1, 20 - i)).toISOString().split('T')[0],
       updatedDate: new Date(2024, 0, Math.max(1, 21 - i)).toISOString().split('T')[0],
@@ -204,13 +187,13 @@ const AllClaims = () => {
 
     // Sort
     filtered.sort((a, b) => {
-      let aValue: any = a[sortBy as keyof Claim];
-      let bValue: any = b[sortBy as keyof Claim];
+      let aValue = a[sortBy];
+      let bValue = b[sortBy];
       
       // Handle date sorting
       if (sortBy === 'createdDate' || sortBy === 'updatedDate') {
-        aValue = new Date(aValue as string).getTime();
-        bValue = new Date(bValue as string).getTime();
+        aValue = new Date(aValue).getTime();
+        bValue = new Date(bValue).getTime();
       }
       
       if (sortOrder === 'asc') {
@@ -229,17 +212,17 @@ const AllClaims = () => {
   const paginatedClaims = filteredAndSortedClaims.slice(startIndex, startIndex + pageSize);
 
   // Status badge component
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = (status) => {
     const statusConfig = {
-      pending: { variant: "pending" as const, icon: Clock, text: "Chờ duyệt" },
-      approved: { variant: "approved" as const, icon: CheckCircle, text: "Đã duyệt" },
-      rejected: { variant: "rejected" as const, icon: XCircle, text: "Từ chối" },
-      "in-progress": { variant: "warning" as const, icon: Wrench, text: "Đang sửa" },
-      completed: { variant: "success" as const, icon: CheckCircle, text: "Hoàn thành" },
-      cancelled: { variant: "secondary" as const, icon: XCircle, text: "Hủy bỏ" }
+      pending: { variant: "pending", icon: Clock, text: "Chờ duyệt" },
+      approved: { variant: "approved", icon: CheckCircle, text: "Đã duyệt" },
+      rejected: { variant: "rejected", icon: XCircle, text: "Từ chối" },
+      "in-progress": { variant: "warning", icon: Wrench, text: "Đang sửa" },
+      completed: { variant: "success", icon: CheckCircle, text: "Hoàn thành" },
+      cancelled: { variant: "secondary", icon: XCircle, text: "Hủy bỏ" }
     };
 
-    const config = statusConfig[status as keyof typeof statusConfig];
+    const config = statusConfig[status];
     if (!config) return null;
 
     const Icon = config.icon;
@@ -251,18 +234,18 @@ const AllClaims = () => {
     );
   };
 
-  const getPriorityBadge = (priority: string) => {
+  const getPriorityBadge = (priority) => {
     const priorityConfig = {
-      high: { variant: "destructive" as const, text: "Cao", color: "text-destructive" },
-      medium: { variant: "warning" as const, text: "TB", color: "text-warning" },
-      low: { variant: "secondary" as const, text: "Thấp", color: "text-muted-foreground" }
+      high: { variant: "destructive", text: "Cao", color: "text-destructive" },
+      medium: { variant: "warning", text: "TB", color: "text-warning" },
+      low: { variant: "secondary", text: "Thấp", color: "text-muted-foreground" }
     };
 
-    const config = priorityConfig[priority as keyof typeof priorityConfig];
+    const config = priorityConfig[priority];
     return <Badge variant={config.variant}>{config.text}</Badge>;
   };
 
-  const handleSort = (field: string) => {
+  const handleSort = (field) => {
     if (sortBy === field) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
@@ -271,12 +254,12 @@ const AllClaims = () => {
     }
   };
 
-  const handleViewDetails = (claimId: string) => {
+  const handleViewDetails = (claimId) => {
     setSelectedClaimId(claimId);
     setShowClaimDetails(true);
   };
 
-  const handleUpdateStatus = (claimId: string, currentStatus: string) => {
+  const handleUpdateStatus = (claimId, currentStatus) => {
     setSelectedClaimId(claimId);
     setSelectedClaimStatus(currentStatus);
     setShowUpdateStatus(true);
