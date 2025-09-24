@@ -1,7 +1,7 @@
-import*asReactfrom"react";
-import { "class-variance-authority";
+import *as Reactfrom "react";
+import { "clas s-variance-authority";
 
-import { cn } from"@/lib/utils";
+import { cn } from "@/lib/utils";
 
 const badgeVariants=cva(
 "inline-flexitems-centerrounded-fullborderpx-2.5py-0.5text-xsfont-semiboldtransition-colorsfocus:outline-nonefocus:ring-2focus:ring-ringfocus:ring-offset-2",
@@ -27,8 +27,8 @@ variant:"default",
 
 exportinterfaceBadgePropsextendsReact.HTMLAttributes<HTMLDivElement>,VariantProps<typeofbadgeVariants>{}
 
-functionBadge({className,variant,...props}:BadgeProps){
-return<divclassName={cn(badgeVariants({variant}),className)}{...props}/>;
+functionBadge({clas sName,variant,...props}:BadgeProps){
+return<divclas sName={cn(badgeVariants({variant}),clas sName)}{...props}/>;
 }
 
 export{Badge,badgeVariants};

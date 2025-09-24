@@ -1,14 +1,14 @@
-import { useState } from'react';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Button } from'@/components/ui/button';
-import { Badge } from'@/components/ui/badge';
-import { Input } from'@/components/ui/input';
-import { Label } from'@/components/ui/label';
-import { Textarea } from'@/components/ui/textarea';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from'@/components/ui/select';
-import { Checkbox } from'@/components/ui/checkbox';
-import { Tabs,TabsContent,TabsList,TabsTrigger } from'@/components/ui/tabs';
-import { useToast } from'@/hooks/use-toast';
+import { useState } from 'react';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Tabs,TabsContent,TabsList,TabsTrigger } from '@/components/ui/tabs';
+import { useToast } from '@/hooks/use-toast';
 import { 
 AlertTriangle,
 Plus,
@@ -22,7 +22,7 @@ FileText,
 Mail,
 Phone,
 MessageSquare
- } from'lucide-react';
+ } from 'lucide-react';
 
 interfaceRecall{
 id:string;
@@ -57,8 +57,8 @@ const{toast}=useToast();
 const[formData,setFormData]=useState({
 title:'',
 description:'',
-severity:'medium'asRecall['severity'],
-affectedModels:[]asstring[],
+severity:'medium'as Recall['severity'],
+affectedModels:[]as string[],
 vinPattern:'',
 deadline:'',
 safetyRisk:'',
@@ -108,7 +108,7 @@ correctiveAction:'Firmwareupdateandcalibration'
 {
 id:'RCL-2023-045',
 title:'ChargingPortSafetyInspection',
-description:'Routinesafetyinspectionforchargingportassembly',
+description:'Routinesafetyinspectionforchargingportas sembly',
 severity:'medium',
 affectedModels:['EVCityMini2022'],
 affectedVins:[],
@@ -120,7 +120,7 @@ estimatedVehicles:3200,
 completedCount:3200,
 notificationsSent:3200,
 estimatedCost:96000000,
-safetyRisk:'Low-preventivemeasure',
+safetyRisk:'Low-preventivemeas ure',
 correctiveAction:'Inspectionandconditionalreplacement'
 }
 ];
@@ -189,7 +189,7 @@ const config=configs[severity];
 const Icon=config.icon;
 return(
 <Badgevariant={config.variant}>
-<IconclassName="h-3w-3mr-1"/>
+<Iconclas sName="h-3w-3mr-1"/>
 {config.text}
 </Badge>
 );
@@ -216,11 +216,11 @@ minimumFractionDigits:0
 
 if(showCreateForm){
 return(
-<divclassName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
-<CardclassName="w-fullmax-w-4xlmax-h-[90vh]overflow-hidden">
+<divclas sName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
+<Cardclas sName="w-fullmax-w-4xlmax-h-[90vh]overflow-hidden">
 <CardHeader>
-<CardTitleclassName="flexitems-centergap-2">
-<AlertTriangleclassName="h-5w-5text-destructive"/>
+<CardTitleclas sName="flexitems-centergap-2">
+<AlertTriangleclas sName="h-5w-5text-destructive"/>
 Tạothôngbáothuhồimới
 </CardTitle>
 <CardDescription>
@@ -228,9 +228,9 @@ Tạothôngbáothuhồichoxecólỗikỹthuậthoặcvấnđềantoàn
 </CardDescription>
 </CardHeader>
 
-<CardContentclassName="overflow-y-automax-h-[calc(90vh-200px)]space-y-6">
-<divclassName="gridgrid-cols-2gap-4">
-<divclassName="space-y-2">
+<CardContentclas sName="overflow-y-automax-h-[calc(90vh-200px)]space-y-6">
+<divclas sName="gridgrid-cols-2gap-4">
+<divclas sName="space-y-2">
 <LabelhtmlFor="title">Tiêuđềthuhồi*</Label>
 <Input
 id="title"
@@ -240,10 +240,10 @@ onChange={(e)=>setFormData(prev=>({...prev,title:e.target.value}))}
 />
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="severity">Mứcđộnghiêmtrọng*</Label>
 <Selectvalue={formData.severity}onValueChange={(value)=>
-setFormData(prev=>({...prev,severity:valueasRecall['severity']}))
+setFormData(prev=>({...prev,severity:valueas Recall['severity']}))
 }>
 <SelectTrigger>
 <SelectValue/>
@@ -258,7 +258,7 @@ setFormData(prev=>({...prev,severity:valueasRecall['severity']}))
 </div>
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="description">Môtảvấnđề*</Label>
 <Textarea
 id="description"
@@ -269,23 +269,23 @@ rows={3}
 />
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <Label>Dòngxebịảnhhưởng*</Label>
-<divclassName="gridgrid-cols-2gap-2">
+<divclas sName="gridgrid-cols-2gap-2">
 {vehicleModels.map((model)=>(
-<divkey={model}className="flexitems-centerspace-x-2">
+<divkey={model}clas sName="flexitems-centerspace-x-2">
 <Checkbox
 checked={formData.affectedModels.includes(model)}
 onCheckedChange={()=>handleModelToggle(model)}
 />
-<labelclassName="text-sm">{model}</label>
+<labelclas sName="text-sm">{model}</label>
 </div>
 ))}
 </div>
 </div>
 
-<divclassName="gridgrid-cols-2gap-4">
-<divclassName="space-y-2">
+<divclas sName="gridgrid-cols-2gap-4">
+<divclas sName="space-y-2">
 <LabelhtmlFor="vinPattern">PatternVIN(tùychọn)</Label>
 <Input
 id="vinPattern"
@@ -295,7 +295,7 @@ onChange={(e)=>setFormData(prev=>({...prev,vinPattern:e.target.value}))}
 />
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="deadline">Hạnchótthựchiện*</Label>
 <Input
 id="deadline"
@@ -306,7 +306,7 @@ onChange={(e)=>setFormData(prev=>({...prev,deadline:e.target.value}))}
 </div>
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="safetyRisk">Rủiroantoàn</Label>
 <Textarea
 id="safetyRisk"
@@ -317,7 +317,7 @@ rows={2}
 />
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="correctiveAction">Biệnphápkhắcphục</Label>
 <Textarea
 id="correctiveAction"
@@ -328,7 +328,7 @@ rows={2}
 />
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="serviceInstructions">Hướngdẫnkỹthuật</Label>
 <Textarea
 id="serviceInstructions"
@@ -339,7 +339,7 @@ rows={3}
 />
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="estimatedCost">Chiphíướctính(VND)</Label>
 <Input
 id="estimatedCost"
@@ -351,14 +351,14 @@ onChange={(e)=>setFormData(prev=>({...prev,estimatedCost:e.target.value}))}
 </div>
 </CardContent>
 
-<divclassName="flexjustify-betweenp-6border-t">
-<Buttonvariant="outline"onClick={()=>setShowCreateForm(false)}>
+<divclas sName="flexjustify-betweenp-6border-t">
+<Buttonvariant="outline" onClick={()=>setShowCreateForm(false)}>
 Hủy
 </Button>
-<divclassName="flexgap-2">
+<divclas sName="flexgap-2">
 <Buttonvariant="secondary">Lưunháp</Button>
-<ButtononClick={handleCreateRecall}className="bg-destructivehover:bg-destructive/90">
-<SendclassName="h-4w-4mr-2"/>
+<ButtononClick={handleCreateRecall}clas sName="bg-destructivehover:bg-destructive/90">
+<Sendclas sName="h-4w-4mr-2"/>
 Tạo&Gửithuhồi
 </Button>
 </div>
@@ -369,86 +369,86 @@ Tạo&Gửithuhồi
 }
 
 return(
-<divclassName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
-<CardclassName="w-fullmax-w-7xlmax-h-[90vh]overflow-hidden">
+<divclas sName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
+<Cardclas sName="w-fullmax-w-7xlmax-h-[90vh]overflow-hidden">
 <CardHeader>
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<CardTitleclassName="flexitems-centergap-2">
-<AlertTriangleclassName="h-5w-5text-destructive"/>
+<CardTitleclas sName="flexitems-centergap-2">
+<AlertTriangleclas sName="h-5w-5text-destructive"/>
 QuảnlýThuhồi&Recall
 </CardTitle>
 <CardDescription>
 Quảnlýthôngbáothuhồibắtbuộcvàchiếndịchbảodưỡng
 </CardDescription>
 </div>
-<divclassName="flexgap-2">
-<Buttonvariant="outline"onClick={onClose}>Đóng</Button>
-<ButtononClick={()=>setShowCreateForm(true)}className="bg-destructivehover:bg-destructive/90">
-<PlusclassName="h-4w-4mr-2"/>
+<divclas sName="flexgap-2">
+<Buttonvariant="outline" onClick={onClose}>Đóng</Button>
+<ButtononClick={()=>setShowCreateForm(true)}clas sName="bg-destructivehover:bg-destructive/90">
+<Plusclas sName="h-4w-4mr-2"/>
 Tạothuhồimới
 </Button>
 </div>
 </div>
 </CardHeader>
 
-<CardContentclassName="overflow-y-automax-h-[calc(90vh-200px)]">
+<CardContentclas sName="overflow-y-automax-h-[calc(90vh-200px)]">
 <Tabsvalue={activeTab}onValueChange={setActiveTab}>
-<TabsListclassName="gridw-fullgrid-cols-4">
+<TabsListclas sName="gridw-fullgrid-cols-4">
 <TabsTriggervalue="list">Danhsáchthuhồi</TabsTrigger>
 <TabsTriggervalue="active">Đangthựchiện</TabsTrigger>
 <TabsTriggervalue="completed">Đãhoànthành</TabsTrigger>
 <TabsTriggervalue="statistics">Thốngkê</TabsTrigger>
 </TabsList>
 
-<TabsContentvalue="list"className="space-y-4">
+<TabsContentvalue="list" clas sName="space-y-4">
 {recalls.map((recall)=>(
-<Cardkey={recall.id}className="border-l-4border-l-destructive">
-<CardContentclassName="pt-4">
-<divclassName="flexjustify-betweenitems-startmb-4">
+<Cardkey={recall.id}clas sName="border-l-4border-l-destructive">
+<CardContentclas sName="pt-4">
+<divclas sName="flexjustify-betweenitems-startmb-4">
 <div>
-<divclassName="flexitems-centergap-2mb-2">
-<h3className="font-semibold">{recall.title}</h3>
+<divclas sName="flexitems-centergap-2mb-2">
+<h3clas sName="font-semibold">{recall.title}</h3>
 {getSeverityBadge(recall.severity)}
 {getStatusBadge(recall.status)}
 </div>
-<pclassName="text-smtext-muted-foregroundmb-2">{recall.description}</p>
-<pclassName="text-xstext-muted-foreground">#{recall.id}-Pháthành:{newDate(recall.issueDate).toLocaleDateString('vi-VN')}</p>
+<pclas sName="text-smtext-muted-foregroundmb-2">{recall.description}</p>
+<pclas sName="text-xstext-muted-foreground">#{recall.id}-Pháthành:{newDate(recall.issueDate).toLocaleDateString('vi-VN')}</p>
 </div>
 <Button
 variant="outline"
 size="sm"
 onClick={()=>setSelectedRecall(recall)}
 >
-<EyeclassName="h-3w-3mr-1"/>
+<Eyeclas sName="h-3w-3mr-1"/>
 Chitiết
 </Button>
 </div>
 
-<divclassName="gridgrid-cols-4gap-4text-sm">
+<divclas sName="gridgrid-cols-4gap-4text-sm">
 <div>
-<pclassName="font-medium">Xeảnhhưởng</p>
-<pclassName="text-muted-foreground">{recall.estimatedVehicles.toLocaleString('vi-VN')}</p>
+<pclas sName="font-medium">Xeảnhhưởng</p>
+<pclas sName="text-muted-foreground">{recall.estimatedVehicles.toLocaleString('vi-VN')}</p>
 </div>
 <div>
-<pclassName="font-medium">Đãhoànthành</p>
-<pclassName="text-muted-foreground">{recall.completedCount.toLocaleString('vi-VN')}({Math.round(recall.completedCount/recall.estimatedVehicles*100)}%)</p>
+<pclas sName="font-medium">Đãhoànthành</p>
+<pclas sName="text-muted-foreground">{recall.completedCount.toLocaleString('vi-VN')}({Math.round(recall.completedCount/recall.estimatedVehicles*100)}%)</p>
 </div>
 <div>
-<pclassName="font-medium">Hạnchót</p>
-<pclassName="text-muted-foreground">{newDate(recall.deadline).toLocaleDateString('vi-VN')}</p>
+<pclas sName="font-medium">Hạnchót</p>
+<pclas sName="text-muted-foreground">{newDate(recall.deadline).toLocaleDateString('vi-VN')}</p>
 </div>
 <div>
-<pclassName="font-medium">Chiphíướctính</p>
-<pclassName="text-muted-foreground">{formatCurrency(recall.estimatedCost)}</p>
+<pclas sName="font-medium">Chiphíướctính</p>
+<pclas sName="text-muted-foreground">{formatCurrency(recall.estimatedCost)}</p>
 </div>
 </div>
 
-<divclassName="mt-3">
-<pclassName="text-smfont-mediummb-1">Tiếnđộhoànthành:</p>
-<divclassName="w-fullbg-mutedrounded-fullh-2">
+<divclas sName="mt-3">
+<pclas sName="text-smfont-mediummb-1">Tiếnđộhoànthành:</p>
+<divclas sName="w-fullbg-mutedrounded-fullh-2">
 <div
-className="bg-primaryh-2rounded-full"
+clas sName="bg-primaryh-2rounded-full"
 style={{width:`${(recall.completedCount/recall.estimatedVehicles)*100}%`}}
 />
 </div>
@@ -458,43 +458,43 @@ style={{width:`${(recall.completedCount/recall.estimatedVehicles)*100}%`}}
 ))}
 </TabsContent>
 
-<TabsContentvalue="active"className="space-y-4">
+<TabsContentvalue="active" clas sName="space-y-4">
 {recalls.filter(r=>r.status==='active').map((recall)=>(
-<Cardkey={recall.id}className="border-l-4border-l-warning">
-<CardContentclassName="pt-4">
-<divclassName="flexjustify-betweenitems-start">
-<divclassName="flex-1">
-<divclassName="flexitems-centergap-2mb-2">
-<h3className="font-semibold">{recall.title}</h3>
+<Cardkey={recall.id}clas sName="border-l-4border-l-warning">
+<CardContentclas sName="pt-4">
+<divclas sName="flexjustify-betweenitems-start">
+<divclas sName="flex-1">
+<divclas sName="flexitems-centergap-2mb-2">
+<h3clas sName="font-semibold">{recall.title}</h3>
 {getSeverityBadge(recall.severity)}
 </div>
-<pclassName="text-smtext-muted-foregroundmb-2">{recall.description}</p>
+<pclas sName="text-smtext-muted-foregroundmb-2">{recall.description}</p>
 
-<divclassName="gridgrid-cols-3gap-4text-sm">
+<divclas sName="gridgrid-cols-3gap-4text-sm">
 <div>
-<pclassName="font-medium">Tiếnđộ</p>
-<pclassName="text-muted-foreground">{recall.completedCount}/{recall.estimatedVehicles}xe</p>
+<pclas sName="font-medium">Tiếnđộ</p>
+<pclas sName="text-muted-foreground">{recall.completedCount}/{recall.estimatedVehicles}xe</p>
 </div>
 <div>
-<pclassName="font-medium">Thôngbáođãgửi</p>
-<pclassName="text-muted-foreground">{recall.notificationsSent.toLocaleString('vi-VN')}</p>
+<pclas sName="font-medium">Thôngbáođãgửi</p>
+<pclas sName="text-muted-foreground">{recall.notificationsSent.toLocaleString('vi-VN')}</p>
 </div>
 <div>
-<pclassName="font-medium">Thờigiancònlại</p>
-<pclassName="text-muted-foreground">
+<pclas sName="font-medium">Thờigiancònlại</p>
+<pclas sName="text-muted-foreground">
 {Math.ceil((newDate(recall.deadline).getTime()-newDate().getTime())/(1000*60*60*24))}ngày
 </p>
 </div>
 </div>
 </div>
 
-<divclassName="flexgap-2ml-4">
-<Buttonvariant="outline"size="sm">
-<MailclassName="h-3w-3mr-1"/>
+<divclas sName="flexgap-2ml-4">
+<Buttonvariant="outline" size="sm">
+<Mailclas sName="h-3w-3mr-1"/>
 Gửinhắcnhở
 </Button>
-<Buttonvariant="outline"size="sm"onClick={()=>setSelectedRecall(recall)}>
-<EyeclassName="h-3w-3mr-1"/>
+<Buttonvariant="outline" size="sm" onClick={()=>setSelectedRecall(recall)}>
+<Eyeclas sName="h-3w-3mr-1"/>
 Chitiết
 </Button>
 </div>
@@ -504,39 +504,39 @@ Chitiết
 ))}
 </TabsContent>
 
-<TabsContentvalue="completed"className="space-y-4">
+<TabsContentvalue="completed" clas sName="space-y-4">
 {recalls.filter(r=>r.status==='completed').map((recall)=>(
-<Cardkey={recall.id}className="border-l-4border-l-success">
-<CardContentclassName="pt-4">
-<divclassName="flexjustify-betweenitems-start">
+<Cardkey={recall.id}clas sName="border-l-4border-l-success">
+<CardContentclas sName="pt-4">
+<divclas sName="flexjustify-betweenitems-start">
 <div>
-<divclassName="flexitems-centergap-2mb-2">
-<h3className="font-semibold">{recall.title}</h3>
+<divclas sName="flexitems-centergap-2mb-2">
+<h3clas sName="font-semibold">{recall.title}</h3>
 <Badgevariant="default">
-<CheckCircleclassName="h-3w-3mr-1"/>
+<CheckCircleclas sName="h-3w-3mr-1"/>
 Hoànthành
 </Badge>
 </div>
-<pclassName="text-smtext-muted-foreground">{recall.description}</p>
+<pclas sName="text-smtext-muted-foreground">{recall.description}</p>
 
-<divclassName="gridgrid-cols-3gap-4text-smmt-3">
+<divclas sName="gridgrid-cols-3gap-4text-smmt-3">
 <div>
-<pclassName="font-medium">Hoànthành</p>
-<pclassName="text-success">100%({recall.completedCount.toLocaleString('vi-VN')}xe)</p>
+<pclas sName="font-medium">Hoànthành</p>
+<pclas sName="text-success">100%({recall.completedCount.toLocaleString('vi-VN')}xe)</p>
 </div>
 <div>
-<pclassName="font-medium">Chiphíthựctế</p>
-<pclassName="text-muted-foreground">{formatCurrency(recall.estimatedCost)}</p>
+<pclas sName="font-medium">Chiphíthựctế</p>
+<pclas sName="text-muted-foreground">{formatCurrency(recall.estimatedCost)}</p>
 </div>
 <div>
-<pclassName="font-medium">Hoànthànhtrướchạn</p>
-<pclassName="text-success">15ngày</p>
+<pclas sName="font-medium">Hoànthànhtrướchạn</p>
+<pclas sName="text-success">15ngày</p>
 </div>
 </div>
 </div>
 
-<Buttonvariant="outline"size="sm"onClick={()=>setSelectedRecall(recall)}>
-<FileTextclassName="h-3w-3mr-1"/>
+<Buttonvariant="outline" size="sm" onClick={()=>setSelectedRecall(recall)}>
+<FileTextclas sName="h-3w-3mr-1"/>
 Báocáo
 </Button>
 </div>
@@ -545,37 +545,37 @@ Báocáo
 ))}
 </TabsContent>
 
-<TabsContentvalue="statistics"className="space-y-6">
-<divclassName="gridgap-4md:grid-cols-4">
+<TabsContentvalue="statistics" clas sName="space-y-6">
+<divclas sName="gridgap-4md:grid-cols-4">
 <Card>
-<CardContentclassName="pt-6">
-<divclassName="text-center">
-<pclassName="text-2xlfont-boldtext-destructive">3</p>
-<pclassName="text-smtext-muted-foreground">Thuhồikhẩncấp</p>
+<CardContentclas sName="pt-6">
+<divclas sName="text-center">
+<pclas sName="text-2xlfont-boldtext-destructive">3</p>
+<pclas sName="text-smtext-muted-foreground">Thuhồikhẩncấp</p>
 </div>
 </CardContent>
 </Card>
 <Card>
-<CardContentclassName="pt-6">
-<divclassName="text-center">
-<pclassName="text-2xlfont-boldtext-warning">2</p>
-<pclassName="text-smtext-muted-foreground">Đangthựchiện</p>
+<CardContentclas sName="pt-6">
+<divclas sName="text-center">
+<pclas sName="text-2xlfont-boldtext-warning">2</p>
+<pclas sName="text-smtext-muted-foreground">Đangthựchiện</p>
 </div>
 </CardContent>
 </Card>
 <Card>
-<CardContentclassName="pt-6">
-<divclassName="text-center">
-<pclassName="text-2xlfont-boldtext-success">15</p>
-<pclassName="text-smtext-muted-foreground">Hoànthành</p>
+<CardContentclas sName="pt-6">
+<divclas sName="text-center">
+<pclas sName="text-2xlfont-boldtext-success">15</p>
+<pclas sName="text-smtext-muted-foreground">Hoànthành</p>
 </div>
 </CardContent>
 </Card>
 <Card>
-<CardContentclassName="pt-6">
-<divclassName="text-center">
-<pclassName="text-2xlfont-bold">27,370</p>
-<pclassName="text-smtext-muted-foreground">Xeđượcthuhồi</p>
+<CardContentclas sName="pt-6">
+<divclas sName="text-center">
+<pclas sName="text-2xlfont-bold">27,370</p>
+<pclas sName="text-smtext-muted-foreground">Xeđượcthuhồi</p>
 </div>
 </CardContent>
 </Card>
@@ -586,26 +586,26 @@ Báocáo
 <CardTitle>Hiệuquảthuhồi</CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 <div>
-<divclassName="flexjustify-betweentext-sm">
+<divclas sName="flexjustify-betweentext-sm">
 <span>Tỷlệhoànthànhđúnghạn</span>
-<spanclassName="font-medium">92.3%</span>
+<spanclas sName="font-medium">92.3%</span>
 </div>
-<divclassName="mt-1h-2bg-mutedrounded-full">
-<divclassName="h-2bg-successrounded-full" style={{width:"92.3%"}}/>
+<divclas sName="mt-1h-2bg-mutedrounded-full">
+<divclas sName="h-2bg-successrounded-full" style={{width:"92.3%"}}/>
 </div>
 </div>
 <div>
-<divclassName="flexjustify-betweentext-sm">
+<divclas sName="flexjustify-betweentext-sm">
 <span>Thờigianphảnhồitrungbình</span>
-<spanclassName="font-medium">3.2ngày</span>
+<spanclas sName="font-medium">3.2ngày</span>
 </div>
 </div>
 <div>
-<divclassName="flexjustify-betweentext-sm">
+<divclas sName="flexjustify-betweentext-sm">
 <span>Chiphíthuhồinămnay</span>
-<spanclassName="font-medium">{formatCurrency(3200000000)}</span>
+<spanclas sName="font-medium">{formatCurrency(3200000000)}</span>
 </div>
 </div>
 </div>
@@ -616,28 +616,28 @@ Báocáo
 
 {/*DetailModal*/}
 {selectedRecall&&(
-<divclassName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-[60]">
-<CardclassName="w-fullmax-w-4xlmax-h-[90vh]overflow-hidden">
+<divclas sName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-[60]">
+<Cardclas sName="w-fullmax-w-4xlmax-h-[90vh]overflow-hidden">
 <CardHeader>
-<divclassName="flexjustify-betweenitems-start">
+<divclas sName="flexjustify-betweenitems-start">
 <div>
-<CardTitleclassName="flexitems-centergap-2">
+<CardTitleclas sName="flexitems-centergap-2">
 {getSeverityBadge(selectedRecall.severity)}
 {selectedRecall.title}
 </CardTitle>
 <CardDescription>#{selectedRecall.id}</CardDescription>
 </div>
-<Buttonvariant="outline"onClick={()=>setSelectedRecall(null)}>
+<Buttonvariant="outline" onClick={()=>setSelectedRecall(null)}>
 Đóng
 </Button>
 </div>
 </CardHeader>
 
-<CardContentclassName="overflow-y-automax-h-[calc(90vh-200px)]space-y-6">
-<divclassName="gridgrid-cols-2gap-6">
+<CardContentclas sName="overflow-y-automax-h-[calc(90vh-200px)]space-y-6">
+<divclas sName="gridgrid-cols-2gap-6">
 <div>
-<h4className="font-semiboldmb-2">Thôngtinthuhồi</h4>
-<divclassName="space-y-2text-sm">
+<h4clas sName="font-semiboldmb-2">Thôngtinthuhồi</h4>
+<divclas sName="space-y-2text-sm">
 <p><strong>Môtả:</strong>{selectedRecall.description}</p>
 <p><strong>Rủiroantoàn:</strong>{selectedRecall.safetyRisk}</p>
 <p><strong>Biệnphápkhắcphục:</strong>{selectedRecall.correctiveAction}</p>
@@ -647,8 +647,8 @@ Báocáo
 </div>
 
 <div>
-<h4className="font-semiboldmb-2">Thốngkêtiếnđộ</h4>
-<divclassName="space-y-2text-sm">
+<h4clas sName="font-semiboldmb-2">Thốngkêtiếnđộ</h4>
+<divclas sName="space-y-2text-sm">
 <p><strong>Xeảnhhưởng:</strong>{selectedRecall.estimatedVehicles.toLocaleString('vi-VN')}</p>
 <p><strong>Đãhoànthành:</strong>{selectedRecall.completedCount.toLocaleString('vi-VN')}</p>
 <p><strong>Tỷlệhoànthành:</strong>{Math.round(selectedRecall.completedCount/selectedRecall.estimatedVehicles*100)}%</p>
@@ -659,8 +659,8 @@ Báocáo
 </div>
 
 <div>
-<h4className="font-semiboldmb-2">Dòngxebịảnhhưởng</h4>
-<divclassName="flexflex-wrapgap-2">
+<h4clas sName="font-semiboldmb-2">Dòngxebịảnhhưởng</h4>
+<divclas sName="flexflex-wrapgap-2">
 {selectedRecall.affectedModels.map((model)=>(
 <Badgekey={model}variant="outline">{model}</Badge>
 ))}
@@ -668,23 +668,23 @@ Báocáo
 </div>
 
 <div>
-<h4className="font-semiboldmb-2">Hướngdẫnkỹthuật</h4>
-<divclassName="bg-mutedp-4roundedtext-sm">
+<h4clas sName="font-semiboldmb-2">Hướngdẫnkỹthuật</h4>
+<divclas sName="bg-mutedp-4roundedtext-sm">
 {selectedRecall.serviceInstructions}
 </div>
 </div>
 
-<divclassName="flexgap-2">
+<divclas sName="flexgap-2">
 <Buttonvariant="outline">
-<MailclassName="h-4w-4mr-2"/>
+<Mailclas sName="h-4w-4mr-2"/>
 Gửinhắcnhở
 </Button>
 <Buttonvariant="outline">
-<PhoneclassName="h-4w-4mr-2"/>
+<Phoneclas sName="h-4w-4mr-2"/>
 Liênhệtrungtâm
 </Button>
 <Buttonvariant="outline">
-<FileTextclassName="h-4w-4mr-2"/>
+<FileTextclas sName="h-4w-4mr-2"/>
 Xuấtbáocáo
 </Button>
 </div>

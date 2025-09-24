@@ -1,12 +1,12 @@
-import { useState } from'react';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Button } from'@/components/ui/button';
-import { Input } from'@/components/ui/input';
-import { Label } from'@/components/ui/label';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from'@/components/ui/select';
-import { Badge } from'@/components/ui/badge';
-import { useToast } from'@/hooks/use-toast';
-import { useAuth } from'@/contexts/AuthContext';
+import { useState } from 'react';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
+import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 import { 
 Package,
 Search,
@@ -17,9 +17,9 @@ Car,
 Wrench,
 Battery,
 Zap,
-Trash2,
+Tras h2,
 CheckCircle
- } from'lucide-react';
+ } from 'lucide-react';
 
 interfacePartData{
 id:string;
@@ -94,7 +94,7 @@ name:'ChargingSystem',
 icon:Zap,
 parts:[
 {id:'CHG-001',name:'OnboardCharger11kW',warranty:'3years'},
-{id:'CHG-002',name:'DCFastChargePort',warranty:'3years'},
+{id:'CHG-002',name:'DCFas tChargePort',warranty:'3years'},
 {id:'CHG-003',name:'ChargingControlUnit',warranty:'3years'}
 ]
 },
@@ -121,7 +121,7 @@ description:`Found${vehicle.model}for${vehicle.customer}`,
 }else{
 toast({
 title:"VehicleNotFound",
-description:"PleasechecktheVINnumberandtryagain",
+description:"Pleas echecktheVINnumberandtryagain",
 variant:"destructive"
 });
 }
@@ -143,7 +143,7 @@ const addPart=()=>{
 if(!newPart.category||!newPart.partId||!newPart.serialNumber||!newPart.installationDate){
 toast({
 title:"MissingInformation",
-description:"Pleasefillallpartdetails",
+description:"Pleas efillallpartdetails",
 variant:"destructive"
 });
 return;
@@ -166,7 +166,7 @@ setNewPart({category:'',partId:'',serialNumber:'',installationDate:''});
 
 toast({
 title:"PartAdded!",
-description:`${partDetails.name}hasbeenaddedtothevehicle`,
+description:`${partDetails.name}has beenaddedtothevehicle`,
 });
 };
 
@@ -174,7 +174,7 @@ const removePart=(partId))=>{
 setAttachedParts(prev=>prev.filter(part=>part.id!==partId));
 toast({
 title:"PartRemoved",
-description:"Parthasbeenremovedfrom thelist",
+description:"Parthas beenremovedfrom thelist",
 });
 };
 
@@ -182,7 +182,7 @@ const handleSave=()=>{
 if(!selectedVehicle||attachedParts.length===0){
 toast({
 title:"CannotSave",
-description:"Pleaseselectavehicleandaddatleastonepart",
+description:"Pleas eselectavehicleandaddatleas tonepart",
 variant:"destructive"
 });
 return;
@@ -205,58 +205,58 @@ returncategory.icon||Package;
 };
 
 return(
-<divclassName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
-<CardclassName="w-fullmax-w-5xlmax-h-[90vh]overflow-hidden">
-<CardHeaderclassName="border-b">
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
+<Cardclas sName="w-fullmax-w-5xlmax-h-[90vh]overflow-hidden">
+<CardHeaderclas sName="border-b">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<PackageclassName="h-5w-5text-primary"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<Packageclas sName="h-5w-5text-primary"/>
 <span>AttachPartstoVehicle</span>
 </CardTitle>
 <CardDescription>
-Attachserialpartstoaspecificvehicleforwarrantytracking
+Attachserialpartstoas pecificvehicleforwarrantytracking
 </CardDescription>
 </div>
-<Buttonvariant="ghost"size="sm"onClick={onClose}>
-<XclassName="h-4w-4"/>
+<Buttonvariant="ghost" size="sm" onClick={onClose}>
+<Xclas sName="h-4w-4"/>
 </Button>
 </div>
 </CardHeader>
 
-<CardContentclassName="p-6overflow-y-automax-h-[calc(90vh-200px)]">
-<divclassName="space-y-6">
+<CardContentclas sName="p-6overflow-y-automax-h-[calc(90vh-200px)]">
+<divclas sName="space-y-6">
 {/*VehicleSearch*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2text-base">
-<CarclassName="h-4w-4"/>
+<CardTitleclas sName="flexitems-centerspace-x-2text-bas e">
+<Carclas sName="h-4w-4"/>
 <span>SelectVehicle</span>
 </CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-4">
-<divclassName="flexspace-x-2">
+<divclas sName="space-y-4">
+<divclas sName="flexspace-x-2">
 <Input
 placeholder="EnterVINnumber"
 value={vinSearch}
 onChange={(e)=>setVinSearch(e.target.value)}
-className="flex-1"
+clas sName="flex-1"
 />
 <ButtononClick={searchVehicle}disabled={!vinSearch}>
-<SearchclassName="h-4w-4mr-2"/>
+<Searchclas sName="h-4w-4mr-2"/>
 Search
 </Button>
 </div>
 
 {selectedVehicle&&(
-<CardclassName="border-success">
-<CardContentclassName="pt-4">
-<divclassName="flexitems-centerjustify-between">
+<Cardclas sName="border-success">
+<CardContentclas sName="pt-4">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<h3className="font-semibold">{selectedVehicle.model}</h3>
-<pclassName="text-smtext-muted-foreground">VIN:{selectedVehicle.vin}</p>
-<pclassName="text-smtext-muted-foreground">Customer:{selectedVehicle.customer}</p>
+<h3clas sName="font-semibold">{selectedVehicle.model}</h3>
+<pclas sName="text-smtext-muted-foreground">VIN:{selectedVehicle.vin}</p>
+<pclas sName="text-smtext-muted-foreground">Customer:{selectedVehicle.customer}</p>
 </div>
 <Badgevariant="success">Selected</Badge>
 </div>
@@ -265,13 +265,13 @@ Search
 )}
 
 {/*DemoVINs*/}
-<divclassName="flexflex-wrapgap-2">
-<spanclassName="text-smtext-muted-foreground">DemoVINs:</span>
+<divclas sName="flexflex-wrapgap-2">
+<spanclas sName="text-smtext-muted-foreground">DemoVINs:</span>
 {mockVehicles.map((vehicle)=>(
 <Badge
 key={vehicle.vin}
 variant="outline"
-className="cursor-pointerhover:bg-primaryhover:text-primary-foreground"
+clas sName="cursor-pointerhover:bg-primaryhover:text-primary-foreground"
 onClick={()=>setVinSearch(vehicle.vin)}
 >
 {vehicle.vin}
@@ -286,14 +286,14 @@ onClick={()=>setVinSearch(vehicle.vin)}
 {selectedVehicle&&(
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2text-base">
-<PlusclassName="h-4w-4"/>
+<CardTitleclas sName="flexitems-centerspace-x-2text-bas e">
+<Plusclas sName="h-4w-4"/>
 <span>AddNewPart</span>
 </CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="gridgap-4">
-<divclassName="gridmd:grid-cols-2gap-4">
+<divclas sName="gridgap-4">
+<divclas sName="gridmd:grid-cols-2gap-4">
 <div>
 <Label>PartCategory</Label>
 <Select
@@ -308,8 +308,8 @@ onValueChange={(value)=>setNewPart(prev=>({...prev,category:value,partId:''}))}
 const Icon=category.icon;
 return(
 <SelectItemkey={category.id}value={category.id}>
-<divclassName="flexitems-centerspace-x-2">
-<IconclassName="h-4w-4"/>
+<divclas sName="flexitems-centerspace-x-2">
+<Iconclas sName="h-4w-4"/>
 <span>{category.name}</span>
 </div>
 </SelectItem>
@@ -334,7 +334,7 @@ disabled={!newPart.category}
 <SelectItemkey={part.id}value={part.id}>
 <div>
 <div>{part.name}</div>
-<divclassName="text-xstext-muted-foreground">Warranty:{part.warranty}</div>
+<divclas sName="text-xstext-muted-foreground">Warranty:{part.warranty}</div>
 </div>
 </SelectItem>
 ))}
@@ -366,9 +366,9 @@ onChange={(e)=>setNewPart(prev=>({...prev,installationDate:e.target.value}))}
 <Button
 onClick={addPart}
 disabled={!newPart.category||!newPart.partId||!newPart.serialNumber||!newPart.installationDate}
-className="w-fit"
+clas sName="w-fit"
 >
-<PlusclassName="h-4w-4mr-2"/>
+<Plusclas sName="h-4w-4mr-2"/>
 AddPart
 </Button>
 </div>
@@ -380,30 +380,30 @@ AddPart
 {attachedParts.length>0&&(
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2text-base">
-<CheckCircleclassName="h-4w-4text-success"/>
+<CardTitleclas sName="flexitems-centerspace-x-2text-bas e">
+<CheckCircleclas sName="h-4w-4text-success"/>
 <span>AttachedParts({attachedParts.length})</span>
 </CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-3">
+<divclas sName="space-y-3">
 {attachedParts.map((part)=>{
 const Icon=getCategoryIcon(part.category);
 return(
 <div
 key={part.id}
-className="flexitems-centerjustify-betweenp-4borderrounded-lg"
+clas sName="flexitems-centerjustify-betweenp-4borderrounded-lg"
 >
-<divclassName="flexitems-centerspace-x-3">
-<divclassName="flexh-10w-10items-centerjustify-centerrounded-lgbg-accent">
-<IconclassName="h-5w-5"/>
+<divclas sName="flexitems-centerspace-x-3">
+<divclas sName="flexh-10w-10items-centerjustify-centerrounded-lgbg-accent">
+<Iconclas sName="h-5w-5"/>
 </div>
 <div>
-<h3className="font-medium">{part.name}</h3>
-<pclassName="text-smtext-muted-foreground">
+<h3clas sName="font-medium">{part.name}</h3>
+<pclas sName="text-smtext-muted-foreground">
 Serial:{part.serialNumber}
 </p>
-<pclassName="text-smtext-muted-foreground">
+<pclas sName="text-smtext-muted-foreground">
 Installed:{newDate(part.installationDate).toLocaleDateString('vi-VN')}|
 Warranty:{part.warrantyPeriod}
 </p>
@@ -413,9 +413,9 @@ Warranty:{part.warrantyPeriod}
 variant="ghost"
 size="sm"
 onClick={()=>removePart(part.id)}
-className="text-destructivehover:text-destructive"
+clas sName="text-destructivehover:text-destructive"
 >
-<Trash2className="h-4w-4"/>
+<Tras h2clas sName="h-4w-4"/>
 </Button>
 </div>
 );
@@ -427,12 +427,12 @@ className="text-destructivehover:text-destructive"
 
 {/*Summary*/}
 {selectedVehicle&&attachedParts.length>0&&(
-<CardclassName="bg-accent/20">
+<Cardclas sName="bg-accent/20">
 <CardHeader>
-<CardTitleclassName="text-base">AttachmentSummary</CardTitle>
+<CardTitleclas sName="text-bas e">AttachmentSummary</CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="gridmd:grid-cols-2gap-4text-sm">
+<divclas sName="gridmd:grid-cols-2gap-4text-sm">
 <div>
 <p><strong>Vehicle:</strong>{selectedVehicle.model}</p>
 <p><strong>VIN:</strong>{selectedVehicle.vin}</p>
@@ -451,9 +451,9 @@ className="text-destructivehover:text-destructive"
 </CardContent>
 
 {/*Footer*/}
-<divclassName="border-tp-6">
-<divclassName="flexjustify-between">
-<Buttonvariant="outline"onClick={onClose}>
+<divclas sName="border-tp-6">
+<divclas sName="flexjustify-between">
+<Buttonvariant="outline" onClick={onClose}>
 Cancel
 </Button>
 <Button
@@ -462,13 +462,13 @@ onClick={handleSave}
 disabled={!selectedVehicle||attachedParts.length===0||isLoading}
 >
 {isLoading(
-<divclassName="flexitems-centerspace-x-2">
-<divclassName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
+<divclas sName="flexitems-centerspace-x-2">
+<divclas sName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
 <span>Saving...</span>
 </div>
 ):(
 <>
-<SaveclassName="h-4w-4mr-2"/>
+<Saveclas sName="h-4w-4mr-2"/>
 SaveAttachments
 </>
 )}

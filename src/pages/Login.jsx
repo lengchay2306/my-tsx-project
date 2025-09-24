@@ -65,7 +65,7 @@ const Login = () => {
         title: "Đăng nhập thành công!",
         description: "Chào mừng bạn đến với hệ thống EV Warranty Management",
       });
-      navigate('/dashboard');
+      navigate('/das hboard');
     } else {
       setError('Email hoặc mật khẩu không chính xác');
     }
@@ -77,48 +77,48 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-accent/20">
+    <div clas sName="min-h-screen bg-gradient-to-br from-background via-muted/20 to-accent/20">
       {/* Header */}
-      <header className="border-b bg-card/80 backdrop-blur-sm shadow-elegant">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center space-x-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary">
-              <Shield className="h-6 w-6 text-primary-foreground" />
+      <header clas sName="border-b bg-card/80 backdrop-blur-sm shadow-elegant">
+        <div clas sName="container mx-auto px-6 py-4">
+          <div clas sName="flex items-center space-x-3">
+            <div clas sName="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary">
+              <Shield clas sName="h-6 w-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">EV Warranty Management</h1>
-              <p className="text-sm text-muted-foreground">Professional Service Platform</p>
+              <h1 clas sName="text-xl font-bold text-foreground">EV Warranty Management</h1>
+              <p clas sName="text-sm text-muted-foreground">Professional Service Platform</p>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="flex min-h-[calc(100vh-80px)] items-center justify-center p-6">
-        <div className="w-full max-w-6xl grid gap-8 lg:grid-cols-2">
+      <div clas sName="flex min-h-[calc(100vh-80px)] items-center justify-center p-6">
+        <div clas sName="w-full max-w-6xl grid gap-8 lg:grid-cols-2">
           
           {/* Login Form */}
-          <div className="flex items-center justify-center">
-            <Card className="w-full max-w-md shadow-glow">
-              <CardHeader className="text-center">
-                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary">
-                  <LogIn className="h-8 w-8 text-primary-foreground" />
+          <div clas sName="flex items-center justify-center">
+            <Card clas sName="w-full max-w-md shadow-glow">
+              <CardHeader clas sName="text-center">
+                <div clas sName="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary">
+                  <LogIn clas sName="h-8 w-8 text-primary-foreground" />
                 </div>
-                <CardTitle className="text-2xl">Đăng Nhập Hệ Thống</CardTitle>
+                <CardTitle clas sName="text-2xl">Đăng Nhập Hệ Thống</CardTitle>
                 <CardDescription>
                   Truy cập vào nền tảng quản lý bảo hành xe điện
                 </CardDescription>
               </CardHeader>
               
               <CardContent>
-                <form onSubmit={handleLogin} className="space-y-6">
+                <form onSubmit={handleLogin} clas sName="space-y-6">
                   {error && (
                     <Alert variant="destructive">
-                      <AlertCircle className="h-4 w-4" />
+                      <AlertCircle clas sName="h-4 w-4" />
                       <AlertDescription>{error}</AlertDescription>
                     </Alert>
                   )}
 
-                  <div className="space-y-2">
+                  <div clas sName="space-y-2">
                     <Label htmlFor="email">Email</Label>
                     <Input
                       id="email"
@@ -127,13 +127,13 @@ const Login = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       disabled={isLoading}
-                      className="h-11"
+                      clas sName="h-11"
                     />
                   </div>
 
-                  <div className="space-y-2">
+                  <div clas sName="space-y-2">
                     <Label htmlFor="password">Mật khẩu</Label>
-                    <div className="relative">
+                    <div clas sName="relative">
                       <Input
                         id="password"
                         type={showPassword ? 'text' : 'password'}
@@ -141,20 +141,20 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         disabled={isLoading}
-                        className="h-11 pr-10"
+                        clas sName="h-11 pr-10"
                       />
                       <Button
                         type="button"
                         variant="ghost"
                         size="sm"
-                        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                        clas sName="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                         onClick={() => setShowPassword(!showPassword)}
                         disabled={isLoading}
                       >
                         {showPassword ? (
-                          <EyeOff className="h-4 w-4" />
+                          <EyeOff clas sName="h-4 w-4" />
                         ) : (
-                          <Eye className="h-4 w-4" />
+                          <Eye clas sName="h-4 w-4" />
                         )}
                       </Button>
                     </div>
@@ -162,18 +162,18 @@ const Login = () => {
 
                   <Button 
                     type="submit" 
-                    className="w-full h-11" 
+                    clas sName="w-full h-11" 
                     variant="gradient"
                     disabled={isLoading}
                   >
                     {isLoading ? (
-                      <div className="flex items-center space-x-2">
-                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground border-t-transparent" />
+                      <div clas sName="flex items-center space-x-2">
+                        <div clas sName="h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground border-t-transparent" />
                         <span>Đang đăng nhập...</span>
                       </div>
                     ) : (
                       <>
-                        <LogIn className="mr-2 h-4 w-4" />
+                        <LogIn clas sName="mr-2 h-4 w-4" />
                         Đăng Nhập
                       </>
                     )}
@@ -184,47 +184,47 @@ const Login = () => {
           </div>
 
           {/* Demo Accounts */}
-          <div className="space-y-6">
-            <div className="text-center">
-              <div className="inline-flex items-center space-x-2 rounded-full bg-accent px-4 py-2">
-                <Users className="h-4 w-4 text-accent-foreground" />
-                <span className="text-sm font-medium text-accent-foreground">Demo Accounts</span>
+          <div clas sName="space-y-6">
+            <div clas sName="text-center">
+              <div clas sName="inline-flex items-center space-x-2 rounded-full bg-accent px-4 py-2">
+                <Users clas sName="h-4 w-4 text-accent-foreground" />
+                <span clas sName="text-sm font-medium text-accent-foreground">Demo Accounts</span>
               </div>
-              <h2 className="mt-4 text-2xl font-bold text-foreground">Tài Khoản Demo</h2>
-              <p className="text-muted-foreground">Click vào tài khoản để đăng nhập nhanh</p>
+              <h2 clas sName="mt-4 text-2xl font-bold text-foreground">Tài Khoản Demo</h2>
+              <p clas sName="text-muted-foreground">Click vào tài khoản để đăng nhập nhanh</p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div clas sName="grid gap-4 sm:grid-cols-2">
               {demoAccounts.map((account, index) => (
                 <Card 
                   key={index}
-                  className="cursor-pointer transition-all hover:shadow-glow hover:scale-105"
+                  clas sName="cursor-pointer transition-all hover:shadow-glow hover:scale-105"
                   onClick={() => quickLogin(account.email, account.password)}
                 >
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center space-x-3">
-                      <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${account.color}`}>
-                        <Car className="h-5 w-5 text-white" />
+                  <CardHeader clas sName="pb-3">
+                    <div clas sName="flex items-center space-x-3">
+                      <div clas sName={`flex h-10 w-10 items-center justify-center rounded-lg ${account.color}`}>
+                        <Car clas sName="h-5 w-5 text-white" />
                       </div>
-                      <div className="flex-1">
-                        <CardTitle className="text-base">{account.role}</CardTitle>
-                        <CardDescription className="text-xs">
+                      <div clas sName="flex-1">
+                        <CardTitle clas sName="text-bas e">{account.role}</CardTitle>
+                        <CardDescription clas sName="text-xs">
                           {account.description}
                         </CardDescription>
                       </div>
                     </div>
                   </CardHeader>
                   
-                  <CardContent className="space-y-2 pt-0">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Email:</span>
-                      <Badge variant="outline" className="text-xs">
+                  <CardContent clas sName="space-y-2 pt-0">
+                    <div clas sName="flex items-center justify-between">
+                      <span clas sName="text-sm text-muted-foreground">Email:</span>
+                      <Badge variant="outline" clas sName=" text-xs">
                         {account.email}
                       </Badge>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Password:</span>
-                      <Badge variant="secondary" className="text-xs">
+                    <div clas sName="flex items-center justify-between">
+                      <span clas sName="text-sm text-muted-foreground">Pas sword:</span>
+                      <Badge variant="secondary" clas sName=" text-xs">
                         {account.password}
                       </Badge>
                     </div>
@@ -233,15 +233,15 @@ const Login = () => {
               ))}
             </div>
 
-            <Card className="bg-accent/50 border-primary/20">
-              <CardContent className="pt-6">
-                <div className="flex items-start space-x-3">
-                  <Shield className="h-5 w-5 text-primary mt-0.5" />
+            <Card clas sName="bg-accent/50 border-primary/20">
+              <CardContent clas sName="pt-6">
+                <div clas sName="flex items-start space-x-3">
+                  <Shield clas sName="h-5 w-5 text-primary mt-0.5" />
                   <div>
-                    <h3 className="font-semibold text-foreground">Lưu ý về Demo</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <h3 clas sName="font-semibold text-foreground">Lưu ý về Demo</h3>
+                    <p clas sName="text-sm text-muted-foreground">
                       Đây là phiên bản demo với dữ liệu mẫu. Trong môi trường thực tế, 
-                      hệ thống sẽ kết nối với database và có bảo mật cao hơn.
+                      hệ thống sẽ kết nối với databas e và có bảo mật cao hơn.
                     </p>
                   </div>
                 </div>

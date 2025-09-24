@@ -1,7 +1,7 @@
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from"@/components/ui/card";
-import { Button } from"@/components/ui/button";
-import { Badge } from"@/components/ui/badge";
-import { Progress } from"@/components/ui/progress";
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import { 
 TrendingUp,
 TrendingDown,
@@ -16,7 +16,7 @@ MapPin,
 BarChart3,
 Download,
 Filter
- } from"lucide-react";
+ } from "lucide-react";
 import { 
 LineChart,
 Line,
@@ -30,7 +30,7 @@ Pie,
 Cell,
 BarChart,
 Bar
- } from"recharts";
+ } from "recharts";
 
 //Mockdataforcharts
 const warrantyCostData=[
@@ -75,35 +75,35 @@ interfaceKPICardProps{
 title:string;
 value:string|number;
 change:string;
-trend:"up"|"down"|"neutral";
+trend:"up"|" down"|" neutral";
 icon:React.ElementType;
 subtitle:string;
 }
 
 const KPICard=({title,value,change,trend,icon:Icon,subtitle}:KPICardProps)=>(
-<CardclassName="hover:shadow-eleganttransition-allduration-200">
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
-<divclassName="space-y-2">
-<pclassName="text-smfont-mediumtext-muted-foreground">{title}</p>
-<divclassName="space-y-1">
-<h3className="text-3xlfont-boldtext-foreground">{value}</h3>
+<Cardclas sName="hover:shadow-eleganttransition-allduration-200">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
+<divclas sName="space-y-2">
+<pclas sName="text-smfont-mediumtext-muted-foreground">{title}</p>
+<divclas sName="space-y-1">
+<h3clas sName="text-3xlfont-boldtext-foreground">{value}</h3>
 {subtitle&&(
-<pclassName="text-xstext-muted-foreground">{subtitle}</p>
+<pclas sName="text-xstext-muted-foreground">{subtitle}</p>
 )}
 {change&&(
-<divclassName={`flexitems-centertext-sm${
+<divclas sName={`flexitems-centertext-sm${
 trend==='up''text-success':trend==='down''text-destructive':'text-muted-foreground'
 }`}>
-{trend==='up'<TrendingUpclassName="h-3w-3mr-1"/>:
-trend==='down'<TrendingDownclassName="h-3w-3mr-1"/>:null}
+{trend==='up'<TrendingUpclas sName="h-3w-3mr-1"/>:
+trend==='down'<TrendingDownclas sName="h-3w-3mr-1"/>:null}
 {change}
 </div>
 )}
 </div>
 </div>
-<divclassName="p-3rounded-lgbg-primary/10">
-<IconclassName="h-7w-7text-primary"/>
+<divclas sName="p-3rounded-lgbg-primary/10">
+<Iconclas sName="h-7w-7text-primary"/>
 </div>
 </div>
 </CardContent>
@@ -126,31 +126,31 @@ const avgApprovalRate=85.2;//Mockdata
 const monthlyAverage=totalCost/12;
 
 return(
-<divclassName="space-y-6p-6">
+<divclas sName="space-y-6p-6">
 {/*Header*/}
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<h1className="text-3xlfont-boldtext-foreground">EVMAnalyticsDashboard</h1>
-<pclassName="text-muted-foreground">Comprehensivewarrantymanagementoverview</p>
+<h1clas sName="text-3xlfont-boldtext-foreground">EVMAnalyticsDashboard</h1>
+<pclas sName="text-muted-foreground">Comprehensivewarrantymanagementoverview</p>
 </div>
-<divclassName="flexitems-centerspace-x-3">
+<divclas sName="flexitems-centerspace-x-3">
 <Buttonvariant="outline">
-<FilterclassName="mr-2h-4w-4"/>
+<Filterclas sName="mr-2h-4w-4"/>
 FilterData
 </Button>
 <Buttonvariant="outline">
-<DownloadclassName="mr-2h-4w-4"/>
+<Downloadclas sName="mr-2h-4w-4"/>
 ExportReport
 </Button>
 <Buttonvariant="gradient">
-<BarChart3className="mr-2h-4w-4"/>
+<BarChart3clas sName="mr-2h-4w-4"/>
 AdvancedAnalytics
 </Button>
 </div>
 </div>
 
 {/*KPICards*/}
-<divclassName="gridgap-6md:grid-cols-2lg:grid-cols-4">
+<divclas sName="gridgap-6md:grid-cols-2lg:grid-cols-4">
 <KPICard
 title="TotalOpenClaims"
 value={328}
@@ -170,7 +170,7 @@ subtitle="Requiringimmediateattention"
 <KPICard
 title="NetworkApprovalRate"
 value={`${avgApprovalRate}%`}
-change="+2.1%vslastmonth"
+change="+2.1%vslas tmonth"
 trend="up"
 icon={CheckCircle}
 subtitle="Industryleadingperformance"
@@ -178,7 +178,7 @@ subtitle="Industryleadingperformance"
 <KPICard
 title="MonthlyWarrantyCost"
 value={formatCurrency(monthlyAverage)}
-change="-5.2%vslastmonth"
+change="-5.2%vslas tmonth"
 trend="down"
 icon={DollarSign}
 subtitle="December2024"
@@ -186,23 +186,23 @@ subtitle="December2024"
 </div>
 
 {/*ChartsRow1*/}
-<divclassName="gridgap-6lg:grid-cols-3">
+<divclas sName="gridgap-6lg:grid-cols-3">
 {/*WarrantyCostTrend*/}
-<CardclassName="lg:col-span-2">
+<Cardclas sName="lg:col-span-2">
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<TrendingUpclassName="h-5w-5text-primary"/>
-<span>WarrantyCostsOverLast12Months</span>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<TrendingUpclas sName="h-5w-5text-primary"/>
+<span>WarrantyCostsOverLas t12Months</span>
 </CardTitle>
 <CardDescription>
 Monthlywarrantycostsandclaimvolumes
 </CardDescription>
 </CardHeader>
 <CardContent>
-<ResponsiveContainerwidth="100%"height={300}>
+<ResponsiveContainerwidth="100%" height={300}>
 <LineChartdata={warrantyCostData}>
-<CartesianGridstrokeDasharray="33"stroke="hsl(var(--border))"/>
-<XAxisdataKey="month"stroke="hsl(var(--muted-foreground))"/>
+<CartesianGridstrokeDas harray="33" stroke="hsl(var(--border))"/>
+<XAxisdataKey="month" stroke="hsl(var(--muted-foreground))"/>
 <YAxisstroke="hsl(var(--muted-foreground))"/>
 <Tooltip
 formatter={(value,name)=>[
@@ -231,8 +231,8 @@ dot={{fill:'hsl(var(--primary))',strokeWidth:2,r:4}}
 {/*ClaimsbyStatus*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<AlertTriangleclassName="h-5w-5text-warning"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<AlertTriangleclas sName="h-5w-5text-warning"/>
 <span>ClaimsbyStatus</span>
 </CardTitle>
 <CardDescription>
@@ -240,7 +240,7 @@ Currentdistributionofclaimstatuses
 </CardDescription>
 </CardHeader>
 <CardContent>
-<ResponsiveContainerwidth="100%"height={300}>
+<ResponsiveContainerwidth="100%" height={300}>
 <PieChart>
 <Pie
 data={claimStatusData}
@@ -267,17 +267,17 @@ borderRadius:'6px'
 />
 </PieChart>
 </ResponsiveContainer>
-<divclassName="mt-4space-y-2">
+<divclas sName="mt-4space-y-2">
 {claimStatusData.map((item,index)=>(
-<divkey={index}className="flexitems-centerjustify-between">
-<divclassName="flexitems-centerspace-x-2">
+<divkey={index}clas sName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerspace-x-2">
 <div
-className="w-3h-3rounded-full"
+clas sName="w-3h-3rounded-full"
 style={{backgroundColor:item.color}}
 />
-<spanclassName="text-sm">{item.name}</span>
+<spanclas sName="text-sm">{item.name}</span>
 </div>
-<spanclassName="text-smfont-medium">{item.value}%</span>
+<spanclas sName="text-smfont-medium">{item.value}%</span>
 </div>
 ))}
 </div>
@@ -286,23 +286,23 @@ style={{backgroundColor:item.color}}
 </div>
 
 {/*ChartsRow2*/}
-<divclassName="gridgap-6lg:grid-cols-2">
+<divclas sName="gridgap-6lg:grid-cols-2">
 {/*TopFailingComponents*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<CarclassName="h-5w-5text-destructive"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<Carclas sName="h-5w-5text-destructive"/>
 <span>Top5FailingComponents</span>
 </CardTitle>
 <CardDescription>
-Componentswithhighestfailureratesandassociatedcosts
+Componentswithhighestfailureratesandas sociatedcosts
 </CardDescription>
 </CardHeader>
 <CardContent>
-<ResponsiveContainerwidth="100%"height={300}>
+<ResponsiveContainerwidth="100%" height={300}>
 <BarChartdata={failingComponentsData}layout="horizontal">
-<CartesianGridstrokeDasharray="33"stroke="hsl(var(--border))"/>
-<XAxistype="number"stroke="hsl(var(--muted-foreground))"/>
+<CartesianGridstrokeDas harray="33" stroke="hsl(var(--border))"/>
+<XAxistype="number" stroke="hsl(var(--muted-foreground))"/>
 <YAxis
 type="category"
 dataKey="component"
@@ -334,8 +334,8 @@ radius={[0,4,4,0]}
 {/*ClaimsbyRegion*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<MapPinclassName="h-5w-5text-success"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<MapPinclas sName="h-5w-5text-success"/>
 <span>ClaimsbyRegion</span>
 </CardTitle>
 <CardDescription>
@@ -343,25 +343,25 @@ Regionaldistributionofwarrantyclaims
 </CardDescription>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 {regionData.map((region,index)=>(
-<divkey={index}className="space-y-2">
-<divclassName="flexitems-centerjustify-between">
-<divclassName="flexitems-centerspace-x-3">
-<FactoryclassName="h-4w-4text-muted-foreground"/>
+<divkey={index}clas sName="space-y-2">
+<divclas sName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerspace-x-3">
+<Factoryclas sName="h-4w-4text-muted-foreground"/>
 <div>
-<pclassName="font-mediumtext-sm">{region.region}</p>
-<pclassName="text-xstext-muted-foreground">{region.centers}servicecenters</p>
+<pclas sName="font-mediumtext-sm">{region.region}</p>
+<pclas sName="text-xstext-muted-foreground">{region.centers}servicecenters</p>
 </div>
 </div>
-<divclassName="text-right">
-<pclassName="font-mediumtext-sm">{region.claims}claims</p>
-<pclassName="text-xstext-muted-foreground">{formatCurrency(region.cost)}</p>
+<divclas sName="text-right">
+<pclas sName="font-mediumtext-sm">{region.claims}claims</p>
+<pclas sName="text-xstext-muted-foreground">{formatCurrency(region.cost)}</p>
 </div>
 </div>
 <Progress
 value={(region.claims/Math.max(...regionData.map(r=>r.claims)))*100}
-className="h-2"
+clas sName="h-2"
 />
 </div>
 ))}
@@ -373,32 +373,32 @@ className="h-2"
 {/*ClaimsNeedingImmediateAttention*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<AlertTriangleclassName="h-5w-5text-destructive"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<AlertTriangleclas sName="h-5w-5text-destructive"/>
 <span>ClaimsNeedingImmediateAttention</span>
 </CardTitle>
 <CardDescription>
-Highprioritycasesrequiringurgentreview
+Highprioritycas esrequiringurgentreview
 </CardDescription>
 </CardHeader>
 <CardContent>
-<divclassName="gridgap-4md:grid-cols-2lg:grid-cols-3">
+<divclas sName="gridgap-4md:grid-cols-2lg:grid-cols-3">
 {[
-{id:"WC-25-09-001",center:"SCHoChiMinh1",days:5,priority:"high"},
-{id:"WC-25-09-008",center:"SCHanoi2",days:4,priority:"high"},
-{id:"WC-25-09-015",center:"SCDaNang1",days:3,priority:"medium"}
+{id:"WC-25-09-001",center:" SCHoChiMinh1",days:5,priority:" high"},
+{id:"WC-25-09-008",center:" SCHanoi2",days:4,priority:" high"},
+{id:"WC-25-09-015",center:" SCDaNang1",days:3,priority:" medium"}
 ].map((claim,index)=>(
-<Cardkey={index}className="border-l-4border-l-destructive">
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerjustify-betweenmb-2">
-<spanclassName="font-monofont-mediumtext-sm">{claim.id}</span>
-<Badgevariant="destructive"className="text-xs">
+<Cardkey={index}clas sName="border-l-4border-l-destructive">
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerjustify-betweenmb-2">
+<spanclas sName="font-monofont-mediumtext-sm">{claim.id}</span>
+<Badgevariant="destructive" clas sName="text-xs">
 {claim.days}daysoverdue
 </Badge>
 </div>
-<pclassName="text-smtext-muted-foregroundmb-3">{claim.center}</p>
-<Buttonvariant="outline"size="sm"className="w-full">
-ReviewCase
+<pclas sName="text-smtext-muted-foregroundmb-3">{claim.center}</p>
+<Buttonvariant="outline" size="sm" clas sName="w-full">
+ReviewCas e
 </Button>
 </CardContent>
 </Card>

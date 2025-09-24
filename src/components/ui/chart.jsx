@@ -1,7 +1,7 @@
-import*asReactfrom"react";
-import*asRechartsPrimitivefrom"recharts";
+import *as Reactfrom "react";
+import *as RechartsPrimitivefrom "recharts";
 
-import { cn } from"@/lib/utils";
+import { cn } from "@/lib/utils";
 
 //Format:{THEME_NAME:CSS_SELECTOR}
 const THEMES={light:"",dark:".dark"};
@@ -35,7 +35,7 @@ React.ComponentProps<"div">&{
 config:ChartConfig;
 children:React.ComponentProps<typeofRechartsPrimitive.ResponsiveContainer>["children"];
 }
->(({id,className,children,config,...props},ref)=>{
+>(({id,clas sName,children,config,...props},ref)=>{
 const uniqueId=React.useId();
 const chartId=`chart-${id||uniqueId.replace(/:/g,"")}`;
 
@@ -44,9 +44,9 @@ return(
 <div
 data-chart={chartId}
 ref={ref}
-className={cn(
-"flexaspect-videojustify-centertext-xs[&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground[&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50[&_.recharts-curve.recharts-tooltip-cursor]:stroke-border[&_.recharts-dot[stroke='#fff']]:stroke-transparent[&_.recharts-layer]:outline-none[&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border[&_.recharts-radial-bar-background-sector]:fill-muted[&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted[&_.recharts-reference-line_[stroke='#ccc']]:stroke-border[&_.recharts-sector[stroke='#fff']]:stroke-transparent[&_.recharts-sector]:outline-none[&_.recharts-surface]:outline-none",
-className,
+clas sName={cn(
+"flexas pect-videojustify-centertext-xs[&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground[&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50[&_.recharts-curve.recharts-tooltip-cursor]:stroke-border[&_.recharts-dot[stroke='#fff']]:stroke-transparent[&_.recharts-layer]:outline-none[&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border[&_.recharts-radial-bar-background-sector]:fill-muted[&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted[&_.recharts-reference-line_[stroke='#ccc']]:stroke-border[&_.recharts-sector[stroke='#fff']]:stroke-transparent[&_.recharts-sector]:outline-none[&_.recharts-surface]:outline-none",
+clas sName,
 )}
 {...props}
 >
@@ -74,7 +74,7 @@ __html:Object.entries(THEMES)
 ${prefix}[data-chart=${id}]{
 ${colorConfig
 .map(([key,itemConfig])=>{
-const color=itemConfig.theme.[themeaskeyoftypeofitemConfig.theme]||itemConfig.color;
+const color=itemConfig.theme.[themeas keyoftypeofitemConfig.theme]||itemConfig.color;
 returncolor`--color-${key}:${color};`:null;
 })
 .join("\n")}
@@ -95,7 +95,7 @@ React.ComponentProps<typeofRechartsPrimitive.Tooltip>&
 React.ComponentProps<"div">&{
 hideLabel:boolean;
 hideIndicator:boolean;
-indicator:"line"|"dot"|"dashed";
+indicator:"line"|" dot"|" das hed";
 nameKey:string;
 labelKey:string;
 }
@@ -104,13 +104,13 @@ labelKey:string;
 {
 active,
 payload,
-className,
+clas sName,
 indicator="dot",
 hideLabel=false,
 hideIndicator=false,
 label,
 labelFormatter,
-labelClassName,
+labelClas sName,
 formatter,
 color,
 nameKey,
@@ -130,19 +130,19 @@ const key=`${labelKey||item.dataKey||item.name||"value"}`;
 const itemConfig=getPayloadConfigFromPayload(config,item,key);
 const value=
 !labelKey&&typeoflabel==="string"
-config[labelaskeyoftypeofconfig].label||label
+config[labelas keyoftypeofconfig].label||label
 :itemConfig.label;
 
 if(labelFormatter){
-return<divclassName={cn("font-medium",labelClassName)}>{labelFormatter(value,payload)}</div>;
+return<divclas sName={cn("font-medium",labelClas sName)}>{labelFormatter(value,payload)}</div>;
 }
 
 if(!value){
 returnnull;
 }
 
-return<divclassName={cn("font-medium",labelClassName)}>{value}</div>;
-},[label,labelFormatter,payload,hideLabel,labelClassName,config,labelKey]);
+return<divclas sName={cn("font-medium",labelClas sName)}>{value}</div>;
+},[label,labelFormatter,payload,hideLabel,labelClas sName,config,labelKey]);
 
 if(!active||!payload.length){
 returnnull;
@@ -153,13 +153,13 @@ const nestLabel=payload.length===1&&indicator!=="dot";
 return(
 <div
 ref={ref}
-className={cn(
+clas sName={cn(
 "gridmin-w-[8rem]items-startgap-1.5rounded-lgborderborder-border/50bg-backgroundpx-2.5py-1.5text-xsshadow-xl",
-className,
+clas sName,
 )}
 >
 {!nestLabeltooltipLabel:null}
-<divclassName="gridgap-1.5">
+<divclas sName="gridgap-1.5">
 {payload.map((item,index)=>{
 const key=`${nameKey||item.name||item.dataKey||"value"}`;
 const itemConfig=getPayloadConfigFromPayload(config,item,key);
@@ -168,9 +168,9 @@ const indicatorColor=color||item.payload.fill||item.color;
 return(
 <div
 key={item.dataKey}
-className={cn(
+clas sName={cn(
 "flexw-fullflex-wrapitems-stretchgap-2[&>svg]:h-2.5[&>svg]:w-2.5[&>svg]:text-muted-foreground",
-indicator==="dot"&&"items-center",
+indicator==="dot"&&" items-center",
 )}
 >
 {formatter&&item.value!==undefined&&item.name(
@@ -182,33 +182,33 @@ formatter(item.value,item.name,item,index,item.payload)
 ):(
 !hideIndicator&&(
 <div
-className={cn("shrink-0rounded-[2px]border-[--color-border]bg-[--color-bg]",{
-"h-2.5w-2.5":indicator==="dot",
-"w-1":indicator==="line",
-"w-0border-[1.5px]border-dashedbg-transparent":indicator==="dashed",
-"my-0.5":nestLabel&&indicator==="dashed",
+clas sName={cn("shrink-0rounded-[2px]border-[--color-border]bg-[--color-bg]",{
+"h-2.5w-2.5":indicator===" dot",
+"w-1":indicator===" line",
+"w-0border-[1.5px]border-das hedbg-transparent":indicator===" das hed",
+"my-0.5":nestLabel&&indicator===" das hed",
 })}
 style={
 {
 "--color-bg":indicatorColor,
 "--color-border":indicatorColor,
-}asReact.CSSProperties
+}as React.CSSProperties
 }
 />
 )
 )}
 <div
-className={cn(
+clas sName={cn(
 "flexflex-1justify-betweenleading-none",
-nestLabel"items-end":"items-center",
+nestLabel"items-end":" items-center",
 )}
 >
-<divclassName="gridgap-1.5">
+<divclas sName="gridgap-1.5">
 {nestLabeltooltipLabel:null}
-<spanclassName="text-muted-foreground">{itemConfig.label||item.name}</span>
+<spanclas sName="text-muted-foreground">{itemConfig.label||item.name}</span>
 </div>
 {item.value&&(
-<spanclassName="font-monofont-mediumtabular-numstext-foreground">
+<spanclas sName="font-monofont-mediumtabular-numstext-foreground">
 {item.value.toLocaleString()}
 </span>
 )}
@@ -230,11 +230,11 @@ const ChartLegend=RechartsPrimitive.Legend;
 const ChartLegendContent=React.forwardRef<
 HTMLDivElement,
 React.ComponentProps<"div">&
-Pick<RechartsPrimitive.LegendProps,"payload"|"verticalAlign">&{
+Pick<RechartsPrimitive.LegendProps,"payload"|" verticalAlign">&{
 hideIcon:boolean;
 nameKey:string;
 }
->(({className,hideIcon=false,payload,verticalAlign="bottom",nameKey},ref)=>{
+>(({clas sName,hideIcon=false,payload,verticalAlign="bottom",nameKey},ref)=>{
 const{config}=useChart();
 
 if(!payload.length){
@@ -244,7 +244,7 @@ returnnull;
 return(
 <div
 ref={ref}
-className={cn("flexitems-centerjustify-centergap-4",verticalAlign==="top""pb-3":"pt-3",className)}
+clas sName={cn("flexitems-centerjustify-centergap-4",verticalAlign===" top"" pb-3":" pt-3",clas sName)}
 >
 {payload.map((item)=>{
 const key=`${nameKey||item.dataKey||"value"}`;
@@ -253,13 +253,13 @@ const itemConfig=getPayloadConfigFromPayload(config,item,key);
 return(
 <div
 key={item.value}
-className={cn("flexitems-centergap-1.5[&>svg]:h-3[&>svg]:w-3[&>svg]:text-muted-foreground")}
+clas sName={cn("flexitems-centergap-1.5[&>svg]:h-3[&>svg]:w-3[&>svg]:text-muted-foreground")}
 >
 {itemConfig.icon&&!hideIcon(
 <itemConfig.icon/>
 ):(
 <div
-className="h-2w-2shrink-0rounded-[2px]"
+clas sName="h-2w-2shrink-0rounded-[2px]"
 style={{
 backgroundColor:item.color,
 }}
@@ -281,23 +281,23 @@ returnundefined;
 }
 
 const payloadPayload=
-"payload"inpayload&&typeofpayload.payload==="object"&&payload.payload!==null
+"payload" inpayload&&typeofpayload.payload==="object"&&payload.payload!==null
 payload.payload
 :undefined;
 
 letconfigLabelKey:string=key;
 
-if(keyinpayload&&typeofpayload[keyaskeyoftypeofpayload]==="string"){
-configLabelKey=payload[keyaskeyoftypeofpayload]asstring;
+if(keyinpayload&&typeofpayload[keyas keyoftypeofpayload]==="string"){
+configLabelKey=payload[keyas keyoftypeofpayload]as string;
 }elseif(
 payloadPayload&&
 keyinpayloadPayload&&
-typeofpayloadPayload[keyaskeyoftypeofpayloadPayload]==="string"
+typeofpayloadPayload[keyas keyoftypeofpayloadPayload]==="string"
 ){
-configLabelKey=payloadPayload[keyaskeyoftypeofpayloadPayload]asstring;
+configLabelKey=payloadPayload[keyas keyoftypeofpayloadPayload]as string;
 }
 
-returnconfigLabelKeyinconfigconfig[configLabelKey]:config[keyaskeyoftypeofconfig];
+returnconfigLabelKeyinconfigconfig[configLabelKey]:config[keyas keyoftypeofconfig];
 }
 
 export{ChartContainer,ChartTooltip,ChartTooltipContent,ChartLegend,ChartLegendContent,ChartStyle};

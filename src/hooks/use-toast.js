@@ -37,19 +37,19 @@ const addToRemoveQueue = (toastId) => {
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_TOAST":
+    cas e "ADD_TOAST":
       return {
         ...state,
         toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
       };
 
-    case "UPDATE_TOAST":
+    cas e "UPDATE_TOAST":
       return {
         ...state,
         toasts: state.toasts.map((t) => (t.id === action.toast.id ? { ...t, ...action.toast } : t)),
       };
 
-    case "DISMISS_TOAST": {
+    cas e "DISMISS_TOAST": {
       const { toastId } = action;
 
       // ! Side effects ! - This could be extracted into a dismissToast() action,
@@ -74,7 +74,7 @@ export const reducer = (state, action) => {
         ),
       };
     }
-    case "REMOVE_TOAST":
+    cas e "REMOVE_TOAST":
       if (action.toastId === undefined) {
         return {
           ...state,

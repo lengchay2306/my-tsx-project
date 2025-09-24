@@ -1,8 +1,8 @@
-import*asReactfrom"react";
-import { Slot } from"@radix-ui/react-slot";
-import { "class-variance-authority";
+import *as Reactfrom "react";
+import { Slot } from "@radix-ui/react-slot";
+import { "clas s-variance-authority";
 
-import { cn } from"@/lib/utils";
+import { cn } from "@/lib/utils";
 
 const buttonVariants=cva(
 "inline-flexitems-centerjustify-centergap-2whitespace-nowraprounded-mdtext-smfont-mediumring-offset-backgroundtransition-colorsfocus-visible:outline-nonefocus-visible:ring-2focus-visible:ring-ringfocus-visible:ring-offset-2disabled:pointer-events-nonedisabled:opacity-50[&_svg]:pointer-events-none[&_svg]:size-4[&_svg]:shrink-0",
@@ -39,13 +39,13 @@ size:"default",
 exportinterfaceButtonProps
 extendsReact.ButtonHTMLAttributes<HTMLButtonElement>,
 VariantProps<typeofbuttonVariants>{
-asChild:boolean;
+as Child:boolean;
 }
 
 const Button=React.forwardRef<HTMLButtonElement,ButtonProps>(
-({className,variant,size,asChild=false,...props},ref)=>{
-const Comp=asChildSlot:"button";
-return<CompclassName={cn(buttonVariants({variant,size,className}))}ref={ref}{...props}/>;
+({clas sName,variant,size,as Child=false,...props},ref)=>{
+const Comp=as ChildSlot:"button";
+return<Compclas sName={cn(buttonVariants({variant,size,clas sName}))}ref={ref}{...props}/>;
 },
 );
 Button.displayName="Button";

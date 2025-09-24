@@ -1,10 +1,10 @@
-import { useState } from"react";
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from"@/components/ui/card";
-import { Button } from"@/components/ui/button";
-import { Badge } from"@/components/ui/badge";
-import { Input } from"@/components/ui/input";
-import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle,DialogTrigger } from"@/components/ui/dialog";
-import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from"@/components/ui/table";
+import { useState } from "react";
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle,DialogTrigger } from "@/components/ui/dialog";
+import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from "@/components/ui/table";
 import { 
 Package,
 Scan,
@@ -15,8 +15,8 @@ Eye,
 Search,
 Plus,
 Calendar
- } from"lucide-react";
-import { toast } from"@/hooks/use-toast";
+ } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 interfacePartShipmentReceptionProps{
 onClose:()=>void;
@@ -31,12 +31,12 @@ const[verifiedParts,setVerifiedParts]=useState<Set<string>>(newSet());
 const incomingShipments=[
 {
 id:"PS-001",
-caseId:"WC-2024-001",
+cas eId:"WC-2024-001",
 status:"in-transit",
 shippedDate:"2024-01-14",
 expectedArrival:"2024-01-18",
 trackingNumber:"VF2024001234",
-supplier:"VinFastPartsCenter",
+supplier:"VinFas tPartsCenter",
 priority:"high",
 parts:[
 {
@@ -59,12 +59,12 @@ verified:false
 },
 {
 id:"PS-003",
-caseId:"WC-2024-003",
+cas eId:"WC-2024-003",
 status:"arrived",
 shippedDate:"2024-01-15",
 expectedArrival:"2024-01-17",
 trackingNumber:"VF2024001236",
-supplier:"VinFastPartsCenter",
+supplier:"VinFas tPartsCenter",
 priority:"medium",
 parts:[
 {
@@ -87,12 +87,12 @@ verified:false
 },
 {
 id:"PS-004",
-caseId:"WC-2024-002",
+cas eId:"WC-2024-002",
 status:"delivered",
 shippedDate:"2024-01-13",
 expectedArrival:"2024-01-16",
 trackingNumber:"VF2024001237",
-supplier:"VinFastPartsCenter",
+supplier:"VinFas tPartsCenter",
 priority:"critical",
 parts:[
 {
@@ -109,18 +109,18 @@ verified:true
 
 const getStatusBadge=(status))=>{
 const statusConfig={
-"in-transit":{variant:"warning",text:"Đangvậnchuyển",icon:Truck},
-"arrived":{variant:"secondary",text:"Đãđến",icon:Package},
-"delivered":{variant:"success",text:"Đãgiao",icon:CheckCircle}
+"in-transit":{variant:" warning",text:"Đangvậnchuyển",icon:Truck},
+"arrived":{variant:" secondary",text:"Đãđến",icon:Package},
+"delivered":{variant:" success",text:"Đãgiao",icon:CheckCircle}
 };
 
-const config=statusConfig[statusaskeyoftypeofstatusConfig];
+const config=statusConfig[statusas keyoftypeofstatusConfig];
 if(!config)returnnull;
 
 const Icon=config.icon;
 return(
 <Badgevariant={config.variant}>
-<IconclassName="mr-1h-3w-3"/>
+<Iconclas sName="mr-1h-3w-3"/>
 {config.text}
 </Badge>
 );
@@ -128,15 +128,15 @@ return(
 
 const getPriorityBadge=(priority))=>{
 const priorityConfig={
-critical:{variant:"destructive",text:"Khẩncấp"},
-high:{variant:"warning",text:"Cao"},
-medium:{variant:"secondary",text:"Trungbình"}
+critical:{variant:"destructive",text:" Khẩncấp"},
+high:{variant:"warning",text:" Cao"},
+medium:{variant:"secondary",text:" Trungbình"}
 };
 
-const config=priorityConfig[priorityaskeyoftypeofpriorityConfig];
+const config=priorityConfig[priorityas keyoftypeofpriorityConfig];
 if(!config)returnnull;
 
-return<Badgevariant={config.variant}className="text-xs">{config.text}</Badge>;
+return<Badgevariant={config.variant}clas sName="text-xs">{config.text}</Badge>;
 };
 
 const handleScanPart=(partId:string,scannedSerial))=>{
@@ -149,7 +149,7 @@ const scannedSerial=scannedParts[partId];
 if(!scannedSerial){
 toast({
 title:"Error",
-description:"Pleasescanorentertheserialnumberfirst",
+description:"Pleas escanorentertheserialnumberfirst",
 variant:"destructive"
 });
 return;
@@ -159,7 +159,7 @@ if(scannedSerial===expectedSerial){
 setVerifiedParts(prev=>newSet([...prev,partId]));
 toast({
 title:"PartVerified",
-description:`Part${partId}hasbeensuccessfullyverified`,
+description:`Part${partId}has beensuccessfullyverified`,
 variant:"default"
 });
 }else{
@@ -182,7 +182,7 @@ verifiedParts.has(part.id)||part.verified
 if(!allPartsVerified){
 toast({
 title:"CannotConfirmReception",
-description:"Pleaseverifyallpartsbeforeconfirmingreception",
+description:"Pleas everifyallpartsbeforeconfirmingreception",
 variant:"destructive"
 });
 return;
@@ -190,90 +190,90 @@ return;
 
 toast({
 title:"ReceptionConfirmed",
-description:`Shipment${shipmentId}hasbeensuccessfullyreceived`,
+description:`Shipment${shipmentId}has beensuccessfullyreceived`,
 variant:"default"
 });
 setSelectedShipment(null);
 };
 
 const filteredShipments=incomingShipments.filter(shipment=>
-shipment.id.toLowerCase().includes(searchTerm.toLowerCase())||
-shipment.caseId.toLowerCase().includes(searchTerm.toLowerCase())||
-shipment.trackingNumber.toLowerCase().includes(searchTerm.toLowerCase())
+shipment.id.toLowerCas e().includes(searchTerm.toLowerCas e())||
+shipment.cas eId.toLowerCas e().includes(searchTerm.toLowerCas e())||
+shipment.trackingNumber.toLowerCas e().includes(searchTerm.toLowerCas e())
 );
 
 const selectedShipmentData=incomingShipments.find(s=>s.id===selectedShipment);
 
 return(
-<divclassName="space-y-6">
+<divclas sName="space-y-6">
 {/*Header*/}
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<h1className="text-2xlfont-boldtext-foreground">PartShipmentReception</h1>
-<pclassName="text-muted-foreground">
+<h1clas sName="text-2xlfont-boldtext-foreground">PartShipmentReception</h1>
+<pclas sName="text-muted-foreground">
 Receiveandverifyincomingpartshipments
 </p>
 </div>
 </div>
 
 {/*Search*/}
-<divclassName="flexitems-centerspace-x-4">
-<divclassName="relativeflex-1max-w-md">
-<SearchclassName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
+<divclas sName="flexitems-centerspace-x-4">
+<divclas sName="relativeflex-1max-w-md">
+<Searchclas sName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
 <Input
-placeholder="SearchbyShipmentID,CaseID,orTrackingNumber..."
+placeholder="SearchbyShipmentID,Cas eID,orTrackingNumber..."
 value={searchTerm}
 onChange={(e)=>setSearchTerm(e.target.value)}
-className="pl-10"
+clas sName="pl-10"
 />
 </div>
 </div>
 
 {/*StatisticsCards*/}
-<divclassName="gridgap-4md:grid-cols-4">
+<divclas sName="gridgap-4md:grid-cols-4">
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<TruckclassName="h-5w-5text-warning"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<Truckclas sName="h-5w-5text-warning"/>
 <div>
-<pclassName="text-2xlfont-bold">2</p>
-<pclassName="text-xstext-muted-foreground">InTransit</p>
+<pclas sName="text-2xlfont-bold">2</p>
+<pclas sName="text-xstext-muted-foreground">InTransit</p>
 </div>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<PackageclassName="h-5w-5text-secondary"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<Packageclas sName="h-5w-5text-secondary"/>
 <div>
-<pclassName="text-2xlfont-bold">1</p>
-<pclassName="text-xstext-muted-foreground">Arrived</p>
+<pclas sName="text-2xlfont-bold">1</p>
+<pclas sName="text-xstext-muted-foreground">Arrived</p>
 </div>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<CheckCircleclassName="h-5w-5text-success"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<CheckCircleclas sName="h-5w-5text-success"/>
 <div>
-<pclassName="text-2xlfont-bold">1</p>
-<pclassName="text-xstext-muted-foreground">Delivered</p>
+<pclas sName="text-2xlfont-bold">1</p>
+<pclas sName="text-xstext-muted-foreground">Delivered</p>
 </div>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<AlertTriangleclassName="h-5w-5text-destructive"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<AlertTriangleclas sName="h-5w-5text-destructive"/>
 <div>
-<pclassName="text-2xlfont-bold">0</p>
-<pclassName="text-xstext-muted-foreground">Issues</p>
+<pclas sName="text-2xlfont-bold">0</p>
+<pclas sName="text-xstext-muted-foreground">Issues</p>
 </div>
 </div>
 </CardContent>
@@ -281,7 +281,7 @@ className="pl-10"
 </div>
 
 {/*IncomingShipmentsTable*/}
-<CardclassName="shadow-elegant">
+<Cardclas sName="shadow-elegant">
 <CardHeader>
 <CardTitle>IncomingShipments</CardTitle>
 <CardDescription>
@@ -293,7 +293,7 @@ Trackandprocessallincomingpartshipments
 <TableHeader>
 <TableRow>
 <TableHead>ShipmentID</TableHead>
-<TableHead>CaseID</TableHead>
+<TableHead>Cas eID</TableHead>
 <TableHead>Status</TableHead>
 <TableHead>Priority</TableHead>
 <TableHead>ShippedDate</TableHead>
@@ -305,40 +305,40 @@ Trackandprocessallincomingpartshipments
 <TableBody>
 {filteredShipments.map((shipment)=>(
 <TableRowkey={shipment.id}>
-<TableCellclassName="font-medium">{shipment.id}</TableCell>
-<TableCell>{shipment.caseId}</TableCell>
+<TableCellclas sName="font-medium">{shipment.id}</TableCell>
+<TableCell>{shipment.cas eId}</TableCell>
 <TableCell>{getStatusBadge(shipment.status)}</TableCell>
 <TableCell>{getPriorityBadge(shipment.priority)}</TableCell>
-<TableCellclassName="text-sm">{shipment.shippedDate}</TableCell>
-<TableCellclassName="text-sm">{shipment.expectedArrival}</TableCell>
-<TableCellclassName="font-monotext-xs">{shipment.trackingNumber}</TableCell>
+<TableCellclas sName="text-sm">{shipment.shippedDate}</TableCell>
+<TableCellclas sName="text-sm">{shipment.expectedArrival}</TableCell>
+<TableCellclas sName="font-monotext-xs">{shipment.trackingNumber}</TableCell>
 <TableCell>
-<divclassName="flexitems-centerspace-x-2">
+<divclas sName="flexitems-centerspace-x-2">
 <Dialogopen={selectedShipment===shipment.id}onOpenChange={(open)=>setSelectedShipment(openshipment.id:null)}>
-<DialogTriggerasChild>
-<Buttonvariant="outline"size="sm">
-<EyeclassName="h-4w-4mr-1"/>
+<DialogTriggeras Child>
+<Buttonvariant="outline" size="sm">
+<Eyeclas sName="h-4w-4mr-1"/>
 Process
 </Button>
 </DialogTrigger>
-<DialogContentclassName="max-w-4xl">
+<DialogContentclas sName="max-w-4xl">
 <DialogHeader>
 <DialogTitle>ShipmentDetails-{shipment.id}</DialogTitle>
 <DialogDescription>
-VerifyandprocessincomingpartsforCase{shipment.caseId}
+VerifyandprocessincomingpartsforCas e{shipment.cas eId}
 </DialogDescription>
 </DialogHeader>
 
 {selectedShipmentData&&(
-<divclassName="space-y-6">
+<divclas sName="space-y-6">
 {/*ShipmentInfo*/}
-<divclassName="gridgap-4md:grid-cols-3">
+<divclas sName="gridgap-4md:grid-cols-3">
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<PackageclassName="h-5w-5text-primary"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<Packageclas sName="h-5w-5text-primary"/>
 <div>
-<pclassName="text-smfont-medium">ShipmentStatus</p>
+<pclas sName="text-smfont-medium">ShipmentStatus</p>
 {getStatusBadge(selectedShipmentData.status)}
 </div>
 </div>
@@ -346,24 +346,24 @@ VerifyandprocessincomingpartsforCase{shipment.caseId}
 </Card>
 
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<CalendarclassName="h-5w-5text-primary"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<Calendarclas sName="h-5w-5text-primary"/>
 <div>
-<pclassName="text-smfont-medium">ExpectedArrival</p>
-<pclassName="text-smtext-muted-foreground">{selectedShipmentData.expectedArrival}</p>
+<pclas sName="text-smfont-medium">ExpectedArrival</p>
+<pclas sName="text-smtext-muted-foreground">{selectedShipmentData.expectedArrival}</p>
 </div>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<TruckclassName="h-5w-5text-primary"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<Truckclas sName="h-5w-5text-primary"/>
 <div>
-<pclassName="text-smfont-medium">TrackingNumber</p>
-<pclassName="text-smfont-mono">{selectedShipmentData.trackingNumber}</p>
+<pclas sName="text-smfont-medium">TrackingNumber</p>
+<pclas sName="text-smfont-mono">{selectedShipmentData.trackingNumber}</p>
 </div>
 </div>
 </CardContent>
@@ -379,34 +379,34 @@ Scanorenterserialnumberstoverifyeachpart
 </CardDescription>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 {selectedShipmentData.parts.map((part)=>{
 const isVerified=verifiedParts.has(part.id)||part.verified;
 const scannedSerial=scannedParts[part.id];
 
 return(
-<divkey={part.id}className={`borderrounded-lgp-4${isVerified'border-successbg-success/5':'border-border'}`}>
-<divclassName="gridgap-4md:grid-cols-6items-center">
-<divclassName="md:col-span-2">
-<pclassName="font-medium">{part.name}</p>
-<pclassName="text-smtext-muted-foreground">{part.partType}</p>
-<Badgevariant="outline"className="text-xsmt-1">
+<divkey={part.id}clas sName={`borderrounded-lgp-4${isVerified'border-successbg-success/5':'border-border'}`}>
+<divclas sName="gridgap-4md:grid-cols-6items-center">
+<divclas sName="md:col-span-2">
+<pclas sName="font-medium">{part.name}</p>
+<pclas sName="text-smtext-muted-foreground">{part.partType}</p>
+<Badgevariant="outline" clas sName="text-xsmt-1">
 Qty:{part.quantity}
 </Badge>
 </div>
 
 <div>
-<pclassName="text-xstext-muted-foreground">ExpectedSerial</p>
-<pclassName="text-smfont-mono">{part.expectedSerial}</p>
+<pclas sName="text-xstext-muted-foreground">ExpectedSerial</p>
+<pclas sName="text-smfont-mono">{part.expectedSerial}</p>
 </div>
 
-<divclassName="md:col-span-2">
-<divclassName="flexspace-x-2">
+<divclas sName="md:col-span-2">
+<divclas sName="flexspace-x-2">
 <Input
 placeholder="Scanorenterserialnumber"
 value={scannedSerial||''}
 onChange={(e)=>handleScanPart(part.id,e.target.value)}
-className="font-monotext-xs"
+clas sName="font-monotext-xs"
 disabled={isVerified}
 />
 <Button
@@ -414,15 +414,15 @@ variant="outline"
 size="sm"
 disabled={isVerified}
 >
-<ScanclassName="h-4w-4"/>
+<Scanclas sName="h-4w-4"/>
 </Button>
 </div>
 </div>
 
-<divclassName="flexitems-centerspace-x-2">
+<divclas sName="flexitems-centerspace-x-2">
 {isVerified(
 <Badgevariant="success">
-<CheckCircleclassName="mr-1h-3w-3"/>
+<CheckCircleclas sName="mr-1h-3w-3"/>
 Verified
 </Badge>
 ):(
@@ -445,15 +445,15 @@ Verify&Add
 </Card>
 
 {/*Actions*/}
-<divclassName="flexitems-centerjustify-between">
-<Buttonvariant="outline"onClick={()=>setSelectedShipment(null)}>
+<divclas sName="flexitems-centerjustify-between">
+<Buttonvariant="outline" onClick={()=>setSelectedShipment(null)}>
 Cancel
 </Button>
 <Button
 variant="gradient"
 onClick={()=>handleConfirmReception(selectedShipmentData.id)}
 >
-<CheckCircleclassName="mr-2h-4w-4"/>
+<CheckCircleclas sName="mr-2h-4w-4"/>
 ConfirmFullReception
 </Button>
 </div>

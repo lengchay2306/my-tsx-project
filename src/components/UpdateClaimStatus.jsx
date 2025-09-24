@@ -1,13 +1,13 @@
-import { useState } from'react';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Button } from'@/components/ui/button';
-import { Label } from'@/components/ui/label';
-import { Textarea } from'@/components/ui/textarea';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from'@/components/ui/select';
-import { Badge } from'@/components/ui/badge';
-import { useToast } from'@/hooks/use-toast';
-import { useAuth } from'@/contexts/AuthContext';
-import { getAvailableStatuses,canUpdateStatus } from'@/utils/permissions';
+import { useState } from 'react';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
+import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
+import { getAvailableStatuses,canUpdateStatus } from '@/utils/permissions';
 import { 
 RefreshCw,
 X,
@@ -19,7 +19,7 @@ Wrench,
 AlertTriangle,
 FileText,
 Send
- } from'lucide-react';
+ } from 'lucide-react';
 
 interfaceUpdateClaimStatusProps{
 claimId:string;
@@ -81,7 +81,7 @@ color:'text-muted-foreground'
 }
 ];
 
-//Getavailablestatusesbasedonuserroleandcurrentstatus
+//Getavailablestatusesbas edonuserroleandcurrentstatus
 const availableStatuses=getAvailableStatuses(user.role||'',currentStatus);
 const filteredStatusOptions=statusOptions.filter(option=>
 availableStatuses.includes(option.value)||option.value===currentStatus
@@ -101,9 +101,9 @@ returncanUpdateStatus(user.role||'',currentStatus,newStatus)||currentStatus===ne
 
 const getRequiredFields=()=>{
 constrequirements:Record<string,string[]>={
-'rejected':['notes'],//Mustprovidereasonforrejection
+'rejected':['notes'],//Mustprovidereas onforrejection
 'completed':['notes'],//Mustprovidecompletionnotes
-'cancelled':['notes']//Mustprovidecancellationreason
+'cancelled':['notes']//Mustprovidecancellationreas on
 };
 
 returnrequirements[newStatus]||[];
@@ -123,7 +123,7 @@ const requiredFields=getRequiredFields();
 if(requiredFields.includes('notes')&&!notes.trim()){
 toast({
 title:"NotesRequired",
-description:`Pleaseprovidenotesforthisstatuschange`,
+description:`Pleas eprovidenotesforthisstatuschange`,
 variant:"destructive"
 });
 return;
@@ -150,8 +150,8 @@ if(!config)returnnull;
 
 const Icon=config.icon;
 return(
-<Badgevariant="outline"className={config.color}>
-<IconclassName="mr-1h-3w-3"/>
+<Badgevariant="outline" clas sName={config.color}>
+<Iconclas sName="mr-1h-3w-3"/>
 {config.label}
 </Badge>
 );
@@ -161,13 +161,13 @@ const isStatusChanged=currentStatus!==newStatus;
 const canUpdate=validateStatusChange()&&(isStatusChanged||notes.trim());
 
 return(
-<divclassName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
-<CardclassName="w-fullmax-w-2xl">
-<CardHeaderclassName="border-b">
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
+<Cardclas sName="w-fullmax-w-2xl">
+<CardHeaderclas sName="border-b">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<RefreshCwclassName="h-5w-5text-primary"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<RefreshCwclas sName="h-5w-5text-primary"/>
 <span>
 {user.role==='technician''UpdateRepairProgress':'UpdateClaimStatus'}
 </span>
@@ -179,24 +179,24 @@ return(
 }
 </CardDescription>
 </div>
-<Buttonvariant="ghost"size="sm"onClick={onClose}>
-<XclassName="h-4w-4"/>
+<Buttonvariant="ghost" size="sm" onClick={onClose}>
+<Xclas sName="h-4w-4"/>
 </Button>
 </div>
 </CardHeader>
 
-<CardContentclassName="p-6space-y-6">
+<CardContentclas sName="p-6space-y-6">
 {/*CurrentStatus*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">CurrentStatus</CardTitle>
+<CardTitleclas sName="text-bas e">CurrentStatus</CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smtext-muted-foreground">Status</p>
+<pclas sName="text-smtext-muted-foreground">Status</p>
 {getStatusBadge(currentStatus)}
-<pclassName="text-xstext-muted-foregroundmt-1">
+<pclas sName="text-xstext-muted-foregroundmt-1">
 {getCurrentStatusConfig().description}
 </p>
 </div>
@@ -205,7 +205,7 @@ return(
 </Card>
 
 {/*NewStatusSelection*/}
-<divclassName="space-y-3">
+<divclas sName="space-y-3">
 <Label>NewStatus</Label>
 <Selectvalue={newStatus}onValueChange={setNewStatus}>
 <SelectTrigger>
@@ -221,11 +221,11 @@ return(
 key={option.value}
 value={option.value}
 >
-<divclassName="flexitems-centerspace-x-2">
-<IconclassName={`h-4w-4${option.color}`}/>
+<divclas sName="flexitems-centerspace-x-2">
+<Iconclas sName={`h-4w-4${option.color}`}/>
 <div>
 <div>{option.label}</div>
-<divclassName="text-xstext-muted-foreground">
+<divclas sName="text-xstext-muted-foreground">
 {option.description}
 </div>
 </div>
@@ -237,13 +237,13 @@ value={option.value}
 </Select>
 
 {isStatusChanged&&(
-<CardclassName="border-primary/20bg-primary/5">
-<CardContentclassName="pt-4">
-<divclassName="flexitems-centerspace-x-2">
-<AlertTriangleclassName="h-4w-4text-primary"/>
-<spanclassName="text-smfont-medium">StatusChangePreview</span>
+<Cardclas sName="border-primary/20bg-primary/5">
+<CardContentclas sName="pt-4">
+<divclas sName="flexitems-centerspace-x-2">
+<AlertTriangleclas sName="h-4w-4text-primary"/>
+<spanclas sName="text-smfont-medium">StatusChangePreview</span>
 </div>
-<divclassName="flexitems-centerspace-x-3mt-2">
+<divclas sName="flexitems-centerspace-x-3mt-2">
 {getStatusBadge(currentStatus)}
 <span>→</span>
 {getStatusBadge(newStatus)}
@@ -254,51 +254,51 @@ value={option.value}
 </div>
 
 {/*Notes*/}
-<divclassName="space-y-3">
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="space-y-3">
+<divclas sName="flexitems-centerjustify-between">
 <LabelhtmlFor="notes">
 StatusNotes
 {getRequiredFields().includes('notes')&&(
-<spanclassName="text-destructiveml-1">*</span>
+<spanclas sName="text-destructiveml-1">*</span>
 )}
 </Label>
 {getRequiredFields().includes('notes')&&(
-<Badgevariant="destructive"className="text-xs">Required</Badge>
+<Badgevariant="destructive" clas sName="text-xs">Required</Badge>
 )}
 </div>
 <Textarea
 id="notes"
 placeholder={
-newStatus==='rejected'"Providereasonforrejection...":
-newStatus==='completed'"Describewhatwascompleted...":
-newStatus==='cancelled'"Providereasonforcancellation...":
+newStatus==='rejected'"Providereas onforrejection...":
+newStatus==='completed'"Describewhatwas completed...":
+newStatus==='cancelled'"Providereas onforcancellation...":
 "Addanyadditionalnotesaboutthisstatuschange..."
 }
 value={notes}
 onChange={(e)=>setNotes(e.target.value)}
-className="min-h-[100px]"
+clas sName="min-h-[100px]"
 />
 </div>
 
 {/*AdditionalOptions*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">NotificationOptions</CardTitle>
+<CardTitleclas sName="text-bas e">NotificationOptions</CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="flexitems-centerspace-x-2">
+<divclas sName="flexitems-centerspace-x-2">
 <input
 type="checkbox"
 id="notify-customer"
 checked={notifyCustomer}
 onChange={(e)=>setNotifyCustomer(e.target.checked)}
-className="rounded"
+clas sName="rounded"
 />
-<LabelhtmlFor="notify-customer"className="text-sm">
+<LabelhtmlFor="notify-customer" clas sName="text-sm">
 Sendnotificationtocustomer
 </Label>
 </div>
-<pclassName="text-xstext-muted-foregroundmt-1">
+<pclas sName="text-xstext-muted-foregroundmt-1">
 Customerwillreceiveemail/SMSaboutthisstatusupdate
 </p>
 </CardContent>
@@ -306,26 +306,26 @@ Customerwillreceiveemail/SMSaboutthisstatusupdate
 
 {/*StatusChangeRules*/}
 {!validateStatusChange()&&isStatusChanged&&(
-<CardclassName="border-destructive/20bg-destructive/5">
-<CardContentclassName="pt-4">
-<divclassName="flexitems-centerspace-x-2">
-<XCircleclassName="h-4w-4text-destructive"/>
-<spanclassName="text-smfont-mediumtext-destructive">InvalidStatusChange</span>
+<Cardclas sName="border-destructive/20bg-destructive/5">
+<CardContentclas sName="pt-4">
+<divclas sName="flexitems-centerspace-x-2">
+<XCircleclas sName="h-4w-4text-destructive"/>
+<spanclas sName="text-smfont-mediumtext-destructive">InvalidStatusChange</span>
 </div>
-<pclassName="text-xstext-muted-foregroundmt-1">
-Cannotchangefrom"{getCurrentStatusConfig().label}"to"{getNewStatusConfig().label}".
-Pleasefollowtheproperworkflowsequence.
+<pclas sName="text-xstext-muted-foregroundmt-1">
+Cannotchangefrom "{getCurrentStatusConfig().label}" to"{getNewStatusConfig().label}".
+Pleas efollowtheproperworkflowsequence.
 </p>
 </CardContent>
 </Card>
 )}
 
 {/*UserInfo*/}
-<divclassName="text-xstext-muted-foregroundborder-tpt-4">
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="text-xstext-muted-foregroundborder-tpt-4">
+<divclas sName="flexitems-centerjustify-between">
 <span>Statuswillbeupdatedby:{user.name}({user.role})</span>
 {user.role==='technician'&&(
-<Badgevariant="outline"className="text-xs">
+<Badgevariant="outline" clas sName="text-xs">
 Limitedtotechnicalprogressonly
 </Badge>
 )}
@@ -334,9 +334,9 @@ Limitedtotechnicalprogressonly
 </CardContent>
 
 {/*Footer*/}
-<divclassName="border-tp-6">
-<divclassName="flexjustify-between">
-<Buttonvariant="outline"onClick={onClose}>
+<divclas sName="border-tp-6">
+<divclas sName="flexjustify-between">
+<Buttonvariant="outline" onClick={onClose}>
 Cancel
 </Button>
 <Button
@@ -345,13 +345,13 @@ onClick={handleStatusUpdate}
 disabled={!canUpdate||isLoading}
 >
 {isLoading(
-<divclassName="flexitems-centerspace-x-2">
-<divclassName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
+<divclas sName="flexitems-centerspace-x-2">
+<divclas sName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
 <span>Updating...</span>
 </div>
 ):(
 <>
-<SaveclassName="h-4w-4mr-2"/>
+<Saveclas sName="h-4w-4mr-2"/>
 UpdateStatus
 </>
 )}

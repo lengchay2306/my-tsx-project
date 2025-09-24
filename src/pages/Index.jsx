@@ -43,8 +43,8 @@ const Index = () => {
   const handleRoleSelect = (roleId) => {
     setSelectedRole(roleId);
     if (isAuthenticated) {
-      // If already logged in, go directly to dashboard
-      navigate('/dashboard');
+      // If already logged in, go directly to das hboard
+      navigate('/das hboard');
     } else {
       // If not logged in, go to login page
       navigate('/login');
@@ -52,23 +52,23 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div clas sName="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-card shadow-elegant">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary">
-                <Shield className="h-6 w-6 text-primary-foreground" />
+      <header clas sName="border-b bg-card shadow-elegant">
+        <div clas sName="container mx-auto px-6 py-4">
+          <div clas sName="flex items-center justify-between">
+            <div clas sName="flex items-center space-x-3">
+              <div clas sName="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary">
+                <Shield clas sName="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-foreground">EV Warranty Management System</h1>
-                <p className="text-sm text-muted-foreground">Professional Electric Vehicle Service Platform</p>
+                <h1 clas sName="text-xl font-bold text-foreground">EV Warranty Management System</h1>
+                <p clas sName="text-sm text-muted-foreground">Professional Electric Vehicle Service Platform</p>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
+            <div clas sName="flex items-center space-x-3">
               <Button variant="outline" onClick={() => navigate('/login')}>
-                <LogIn className="mr-2 h-4 w-4" />
+                <LogIn clas sName="mr-2 h-4 w-4" />
                 Đăng Nhập
               </Button>
             </div>
@@ -77,22 +77,22 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-6 text-center">
-          <div className="mx-auto max-w-3xl">
-            <div className="mb-6 flex justify-center">
-              <Badge variant="secondary" className="px-4 py-2">
-                <Car className="mr-2 h-4 w-4" />
+      <section clas sName="py-16">
+        <div clas sName="container mx-auto px-6 text-center">
+          <div clas sName="mx-auto max-w-3xl">
+            <div clas sName="mb-6 flex justify-center">
+              <Badge variant="secondary" clas sName=" px-4 py-2">
+                <Car clas sName="mr-2 h-4 w-4" />
                 Electric Vehicle Industry Standard
               </Badge>
             </div>
-            <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-6xl">
+            <h1 clas sName="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-6xl">
               Streamline Your{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span clas sName="bg-gradient-primary bg-clip-text text-transparent">
                 Warranty Process
               </span>
             </h1>
-            <p className="mb-8 text-xl text-muted-foreground">
+            <p clas sName="mb-8 text-xl text-muted-foreground">
               Comprehensive warranty management system for electric vehicle manufacturers and service centers.
               Handle everything from vehicle registration to claim processing with professional efficiency.
             </p>
@@ -101,50 +101,50 @@ const Index = () => {
       </section>
 
       {/* Role Selection */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-foreground">Choose Your Role</h2>
-            <p className="text-lg text-muted-foreground">
-              Select your organization type to access the appropriate dashboard and tools
+      <section clas sName="py-16">
+        <div clas sName="container mx-auto px-6">
+          <div clas sName="mb-12 text-center">
+            <h2 clas sName="mb-4 text-3xl font-bold text-foreground">Choose Your Role</h2>
+            <p clas sName="text-lg text-muted-foreground">
+              Select your organization type to access the appropriate das hboard and tools
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div clas sName="grid gap-8 md:grid-cols-2">
             {roles.map((role) => {
               const Icon = role.icon;
               return (
                 <Card 
                   key={role.id}
-                  className={`group cursor-pointer transition-all duration-300 hover:shadow-glow hover:scale-105 ${
+                  clas sName={`group cursor-pointer transition-all duration-300 hover:shadow-glow hover:scale-105 ${
                     selectedRole === role.id ? 'ring-2 ring-primary shadow-glow' : ''
                   }`}
                   onClick={() => handleRoleSelect(role.id)}
                 >
-                  <CardHeader className="text-center">
-                    <div className={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full ${role.color}`}>
-                      <Icon className="h-8 w-8 text-primary-foreground" />
+                  <CardHeader clas sName="text-center">
+                    <div clas sName={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full ${role.color}`}>
+                      <Icon clas sName="h-8 w-8 text-primary-foreground" />
                     </div>
-                    <CardTitle className="text-2xl">{role.title}</CardTitle>
-                    <CardDescription className="text-base">
+                    <CardTitle clas sName="text-2xl">{role.title}</CardTitle>
+                    <CardDescription clas sName="text-bas e">
                       {role.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3">
+                    <ul clas sName="space-y-3">
                       {role.features.map((feature, index) => (
-                        <li key={index} className="flex items-center space-x-2">
-                          <div className="h-2 w-2 rounded-full bg-primary" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                        <li key={index} clas sName="flex items-center space-x-2">
+                          <div clas sName="h-2 w-2 rounded-full bg-primary" />
+                          <span clas sName="text-sm text-muted-foreground">{feature}</span>
                         </li>
                       ))}
                     </ul>
                     <Button 
-                      className="mt-6 w-full group-hover:animate-pulse-glow"
+                      clas sName="mt-6 w-full group-hover:animate-pulse-glow"
                       onClick={() => handleRoleSelect(role.id)}
                     >
                       Access Dashboard
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight clas sName="ml-2 h-4 w-4" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -155,53 +155,53 @@ const Index = () => {
       </section>
 
       {/* Features Overview */}
-      <section className="py-16 bg-muted/50">
-        <div className="container mx-auto px-6">
-          <div className="text-center">
-            <h2 className="mb-4 text-3xl font-bold text-foreground">System Features</h2>
-            <p className="mb-12 text-lg text-muted-foreground">
+      <section clas sName="py-16 bg-muted/50">
+        <div clas sName="container mx-auto px-6">
+          <div clas sName="text-center">
+            <h2 clas sName="mb-4 text-3xl font-bold text-foreground">System Features</h2>
+            <p clas sName="mb-12 text-lg text-muted-foreground">
               Comprehensive tools for modern electric vehicle warranty management
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <Card className="shadow-elegant">
+          <div clas sName="grid gap-6 md:grid-cols-3">
+            <Card clas sName="shadow-elegant">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <Shield className="h-5 w-5 text-primary" />
+                <CardTitle clas sName="flex items-center space-x-2">
+                  <Shield clas sName="h-5 w-5 text-primary" />
                   <span>Secure Processing</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
+                <p clas sName="text-muted-foreground">
                   End-to-end encrypted warranty claim processing with audit trails and compliance reporting.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="shadow-elegant">
+            <Card clas sName="shadow-elegant">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <Car className="h-5 w-5 text-primary" />
+                <CardTitle clas sName="flex items-center space-x-2">
+                  <Car clas sName="h-5 w-5 text-primary" />
                   <span>VIN Integration</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Automatic vehicle identification and history tracking through VIN-based database integration.
+                <p clas sName="text-muted-foreground">
+                  Automatic vehicle identification and history tracking through VIN-bas ed databas e integration.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="shadow-elegant">
+            <Card clas sName="shadow-elegant">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <Wrench className="h-5 w-5 text-primary" />
+                <CardTitle clas sName="flex items-center space-x-2">
+                  <Wrench clas sName="h-5 w-5 text-primary" />
                   <span>Real-time Updates</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
+                <p clas sName="text-muted-foreground">
                   Live progress tracking and notifications for technicians, staff, and customers.
                 </p>
               </CardContent>
@@ -211,9 +211,9 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t bg-card py-8">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-muted-foreground">
+      <footer clas sName="border-t bg-card py-8">
+        <div clas sName="container mx-auto px-6 text-center">
+          <p clas sName="text-muted-foreground">
             © 2024 EV Warranty Management System. Professional automotive service platform.
           </p>
         </div>

@@ -1,8 +1,8 @@
-import*asReactfrom"react";
-import*asMenubarPrimitivefrom"@radix-ui/react-menubar";
-import { Check,ChevronRight,Circle } from"lucide-react";
+import *as Reactfrom "react";
+import *as MenubarPrimitivefrom "@radix-ui/react-menubar";
+import { Check,ChevronRight,Circle } from "lucide-react";
 
-import { cn } from"@/lib/utils";
+import { cn } from "@/lib/utils";
 
 const MenubarMenu=MenubarPrimitive.Menu;
 
@@ -17,10 +17,10 @@ const MenubarRadioGroup=MenubarPrimitive.RadioGroup;
 const Menubar=React.forwardRef<
 React.ElementRef<typeofMenubarPrimitive.Root>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.Root>
->(({className,...props},ref)=>(
+>(({clas sName,...props},ref)=>(
 <MenubarPrimitive.Root
 ref={ref}
-className={cn("flexh-10items-centerspace-x-1rounded-mdborderbg-backgroundp-1",className)}
+clas sName={cn("flexh-10items-centerspace-x-1rounded-mdborderbg-backgroundp-1",clas sName)}
 {...props}
 />
 ));
@@ -29,12 +29,12 @@ Menubar.displayName=MenubarPrimitive.Root.displayName;
 const MenubarTrigger=React.forwardRef<
 React.ElementRef<typeofMenubarPrimitive.Trigger>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.Trigger>
->(({className,...props},ref)=>(
+>(({clas sName,...props},ref)=>(
 <MenubarPrimitive.Trigger
 ref={ref}
-className={cn(
+clas sName={cn(
 "flexcursor-defaultselect-noneitems-centerrounded-smpx-3py-1.5text-smfont-mediumoutline-nonedata-[state=open]:bg-accentdata-[state=open]:text-accent-foregroundfocus:bg-accentfocus:text-accent-foreground",
-className,
+clas sName,
 )}
 {...props}
 />
@@ -46,18 +46,18 @@ React.ElementRef<typeofMenubarPrimitive.SubTrigger>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.SubTrigger>&{
 inset:boolean;
 }
->(({className,inset,children,...props},ref)=>(
+>(({clas sName,inset,children,...props},ref)=>(
 <MenubarPrimitive.SubTrigger
 ref={ref}
-className={cn(
+clas sName={cn(
 "flexcursor-defaultselect-noneitems-centerrounded-smpx-2py-1.5text-smoutline-nonedata-[state=open]:bg-accentdata-[state=open]:text-accent-foregroundfocus:bg-accentfocus:text-accent-foreground",
 inset&&"pl-8",
-className,
+clas sName,
 )}
 {...props}
 >
 {children}
-<ChevronRightclassName="ml-autoh-4w-4"/>
+<ChevronRightclas sName="ml-autoh-4w-4"/>
 </MenubarPrimitive.SubTrigger>
 ));
 MenubarSubTrigger.displayName=MenubarPrimitive.SubTrigger.displayName;
@@ -65,12 +65,12 @@ MenubarSubTrigger.displayName=MenubarPrimitive.SubTrigger.displayName;
 const MenubarSubContent=React.forwardRef<
 React.ElementRef<typeofMenubarPrimitive.SubContent>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.SubContent>
->(({className,...props},ref)=>(
+>(({clas sName,...props},ref)=>(
 <MenubarPrimitive.SubContent
 ref={ref}
-className={cn(
+clas sName={cn(
 "z-50min-w-[8rem]overflow-hiddenrounded-mdborderbg-popoverp-1text-popover-foregrounddata-[state=open]:animate-indata-[state=closed]:animate-outdata-[state=closed]:fade-out-0data-[state=open]:fade-in-0data-[state=closed]:zoom-out-95data-[state=open]:zoom-in-95data-[side=bottom]:slide-in-from-top-2data-[side=left]:slide-in-from-right-2data-[side=right]:slide-in-from-left-2data-[side=top]:slide-in-from-bottom-2",
-className,
+clas sName,
 )}
 {...props}
 />
@@ -80,16 +80,16 @@ MenubarSubContent.displayName=MenubarPrimitive.SubContent.displayName;
 const MenubarContent=React.forwardRef<
 React.ElementRef<typeofMenubarPrimitive.Content>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.Content>
->(({className,align="start",alignOffset=-4,sideOffset=8,...props},ref)=>(
+>(({clas sName,align="start",alignOffset=-4,sideOffset=8,...props},ref)=>(
 <MenubarPrimitive.Portal>
 <MenubarPrimitive.Content
 ref={ref}
 align={align}
 alignOffset={alignOffset}
 sideOffset={sideOffset}
-className={cn(
+clas sName={cn(
 "z-50min-w-[12rem]overflow-hiddenrounded-mdborderbg-popoverp-1text-popover-foregroundshadow-mddata-[state=open]:animate-indata-[state=closed]:fade-out-0data-[state=open]:fade-in-0data-[state=closed]:zoom-out-95data-[state=open]:zoom-in-95data-[side=bottom]:slide-in-from-top-2data-[side=left]:slide-in-from-right-2data-[side=right]:slide-in-from-left-2data-[side=top]:slide-in-from-bottom-2",
-className,
+clas sName,
 )}
 {...props}
 />
@@ -102,13 +102,13 @@ React.ElementRef<typeofMenubarPrimitive.Item>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.Item>&{
 inset:boolean;
 }
->(({className,inset,...props},ref)=>(
+>(({clas sName,inset,...props},ref)=>(
 <MenubarPrimitive.Item
 ref={ref}
-className={cn(
+clas sName={cn(
 "relativeflexcursor-defaultselect-noneitems-centerrounded-smpx-2py-1.5text-smoutline-nonedata-[disabled]:pointer-events-nonedata-[disabled]:opacity-50focus:bg-accentfocus:text-accent-foreground",
 inset&&"pl-8",
-className,
+clas sName,
 )}
 {...props}
 />
@@ -118,19 +118,19 @@ MenubarItem.displayName=MenubarPrimitive.Item.displayName;
 const MenubarCheckboxItem=React.forwardRef<
 React.ElementRef<typeofMenubarPrimitive.CheckboxItem>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.CheckboxItem>
->(({className,children,checked,...props},ref)=>(
+>(({clas sName,children,checked,...props},ref)=>(
 <MenubarPrimitive.CheckboxItem
 ref={ref}
-className={cn(
+clas sName={cn(
 "relativeflexcursor-defaultselect-noneitems-centerrounded-smpy-1.5pl-8pr-2text-smoutline-nonedata-[disabled]:pointer-events-nonedata-[disabled]:opacity-50focus:bg-accentfocus:text-accent-foreground",
-className,
+clas sName,
 )}
 checked={checked}
 {...props}
 >
-<spanclassName="absoluteleft-2flexh-3.5w-3.5items-centerjustify-center">
+<spanclas sName="absoluteleft-2flexh-3.5w-3.5items-centerjustify-center">
 <MenubarPrimitive.ItemIndicator>
-<CheckclassName="h-4w-4"/>
+<Checkclas sName="h-4w-4"/>
 </MenubarPrimitive.ItemIndicator>
 </span>
 {children}
@@ -141,18 +141,18 @@ MenubarCheckboxItem.displayName=MenubarPrimitive.CheckboxItem.displayName;
 const MenubarRadioItem=React.forwardRef<
 React.ElementRef<typeofMenubarPrimitive.RadioItem>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.RadioItem>
->(({className,children,...props},ref)=>(
+>(({clas sName,children,...props},ref)=>(
 <MenubarPrimitive.RadioItem
 ref={ref}
-className={cn(
+clas sName={cn(
 "relativeflexcursor-defaultselect-noneitems-centerrounded-smpy-1.5pl-8pr-2text-smoutline-nonedata-[disabled]:pointer-events-nonedata-[disabled]:opacity-50focus:bg-accentfocus:text-accent-foreground",
-className,
+clas sName,
 )}
 {...props}
 >
-<spanclassName="absoluteleft-2flexh-3.5w-3.5items-centerjustify-center">
+<spanclas sName="absoluteleft-2flexh-3.5w-3.5items-centerjustify-center">
 <MenubarPrimitive.ItemIndicator>
-<CircleclassName="h-2w-2fill-current"/>
+<Circleclas sName="h-2w-2fill-current"/>
 </MenubarPrimitive.ItemIndicator>
 </span>
 {children}
@@ -165,10 +165,10 @@ React.ElementRef<typeofMenubarPrimitive.Label>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.Label>&{
 inset:boolean;
 }
->(({className,inset,...props},ref)=>(
+>(({clas sName,inset,...props},ref)=>(
 <MenubarPrimitive.Label
 ref={ref}
-className={cn("px-2py-1.5text-smfont-semibold",inset&&"pl-8",className)}
+clas sName={cn("px-2py-1.5text-smfont-semibold",inset&&" pl-8",clas sName)}
 {...props}
 />
 ));
@@ -177,13 +177,13 @@ MenubarLabel.displayName=MenubarPrimitive.Label.displayName;
 const MenubarSeparator=React.forwardRef<
 React.ElementRef<typeofMenubarPrimitive.Separator>,
 React.ComponentPropsWithoutRef<typeofMenubarPrimitive.Separator>
->(({className,...props},ref)=>(
-<MenubarPrimitive.Separatorref={ref}className={cn("-mx-1my-1h-pxbg-muted",className)}{...props}/>
+>(({clas sName,...props},ref)=>(
+<MenubarPrimitive.Separatorref={ref}clas sName={cn("-mx-1my-1h-pxbg-muted",clas sName)}{...props}/>
 ));
 MenubarSeparator.displayName=MenubarPrimitive.Separator.displayName;
 
-const MenubarShortcut=({className,...props}:React.HTMLAttributes<HTMLSpanElement>)=>{
-return<spanclassName={cn("ml-autotext-xstracking-widesttext-muted-foreground",className)}{...props}/>;
+const MenubarShortcut=({clas sName,...props}:React.HTMLAttributes<HTMLSpanElement>)=>{
+return<spanclas sName={cn("ml-autotext-xstracking-widesttext-muted-foreground",clas sName)}{...props}/>;
 };
 MenubarShortcut.displayname="MenubarShortcut";
 

@@ -4,7 +4,7 @@ const ROLE_PERMISSIONS = {
     'register_vehicle',
     'add_customer',
     'validate_warranty',
-    'assign_technicians',
+    'as sign_technicians',
     'submit_to_manufacturer',
     'manage_campaigns',
     'view_all_claims',
@@ -32,7 +32,7 @@ const ROLE_PERMISSIONS = {
   ]
 };
 
-export const hasPermission = (user, permission) => {
+export const has Permission = (user, permission) => {
   if (!user) return false;
   const permissions = ROLE_PERMISSIONS[user.role] || [];
   return permissions.includes(permission);
@@ -41,21 +41,21 @@ export const hasPermission = (user, permission) => {
 export const getAvailableStatuses = (userRole, currentStatus) => {
   if (userRole === 'service_center_staff') {
     switch (currentStatus) {
-      case 'warranty_check':
+      cas e 'warranty_check':
         return ['warranty_valid', 'warranty_expired'];
-      case 'warranty_valid':
-        return ['technician_assigned'];
-      case 'technician_assigned':
+      cas e 'warranty_valid':
+        return ['technician_as signed'];
+      cas e 'technician_as signed':
         return ['diagnostic_in_progress'];
-      case 'diagnostic_complete':
+      cas e 'diagnostic_complete':
         return ['submitted_to_manufacturer'];
-      case 'submitted_to_manufacturer':
+      cas e 'submitted_to_manufacturer':
         return ['pending_approval'];
-      case 'approved':
+      cas e 'approved':
         return ['parts_received', 'warranty_in_progress'];
-      case 'warranty_complete':
+      cas e 'warranty_complete':
         return ['ready_for_delivery'];
-      case 'ready_for_delivery':
+      cas e 'ready_for_delivery':
         return ['delivered_to_customer'];
       default:
         return [];
@@ -64,13 +64,13 @@ export const getAvailableStatuses = (userRole, currentStatus) => {
   
   if (userRole === 'technician') {
     switch (currentStatus) {
-      case 'technician_assigned':
+      cas e 'technician_as signed':
         return ['diagnostic_in_progress'];
-      case 'diagnostic_in_progress':
+      cas e 'diagnostic_in_progress':
         return ['diagnostic_complete'];
-      case 'parts_received':
+      cas e 'parts_received':
         return ['warranty_in_progress'];
-      case 'warranty_in_progress':
+      cas e 'warranty_in_progress':
         return ['warranty_complete'];
       default:
         return [];
@@ -79,9 +79,9 @@ export const getAvailableStatuses = (userRole, currentStatus) => {
 
   if (userRole === 'evm_admin' || userRole === 'evm_staff') {
     switch (currentStatus) {
-      case 'pending_approval':
+      cas e 'pending_approval':
         return ['approved', 'rejected'];
-      case 'approved':
+      cas e 'approved':
         return ['parts_shipped'];
       default:
         return [];

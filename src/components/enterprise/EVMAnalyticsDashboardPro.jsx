@@ -1,10 +1,10 @@
-import { useState } from"react";
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from"@/components/ui/card";
-import { Button } from"@/components/ui/button";
-import { Badge } from"@/components/ui/badge";
-import { Input } from"@/components/ui/input";
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from"@/components/ui/select";
-import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from"@/components/ui/table";
+import { useState } from "react";
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from "@/components/ui/select";
+import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from "@/components/ui/table";
 import { 
 BarChart,
 Bar,
@@ -18,7 +18,7 @@ Line,
 PieChart,
 Pie,
 Cell
- } from'recharts';
+ } from 'recharts';
 import { 
 TrendingUp,
 TrendingDown,
@@ -30,36 +30,36 @@ Download,
 Filter,
 Search,
 MoreHorizontal
- } from"lucide-react";
+ } from "lucide-react";
 
 interfaceKPICardProps{
 title:string;
 value:string|number;
 change:string;
-trend:"up"|"down"|"neutral";
+trend:"up"|" down"|" neutral";
 icon:React.ElementType;
 }
 
 const KPICard=({title,value,change,trend,icon:Icon}:KPICardProps)=>(
-<CardclassName="hover:shadow-eleganttransition-allduration-200">
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<Cardclas sName="hover:shadow-eleganttransition-allduration-200">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smfont-mediumtext-muted-foreground">{title}</p>
-<divclassName="flexitems-centerspace-x-2mt-2">
-<h3className="text-3xlfont-boldtext-foreground">{value}</h3>
+<pclas sName="text-smfont-mediumtext-muted-foreground">{title}</p>
+<divclas sName="flexitems-centerspace-x-2mt-2">
+<h3clas sName="text-3xlfont-boldtext-foreground">{value}</h3>
 {change&&(
-<spanclassName={`text-smflexitems-centerfont-medium${
+<spanclas sName={`text-smflexitems-centerfont-medium${
 trend==='up''text-success':trend==='down''text-destructive':'text-muted-foreground'
 }`}>
-{trend==='up'<TrendingUpclassName="h-3w-3mr-1"/>:<TrendingDownclassName="h-3w-3mr-1"/>}
+{trend==='up'<TrendingUpclas sName="h-3w-3mr-1"/>:<TrendingDownclas sName=" h-3w-3mr-1"/>}
 {change}
 </span>
 )}
 </div>
 </div>
-<divclassName="p-4rounded-lgbg-primary/10">
-<IconclassName="h-8w-8text-primary"/>
+<divclas sName="p-4rounded-lgbg-primary/10">
+<Iconclas sName="h-8w-8text-primary"/>
 </div>
 </div>
 </CardContent>
@@ -173,9 +173,9 @@ failureRate:2.94
 
 const filteredFailureData=failureRateData.filter(item=>{
 const matchesSearch=searchQuery===""||
-item.partType.toLowerCase().includes(searchQuery.toLowerCase())||
-item.vehicleModel.toLowerCase().includes(searchQuery.toLowerCase())||
-item.region.toLowerCase().includes(searchQuery.toLowerCase());
+item.partType.toLowerCas e().includes(searchQuery.toLowerCas e())||
+item.vehicleModel.toLowerCas e().includes(searchQuery.toLowerCas e())||
+item.region.toLowerCas e().includes(searchQuery.toLowerCas e());
 
 const matchesPartType=filterPartType===""||item.partType===filterPartType;
 const matchesModel=filterModel===""||item.vehicleModel===filterModel;
@@ -191,23 +191,23 @@ return"text-success";
 };
 
 return(
-<divclassName="space-y-8p-6">
+<divclas sName="space-y-8p-6">
 {/*Header*/}
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<h1className="text-4xlfont-boldtext-foreground">EVMAnalyticsDashboard</h1>
-<pclassName="text-muted-foregroundtext-lgmt-1">Warrantynetworkinsightsandbusinessintelligence</p>
+<h1clas sName="text-4xlfont-boldtext-foreground">EVMAnalyticsDashboard</h1>
+<pclas sName="text-muted-foregroundtext-lgmt-1">Warrantynetworkinsightsandbusinessintelligence</p>
 </div>
-<divclassName="flexitems-centerspace-x-3">
-<Buttonvariant="outline"size="lg">
-<DownloadclassName="mr-2h-4w-4"/>
+<divclas sName="flexitems-centerspace-x-3">
+<Buttonvariant="outline" size="lg">
+<Downloadclas sName="mr-2h-4w-4"/>
 ExportReport
 </Button>
 </div>
 </div>
 
 {/*KPICards*/}
-<divclassName="gridgap-6md:grid-cols-2lg:grid-cols-4">
+<divclas sName="gridgap-6md:grid-cols-2lg:grid-cols-4">
 <KPICard
 title="TotalOpenClaims"
 value={335}
@@ -239,17 +239,17 @@ icon={DollarSign}
 </div>
 
 {/*ChartsGrid*/}
-<divclassName="gridgap-6lg:grid-cols-2">
+<divclas sName="gridgap-6lg:grid-cols-2">
 {/*WarrantyCostsOverTime*/}
 <Card>
 <CardHeader>
-<CardTitle>WarrantyCostsOverLast12Months</CardTitle>
+<CardTitle>WarrantyCostsOverLas t12Months</CardTitle>
 <CardDescription>MonthlywarrantyclaimcostsinUSD</CardDescription>
 </CardHeader>
 <CardContent>
-<ResponsiveContainerwidth="100%"height={300}>
+<ResponsiveContainerwidth="100%" height={300}>
 <LineChartdata={warrantyCostData}>
-<CartesianGridstrokeDasharray="33"/>
+<CartesianGridstrokeDas harray="33"/>
 <XAxisdataKey="month"/>
 <YAxis/>
 <Tooltipformatter={(value)=>[`$${value.toLocaleString()}`,'Cost']}/>
@@ -272,7 +272,7 @@ dot={{fill:'hsl(var(--primary))',strokeWidth:2,r:4}}
 <CardDescription>Currentdistributionofwarrantyclaims</CardDescription>
 </CardHeader>
 <CardContent>
-<ResponsiveContainerwidth="100%"height={300}>
+<ResponsiveContainerwidth="100%" height={300}>
 <PieChart>
 <Pie
 data={claimsByStatusData}
@@ -301,13 +301,13 @@ label={({name,value})=>`${name}:${value}`}
 <CardDescription>Componentswiththehighestfailurecounts</CardDescription>
 </CardHeader>
 <CardContent>
-<ResponsiveContainerwidth="100%"height={300}>
+<ResponsiveContainerwidth="100%" height={300}>
 <BarChartdata={topFailingPartsData}layout="horizontal">
-<CartesianGridstrokeDasharray="33"/>
+<CartesianGridstrokeDas harray="33"/>
 <XAxistype="number"/>
-<YAxisdataKey="part"type="category"width={120}/>
+<YAxisdataKey="part" type="category" width={120}/>
 <Tooltip/>
-<BardataKey="failures"fill="hsl(var(--primary))"/>
+<BardataKey="failures" fill="hsl(var(--primary))"/>
 </BarChart>
 </ResponsiveContainer>
 </CardContent>
@@ -316,35 +316,35 @@ label={({name,value})=>`${name}:${value}`}
 {/*CriticalFailureRateStatistics*/}
 <Card>
 <CardHeader>
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<CardTitleclassName="text-2xl">FailureRateStatistics</CardTitle>
+<CardTitleclas sName="text-2xl">FailureRateStatistics</CardTitle>
 <CardDescription>Coredataforbusinessdecisionsandqualityanalysis</CardDescription>
 </div>
-<Buttonvariant="outline"size="sm">
-<DownloadclassName="h-4w-4mr-2"/>
+<Buttonvariant="outline" size="sm">
+<Downloadclas sName="h-4w-4mr-2"/>
 ExportData
 </Button>
 </div>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-6">
+<divclas sName="space-y-6">
 {/*Filters*/}
-<divclassName="flexflex-wrapgap-4">
-<divclassName="flex-1min-w-[200px]">
-<divclassName="relative">
-<SearchclassName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
+<divclas sName="flexflex-wrapgap-4">
+<divclas sName="flex-1min-w-[200px]">
+<divclas sName="relative">
+<Searchclas sName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
 <Input
 placeholder="Searchparts,models,regions..."
 value={searchQuery}
 onChange={(e)=>setSearchQuery(e.target.value)}
-className="pl-10"
+clas sName="pl-10"
 />
 </div>
 </div>
 
 <Selectvalue={filterPartType}onValueChange={setFilterPartType}>
-<SelectTriggerclassName="w-[180px]">
+<SelectTriggerclas sName="w-[180px]">
 <SelectValueplaceholder="PartType"/>
 </SelectTrigger>
 <SelectContent>
@@ -361,7 +361,7 @@ className="pl-10"
 </Select>
 
 <Selectvalue={filterModel}onValueChange={setFilterModel}>
-<SelectTriggerclassName="w-[160px]">
+<SelectTriggerclas sName="w-[160px]">
 <SelectValueplaceholder="VehicleModel"/>
 </SelectTrigger>
 <SelectContent>
@@ -374,7 +374,7 @@ className="pl-10"
 </Select>
 
 <Selectvalue={filterRegion}onValueChange={setFilterRegion}>
-<SelectTriggerclassName="w-[140px]">
+<SelectTriggerclas sName="w-[140px]">
 <SelectValueplaceholder="Region"/>
 </SelectTrigger>
 <SelectContent>
@@ -387,37 +387,37 @@ className="pl-10"
 </div>
 
 {/*DataTable*/}
-<divclassName="borderrounded-lg">
+<divclas sName="borderrounded-lg">
 <Table>
 <TableHeader>
-<TableRowclassName="bg-muted/30">
-<TableHeadclassName="font-semibold">PartType</TableHead>
-<TableHeadclassName="font-semibold">VehicleModel</TableHead>
-<TableHeadclassName="font-semibold">Region</TableHead>
-<TableHeadclassName="font-semiboldtext-right">FailureCount</TableHead>
-<TableHeadclassName="font-semiboldtext-right">TotalUnits</TableHead>
-<TableHeadclassName="font-semiboldtext-right">FailureRate</TableHead>
-<TableHeadclassName="w-[50px]"></TableHead>
+<TableRowclas sName="bg-muted/30">
+<TableHeadclas sName="font-semibold">PartType</TableHead>
+<TableHeadclas sName="font-semibold">VehicleModel</TableHead>
+<TableHeadclas sName="font-semibold">Region</TableHead>
+<TableHeadclas sName="font-semiboldtext-right">FailureCount</TableHead>
+<TableHeadclas sName="font-semiboldtext-right">TotalUnits</TableHead>
+<TableHeadclas sName="font-semiboldtext-right">FailureRate</TableHead>
+<TableHeadclas sName="w-[50px]"></TableHead>
 </TableRow>
 </TableHeader>
 <TableBody>
 {filteredFailureData.map((item,index)=>(
-<TableRowkey={index}className="hover:bg-muted/50">
-<TableCellclassName="font-medium">{item.partType}</TableCell>
+<TableRowkey={index}clas sName="hover:bg-muted/50">
+<TableCellclas sName="font-medium">{item.partType}</TableCell>
 <TableCell>{item.vehicleModel}</TableCell>
 <TableCell>
-<Badgevariant="outline"className="text-xs">
+<Badgevariant="outline" clas sName="text-xs">
 {item.region}
 </Badge>
 </TableCell>
-<TableCellclassName="text-rightfont-mono">{item.failureCount}</TableCell>
-<TableCellclassName="text-rightfont-mono">{item.totalUnits.toLocaleString()}</TableCell>
-<TableCellclassName={`text-rightfont-monofont-semibold${getFailureRateColor(item.failureRate)}`}>
+<TableCellclas sName="text-rightfont-mono">{item.failureCount}</TableCell>
+<TableCellclas sName="text-rightfont-mono">{item.totalUnits.toLocaleString()}</TableCell>
+<TableCellclas sName={`text-rightfont-monofont-semibold${getFailureRateColor(item.failureRate)}`}>
 {item.failureRate}%
 </TableCell>
 <TableCell>
-<Buttonvariant="ghost"size="sm">
-<MoreHorizontalclassName="h-4w-4"/>
+<Buttonvariant="ghost" size="sm">
+<MoreHorizontalclas sName="h-4w-4"/>
 </Button>
 </TableCell>
 </TableRow>
@@ -427,8 +427,8 @@ className="pl-10"
 </div>
 
 {filteredFailureData.length===0&&(
-<divclassName="text-centerpy-8">
-<pclassName="text-muted-foreground">Nodatamatchesyourcurrentfilters</p>
+<divclas sName="text-centerpy-8">
+<pclas sName="text-muted-foreground">Nodatamatchesyourcurrentfilters</p>
 </div>
 )}
 </div>

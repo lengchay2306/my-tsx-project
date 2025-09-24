@@ -1,12 +1,12 @@
-import { useState } from'react';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Button } from'@/components/ui/button';
-import { Input } from'@/components/ui/input';
-import { Label } from'@/components/ui/label';
-import { Textarea } from'@/components/ui/textarea';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from'@/components/ui/select';
-import { useToast } from'@/hooks/use-toast';
-import { useAuth } from'@/contexts/AuthContext';
+import { useState } from 'react';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
+import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 import { 
 User,
 Phone,
@@ -17,7 +17,7 @@ X,
 IdCard,
 Calendar,
 Building
- } from'lucide-react';
+ } from 'lucide-react';
 
 interfaceCustomerData{
 fullName:string;
@@ -76,7 +76,7 @@ const cities=[
 const idTypes=[
 {value:'cccd',label:'Căncướccôngdân'},
 {value:'cmnd',label:'Chứngminhnhândân'},
-{value:'passport',label:'Hộchiếu'},
+{value:'pas sport',label:'Hộchiếu'},
 {value:'other',label:'Khác'}
 ];
 
@@ -99,7 +99,7 @@ const handleSubmit=()=>{
 if(!customerData.fullName.trim()){
 toast({
 title:"ValidationError",
-description:"Pleaseenterfullname",
+description:"Pleas eenterfullname",
 variant:"destructive"
 });
 return;
@@ -108,7 +108,7 @@ return;
 if(!validatePhone(customerData.phone)){
 toast({
 title:"ValidationError",
-description:"Pleaseenteravalidphonenumber",
+description:"Pleas eenteravalidphonenumber",
 variant:"destructive"
 });
 return;
@@ -117,7 +117,7 @@ return;
 if(customerData.email&&!validateEmail(customerData.email)){
 toast({
 title:"ValidationError",
-description:"Pleaseenteravalidemailaddress",
+description:"Pleas eenteravalidemailaddress",
 variant:"destructive"
 });
 return;
@@ -128,7 +128,7 @@ setTimeout(()=>{
 const customerId=`CUST-${Date.now()}`;
 toast({
 title:"CustomerAddedSuccessfully!",
-description:`${customerData.fullName}hasbeenaddedwithID:${customerId}`,
+description:`${customerData.fullName}has beenaddedwithID:${customerId}`,
 });
 setIsLoading(false);
 onClose();
@@ -138,37 +138,37 @@ onClose();
 const isValid=customerData.fullName&&customerData.phone&&customerData.address;
 
 return(
-<divclassName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
-<CardclassName="w-fullmax-w-4xlmax-h-[90vh]overflow-hidden">
-<CardHeaderclassName="border-b">
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
+<Cardclas sName="w-fullmax-w-4xlmax-h-[90vh]overflow-hidden">
+<CardHeaderclas sName="border-b">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<UserclassName="h-5w-5text-primary"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<Userclas sName="h-5w-5text-primary"/>
 <span>AddNewCustomer</span>
 </CardTitle>
 <CardDescription>
 Registeranewcustomerinthesystem
 </CardDescription>
 </div>
-<Buttonvariant="ghost"size="sm"onClick={onClose}>
-<XclassName="h-4w-4"/>
+<Buttonvariant="ghost" size="sm" onClick={onClose}>
+<Xclas sName="h-4w-4"/>
 </Button>
 </div>
 </CardHeader>
 
-<CardContentclassName="p-6overflow-y-automax-h-[calc(90vh-200px)]">
-<divclassName="space-y-8">
+<CardContentclas sName="p-6overflow-y-automax-h-[calc(90vh-200px)]">
+<divclas sName="space-y-8">
 {/*PersonalInformation*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2text-base">
-<IdCardclassName="h-4w-4"/>
+<CardTitleclas sName="flexitems-centerspace-x-2text-bas e">
+<IdCardclas sName="h-4w-4"/>
 <span>PersonalInformation</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="gridmd:grid-cols-2gap-4">
+<CardContentclas sName="space-y-4">
+<divclas sName="gridmd:grid-cols-2gap-4">
 <div>
 <LabelhtmlFor="fullName">FullName*</Label>
 <Input
@@ -225,7 +225,7 @@ onChange={(e)=>handleInputChange('dateOfBirth',e.target.value)}
 </div>
 </div>
 
-<divclassName="gridmd:grid-cols-2gap-4">
+<divclas sName="gridmd:grid-cols-2gap-4">
 <div>
 <Label>IDType</Label>
 <Selectvalue={customerData.idType}onValueChange={(value)=>handleInputChange('idType',value)}>
@@ -258,12 +258,12 @@ onChange={(e)=>handleInputChange('idNumber',e.target.value)}
 {/*AddressInformation*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2text-base">
-<MapPinclassName="h-4w-4"/>
+<CardTitleclas sName="flexitems-centerspace-x-2text-bas e">
+<MapPinclas sName="h-4w-4"/>
 <span>AddressInformation</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
+<CardContentclas sName="space-y-4">
 <div>
 <LabelhtmlFor="address">StreetAddress*</Label>
 <Input
@@ -274,7 +274,7 @@ onChange={(e)=>handleInputChange('address',e.target.value)}
 />
 </div>
 
-<divclassName="gridmd:grid-cols-3gap-4">
+<divclas sName="gridmd:grid-cols-3gap-4">
 <div>
 <LabelhtmlFor="ward">Ward</Label>
 <Input
@@ -315,13 +315,13 @@ onChange={(e)=>handleInputChange('district',e.target.value)}
 {/*ProfessionalInformation*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2text-base">
-<BuildingclassName="h-4w-4"/>
+<CardTitleclas sName="flexitems-centerspace-x-2text-bas e">
+<Buildingclas sName="h-4w-4"/>
 <span>ProfessionalInformation</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="gridmd:grid-cols-2gap-4">
+<CardContentclas sName="space-y-4">
+<divclas sName="gridmd:grid-cols-2gap-4">
 <div>
 <LabelhtmlFor="company">Company</Label>
 <Input
@@ -348,13 +348,13 @@ onChange={(e)=>handleInputChange('jobTitle',e.target.value)}
 {/*EmergencyContact*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2text-base">
-<PhoneclassName="h-4w-4"/>
+<CardTitleclas sName="flexitems-centerspace-x-2text-bas e">
+<Phoneclas sName="h-4w-4"/>
 <span>EmergencyContact</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="gridmd:grid-cols-2gap-4">
+<CardContentclas sName="space-y-4">
+<divclas sName="gridmd:grid-cols-2gap-4">
 <div>
 <LabelhtmlFor="emergencyContact">ContactName</Label>
 <Input
@@ -381,7 +381,7 @@ onChange={(e)=>handleInputChange('emergencyPhone',e.target.value)}
 {/*AdditionalNotes*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">AdditionalNotes</CardTitle>
+<CardTitleclas sName="text-bas e">AdditionalNotes</CardTitle>
 </CardHeader>
 <CardContent>
 <div>
@@ -391,19 +391,19 @@ id="notes"
 placeholder="Additionalnotesaboutthecustomer..."
 value={customerData.notes}
 onChange={(e)=>handleInputChange('notes',e.target.value)}
-className="min-h-[100px]"
+clas sName="min-h-[100px]"
 />
 </div>
 </CardContent>
 </Card>
 
 {/*SummaryPreview*/}
-<CardclassName="bg-accent/20">
+<Cardclas sName="bg-accent/20">
 <CardHeader>
-<CardTitleclassName="text-base">CustomerSummary</CardTitle>
+<CardTitleclas sName="text-bas e">CustomerSummary</CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="gridmd:grid-cols-2gap-4text-sm">
+<divclas sName="gridmd:grid-cols-2gap-4text-sm">
 <div>
 <p><strong>Name:</strong>{customerData.fullName||'Notentered'}</p>
 <p><strong>Phone:</strong>{customerData.phone||'Notentered'}</p>
@@ -423,13 +423,13 @@ className="min-h-[100px]"
 </CardContent>
 
 {/*Footer*/}
-<divclassName="border-tp-6">
-<divclassName="flexjustify-betweenitems-center">
-<pclassName="text-smtext-muted-foreground">
+<divclas sName="border-tp-6">
+<divclas sName="flexjustify-betweenitems-center">
+<pclas sName="text-smtext-muted-foreground">
 *Requiredfields
 </p>
-<divclassName="flexspace-x-3">
-<Buttonvariant="outline"onClick={onClose}>
+<divclas sName="flexspace-x-3">
+<Buttonvariant="outline" onClick={onClose}>
 Cancel
 </Button>
 <Button
@@ -438,13 +438,13 @@ onClick={handleSubmit}
 disabled={!isValid||isLoading}
 >
 {isLoading(
-<divclassName="flexitems-centerspace-x-2">
-<divclassName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
+<divclas sName="flexitems-centerspace-x-2">
+<divclas sName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
 <span>Adding...</span>
 </div>
 ):(
 <>
-<SaveclassName="h-4w-4mr-2"/>
+<Saveclas sName="h-4w-4mr-2"/>
 AddCustomer
 </>
 )}

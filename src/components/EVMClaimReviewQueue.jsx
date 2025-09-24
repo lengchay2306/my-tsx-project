@@ -1,12 +1,12 @@
-import { useState } from"react";
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from"@/components/ui/card";
-import { Button } from"@/components/ui/button";
-import { Badge } from"@/components/ui/badge";
-import { Input } from"@/components/ui/input";
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from"@/components/ui/select";
-import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from"@/components/ui/table";
-import { Calendar } from"@/components/ui/calendar";
-import { Popover,PopoverContent,PopoverTrigger } from"@/components/ui/popover";
+import { useState } from "react";
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from "@/components/ui/select";
+import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from "@/components/ui/table";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover,PopoverContent,PopoverTrigger } from "@/components/ui/popover";
 import { 
 Search,
 Filter,
@@ -19,9 +19,9 @@ XCircle,
 FileText,
 Building,
 Car
- } from"lucide-react";
-import { format } from"date-fns";
-import { cn } from"@/lib/utils";
+ } from "lucide-react";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 interfaceEVMClaimReviewQueueProps{
 onReviewClaim:(claimId))=>void;
@@ -38,16 +38,16 @@ const[dateTo,setDateTo]=useState<Date>();
 const pendingClaims=[
 {
 id:"WC-2024-001",
-serviceCenter:"VinFastServiceCenterHCM",
+serviceCenter:"VinFas tServiceCenterHCM",
 serviceCenterCode:"VSC-HCM-01",
 customerName:"NguyễnVănA",
 vin:"1HGBH41JXMN109186",
-vehicleModel:"VinFastVF82023",
+vehicleModel:"VinFas tVF82023",
 issue:"BatteryPerformanceIssue",
 status:"pending-review",
 priority:"high",
 dateSubmitted:"2024-01-16",
-lastUpdated:"2024-01-1614:30",
+las tUpdated:"2024-01-1614:30",
 estimatedCost:18500000,
 reportsCount:2,
 partsRequired:3,
@@ -56,16 +56,16 @@ daysInQueue:2
 },
 {
 id:"WC-2024-003",
-serviceCenter:"VinFastServiceCenterDaNang",
+serviceCenter:"VinFas tServiceCenterDaNang",
 serviceCenterCode:"VSC-DN-01",
 customerName:"HoàngMinhE",
 vin:"1N4AL11D75C109151",
-vehicleModel:"VinFastVF92023",
+vehicleModel:"VinFas tVF92023",
 issue:"ChargingSystemError",
 status:"pending-review",
 priority:"medium",
 dateSubmitted:"2024-01-15",
-lastUpdated:"2024-01-1516:45",
+las tUpdated:"2024-01-1516:45",
 estimatedCost:12000000,
 reportsCount:1,
 partsRequired:2,
@@ -74,16 +74,16 @@ daysInQueue:3
 },
 {
 id:"WC-2024-007",
-serviceCenter:"VinFastServiceCenterHanoi",
+serviceCenter:"VinFas tServiceCenterHanoi",
 serviceCenterCode:"VSC-HN-01",
 customerName:"TrầnThịB",
 vin:"WVWZZZ1JZ3W987654",
-vehicleModel:"VinFastVF82023",
+vehicleModel:"VinFas tVF82023",
 issue:"MotorControllerMalfunction",
 status:"under-review",
 priority:"critical",
 dateSubmitted:"2024-01-14",
-lastUpdated:"2024-01-1610:20",
+las tUpdated:"2024-01-1610:20",
 estimatedCost:25000000,
 reportsCount:3,
 partsRequired:1,
@@ -92,16 +92,16 @@ daysInQueue:4
 },
 {
 id:"WC-2024-008",
-serviceCenter:"VinFastServiceCenterCanTho",
+serviceCenter:"VinFas tServiceCenterCanTho",
 serviceCenterCode:"VSC-CT-01",
 customerName:"LêVănC",
 vin:"JM1BK32F781111111",
-vehicleModel:"VinFastVF92023",
+vehicleModel:"VinFas tVF92023",
 issue:"SoftwareUpdateRequired",
 status:"pending-review",
 priority:"low",
 dateSubmitted:"2024-01-13",
-lastUpdated:"2024-01-1309:30",
+las tUpdated:"2024-01-1309:30",
 estimatedCost:500000,
 reportsCount:1,
 partsRequired:0,
@@ -110,16 +110,16 @@ daysInQueue:5
 },
 {
 id:"WC-2024-009",
-serviceCenter:"VinFastServiceCenterHCM",
+serviceCenter:"VinFas tServiceCenterHCM",
 serviceCenterCode:"VSC-HCM-02",
 customerName:"PhạmThịD",
 vin:"WVWZZZ1JZ3W555555",
-vehicleModel:"VinFastVF82023",
+vehicleModel:"VinFas tVF82023",
 issue:"ClimateControlIssue",
 status:"pending-review",
 priority:"medium",
 dateSubmitted:"2024-01-16",
-lastUpdated:"2024-01-1608:15",
+las tUpdated:"2024-01-1608:15",
 estimatedCost:3200000,
 reportsCount:1,
 partsRequired:2,
@@ -129,27 +129,27 @@ daysInQueue:2
 ];
 
 const serviceCenters=[
-"VinFastServiceCenterHCM",
-"VinFastServiceCenterHanoi",
-"VinFastServiceCenterDaNang",
-"VinFastServiceCenterCanTho"
+"VinFas tServiceCenterHCM",
+"VinFas tServiceCenterHanoi",
+"VinFas tServiceCenterDaNang",
+"VinFas tServiceCenterCanTho"
 ];
 
 const getStatusBadge=(status))=>{
 const statusConfig={
-"pending-review":{variant:"warning",text:"Chờduyệt",icon:Clock},
-"under-review":{variant:"secondary",text:"Đangduyệt",icon:Eye},
-"approved":{variant:"success",text:"Đãduyệt",icon:CheckCircle},
-"rejected":{variant:"destructive",text:"Từchối",icon:XCircle}
+"pending-review":{variant:" warning",text:" Chờduyệt",icon:Clock},
+"under-review":{variant:" secondary",text:"Đangduyệt",icon:Eye},
+"approved":{variant:" success",text:"Đãduyệt",icon:CheckCircle},
+"rejected":{variant:" destructive",text:" Từchối",icon:XCircle}
 };
 
-const config=statusConfig[statusaskeyoftypeofstatusConfig];
+const config=statusConfig[statusas keyoftypeofstatusConfig];
 if(!config)returnnull;
 
 const Icon=config.icon;
 return(
 <Badgevariant={config.variant}>
-<IconclassName="mr-1h-3w-3"/>
+<Iconclas sName="mr-1h-3w-3"/>
 {config.text}
 </Badge>
 );
@@ -157,16 +157,16 @@ return(
 
 const getPriorityBadge=(priority))=>{
 const priorityConfig={
-critical:{variant:"destructive",text:"Khẩncấp"},
-high:{variant:"warning",text:"Cao"},
-medium:{variant:"secondary",text:"Trungbình"},
-low:{variant:"outline",text:"Thấp"}
+critical:{variant:"destructive",text:" Khẩncấp"},
+high:{variant:"warning",text:" Cao"},
+medium:{variant:"secondary",text:" Trungbình"},
+low:{variant:"outline",text:" Thấp"}
 };
 
-const config=priorityConfig[priorityaskeyoftypeofpriorityConfig];
+const config=priorityConfig[priorityas keyoftypeofpriorityConfig];
 if(!config)returnnull;
 
-return<Badgevariant={config.variant}className="text-xs">{config.text}</Badge>;
+return<Badgevariant={config.variant}clas sName="text-xs">{config.text}</Badge>;
 };
 
 const formatCurrency=(amount))=>{
@@ -178,10 +178,10 @@ currency:'VND'
 
 const filteredClaims=pendingClaims.filter(claim=>{
 const matchesSearch=
-claim.id.toLowerCase().includes(searchTerm.toLowerCase())||
-claim.vin.toLowerCase().includes(searchTerm.toLowerCase())||
-claim.customerName.toLowerCase().includes(searchTerm.toLowerCase())||
-claim.serviceCenter.toLowerCase().includes(searchTerm.toLowerCase());
+claim.id.toLowerCas e().includes(searchTerm.toLowerCas e())||
+claim.vin.toLowerCas e().includes(searchTerm.toLowerCas e())||
+claim.customerName.toLowerCas e().includes(searchTerm.toLowerCas e())||
+claim.serviceCenter.toLowerCas e().includes(searchTerm.toLowerCas e());
 
 const matchesStatus=statusFilter==="all"||claim.status===statusFilter;
 const matchesServiceCenter=serviceCenterFilter==="all"||claim.serviceCenter===serviceCenterFilter;
@@ -206,14 +206,14 @@ color:"text-primary"
 },
 {
 title:"HighPriority",
-value:pendingClaims.filter(c=>c.priority==="critical"||c.priority==="high").length.toString(),
+value:pendingClaims.filter(c=>c.priority==="critical"||c.priority===" high").length.toString(),
 change:"Urgentattention",
 icon:AlertCircle,
 color:"text-destructive"
 },
 {
 title:"TotalValue",
-value:"₫"+(pendingClaims.reduce((sum,c)=>sum+c.estimatedCost,0)/1000000).toFixed(1)+"M",
+value:"₫"+(pendingClaims.reduce((sum,c)=>sum+c.estimatedCost,0)/1000000).toFixed(1)+" M",
 change:"Estimatedcosts",
 icon:FileText,
 color:"text-success"
@@ -221,35 +221,35 @@ color:"text-success"
 ];
 
 return(
-<divclassName="space-y-6">
+<divclas sName="space-y-6">
 {/*Header*/}
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<h1className="text-2xlfont-boldtext-foreground">ClaimReviewQueue</h1>
-<pclassName="text-muted-foreground">
+<h1clas sName="text-2xlfont-boldtext-foreground">ClaimReviewQueue</h1>
+<pclas sName="text-muted-foreground">
 Reviewandapprovewarrantyclaimsfrom servicecenters
 </p>
 </div>
 </div>
 
 {/*StatisticsCards*/}
-<divclassName="gridgap-4md:grid-cols-4">
+<divclas sName="gridgap-4md:grid-cols-4">
 {stats.map((stat)=>{
 const Icon=stat.icon;
 return(
-<Cardkey={stat.title}className="shadow-elegant">
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerjustify-between">
+<Cardkey={stat.title}clas sName="shadow-elegant">
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smfont-mediumtext-muted-foreground">
+<pclas sName="text-smfont-mediumtext-muted-foreground">
 {stat.title}
 </p>
-<pclassName="text-2xlfont-bold">{stat.value}</p>
-<pclassName="text-xstext-muted-foreground">
+<pclas sName="text-2xlfont-bold">{stat.value}</p>
+<pclas sName="text-xstext-muted-foreground">
 {stat.change}
 </p>
 </div>
-<IconclassName={`h-8w-8${stat.color}`}/>
+<Iconclas sName={`h-8w-8${stat.color}`}/>
 </div>
 </CardContent>
 </Card>
@@ -258,20 +258,20 @@ return(
 </div>
 
 {/*Filters*/}
-<CardclassName="shadow-elegant">
+<Cardclas sName="shadow-elegant">
 <CardHeader>
-<CardTitleclassName="text-lg">Filters&Search</CardTitle>
+<CardTitleclas sName="text-lg">Filters&Search</CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="gridgap-4md:grid-cols-2lg:grid-cols-5">
+<divclas sName="gridgap-4md:grid-cols-2lg:grid-cols-5">
 {/*Search*/}
-<divclassName="relative">
-<SearchclassName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
+<divclas sName="relative">
+<Searchclas sName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
 <Input
-placeholder="SearchCase,VIN,Customer..."
+placeholder="SearchCas e,VIN,Customer..."
 value={searchTerm}
 onChange={(e)=>setSearchTerm(e.target.value)}
-className="pl-10"
+clas sName="pl-10"
 />
 </div>
 
@@ -306,50 +306,50 @@ className="pl-10"
 
 {/*DateFrom*/}
 <Popover>
-<PopoverTriggerasChild>
+<PopoverTriggeras Child>
 <Button
 variant="outline"
-className={cn(
+clas sName={cn(
 "justify-starttext-leftfont-normal",
 !dateFrom&&"text-muted-foreground"
 )}
 >
-<CalendarIconclassName="mr-2h-4w-4"/>
-{dateFromformat(dateFrom,"PPP"):"FromDate"}
+<CalendarIconclas sName="mr-2h-4w-4"/>
+{dateFromformat(dateFrom,"PPP"):" FromDate"}
 </Button>
 </PopoverTrigger>
-<PopoverContentclassName="w-autop-0" align="start">
+<PopoverContentclas sName="w-autop-0" align=" start">
 <Calendar
 mode="single"
 selected={dateFrom}
 onSelect={setDateFrom}
 initialFocus
-className="pointer-events-auto"
+clas sName="pointer-events-auto"
 />
 </PopoverContent>
 </Popover>
 
 {/*DateTo*/}
 <Popover>
-<PopoverTriggerasChild>
+<PopoverTriggeras Child>
 <Button
 variant="outline"
-className={cn(
+clas sName={cn(
 "justify-starttext-leftfont-normal",
 !dateTo&&"text-muted-foreground"
 )}
 >
-<CalendarIconclassName="mr-2h-4w-4"/>
-{dateToformat(dateTo,"PPP"):"ToDate"}
+<CalendarIconclas sName="mr-2h-4w-4"/>
+{dateToformat(dateTo,"PPP"):" ToDate"}
 </Button>
 </PopoverTrigger>
-<PopoverContentclassName="w-autop-0" align="start">
+<PopoverContentclas sName="w-autop-0" align=" start">
 <Calendar
 mode="single"
 selected={dateTo}
 onSelect={setDateTo}
 initialFocus
-className="pointer-events-auto"
+clas sName="pointer-events-auto"
 />
 </PopoverContent>
 </Popover>
@@ -358,18 +358,18 @@ className="pointer-events-auto"
 </Card>
 
 {/*ResultsSummary*/}
-<divclassName="flexitems-centerjustify-betweentext-smtext-muted-foreground">
+<divclas sName="flexitems-centerjustify-betweentext-smtext-muted-foreground">
 <span>
 Showing{filteredClaims.length}of{pendingClaims.length}claims
 </span>
-<divclassName="flexitems-centerspace-x-2">
-<FilterclassName="h-4w-4"/>
+<divclas sName="flexitems-centerspace-x-2">
+<Filterclas sName="h-4w-4"/>
 <span>Activefilters:{[statusFilter,serviceCenterFilter].filter(f=>f!=="all").length}</span>
 </div>
 </div>
 
 {/*ClaimsTable*/}
-<CardclassName="shadow-elegant">
+<Cardclas sName="shadow-elegant">
 <CardHeader>
 <CardTitle>ClaimsPendingReview</CardTitle>
 <CardDescription>
@@ -380,7 +380,7 @@ Comprehensivelistofwarrantyclaimsrequiringmanufacturerapproval
 <Table>
 <TableHeader>
 <TableRow>
-<TableHead>CaseID</TableHead>
+<TableHead>Cas eID</TableHead>
 <TableHead>ServiceCenter</TableHead>
 <TableHead>Customer</TableHead>
 <TableHead>Vehicle</TableHead>
@@ -395,35 +395,35 @@ Comprehensivelistofwarrantyclaimsrequiringmanufacturerapproval
 </TableHeader>
 <TableBody>
 {filteredClaims.map((claim)=>(
-<TableRowkey={claim.id}className="hover:bg-muted/50">
-<TableCellclassName="font-medium">{claim.id}</TableCell>
+<TableRowkey={claim.id}clas sName="hover:bg-muted/50">
+<TableCellclas sName="font-medium">{claim.id}</TableCell>
 <TableCell>
-<divclassName="flexitems-centerspace-x-2">
-<BuildingclassName="h-4w-4text-muted-foreground"/>
+<divclas sName="flexitems-centerspace-x-2">
+<Buildingclas sName="h-4w-4text-muted-foreground"/>
 <div>
-<pclassName="text-smfont-medium">{claim.serviceCenterCode}</p>
-<pclassName="text-xstext-muted-foreground">{claim.serviceCenter}</p>
+<pclas sName="text-smfont-medium">{claim.serviceCenterCode}</p>
+<pclas sName="text-xstext-muted-foreground">{claim.serviceCenter}</p>
 </div>
 </div>
 </TableCell>
 <TableCell>
-<divclassName="flexitems-centerspace-x-2">
+<divclas sName="flexitems-centerspace-x-2">
 <div>
-<pclassName="text-smfont-medium">{claim.customerName}</p>
-<pclassName="text-xstext-muted-foregroundfont-mono">{claim.vin}</p>
+<pclas sName="text-smfont-medium">{claim.customerName}</p>
+<pclas sName="text-xstext-muted-foregroundfont-mono">{claim.vin}</p>
 </div>
 </div>
 </TableCell>
 <TableCell>
-<divclassName="flexitems-centerspace-x-2">
-<CarclassName="h-4w-4text-muted-foreground"/>
-<spanclassName="text-sm">{claim.vehicleModel}</span>
+<divclas sName="flexitems-centerspace-x-2">
+<Carclas sName="h-4w-4text-muted-foreground"/>
+<spanclas sName="text-sm">{claim.vehicleModel}</span>
 </div>
 </TableCell>
 <TableCell>
 <div>
-<pclassName="text-smfont-medium">{claim.issue}</p>
-<pclassName="text-xstext-muted-foreground">
+<pclas sName="text-smfont-medium">{claim.issue}</p>
+<pclas sName="text-xstext-muted-foreground">
 {claim.reportsCount}reports,{claim.partsRequired}parts
 </p>
 </div>
@@ -435,15 +435,15 @@ Comprehensivelistofwarrantyclaimsrequiringmanufacturerapproval
 {getPriorityBadge(claim.priority)}
 </TableCell>
 <TableCell>
-<Badgevariant={claim.warrantyValid"success":"destructive"}className="text-xs">
-{claim.warrantyValid"Valid":"Expired"}
+<Badgevariant={claim.warrantyValid"success":" destructive"}clas sName=" text-xs">
+{claim.warrantyValid"Valid":" Expired"}
 </Badge>
 </TableCell>
-<TableCellclassName="font-medium">
+<TableCellclas sName="font-medium">
 {formatCurrency(claim.estimatedCost)}
 </TableCell>
 <TableCell>
-<Badgevariant={claim.daysInQueue>3"warning":"outline"}className="text-xs">
+<Badgevariant={claim.daysInQueue>3"warning":" outline"}clas sName=" text-xs">
 {claim.daysInQueue}days
 </Badge>
 </TableCell>
@@ -453,7 +453,7 @@ variant="gradient"
 size="sm"
 onClick={()=>onReviewClaim.(claim.id)}
 >
-<EyeclassName="h-4w-4mr-1"/>
+<Eyeclas sName="h-4w-4mr-1"/>
 Review
 </Button>
 </TableCell>

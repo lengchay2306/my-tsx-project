@@ -1,13 +1,13 @@
-import { useState } from"react";
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from"@/components/ui/card";
-import { Button } from"@/components/ui/button";
-import { Input } from"@/components/ui/input";
-import { Label } from"@/components/ui/label";
-import { Textarea } from"@/components/ui/textarea";
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from"@/components/ui/select";
-import { Checkbox } from"@/components/ui/checkbox";
-import { Badge } from"@/components/ui/badge";
-import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle } from"@/components/ui/dialog";
+import { useState } from "react";
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
+import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle } from "@/components/ui/dialog";
 import { 
 Upload,
 X,
@@ -19,16 +19,16 @@ Video,
 Paperclip,
 CheckCircle,
 AlertTriangle
- } from"lucide-react";
-import { toast } from"@/hooks/use-toast";
+ } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 interfaceDiagnosticReportFormProps{
-caseId:string;
+cas eId:string;
 onClose:()=>void;
 onSubmit:(reportData:any)=>void;
 }
 
-const DiagnosticReportForm=({caseId,onClose,onSubmit}:DiagnosticReportFormProps)=>{
+const DiagnosticReportForm=({cas eId,onClose,onSubmit}:DiagnosticReportFormProps)=>{
 const[formData,setFormData]=useState({
 title:"",
 category:"",
@@ -38,7 +38,7 @@ symptoms:"",
 testsPerformed:"",
 findings:"",
 recommendedActions:"",
-requiredParts:[]asstring[],
+requiredParts:[]as string[],
 estimatedCost:"",
 laborHours:"",
 customerApprovalRequired:false
@@ -51,14 +51,14 @@ const[isDraft,setIsDraft]=useState(false);
 
 //Mockpartscatalog
 const availableParts=[
-{id:"BP-001",name:"BatteryCellModule",category:"Battery",price:15000000},
-{id:"TS-001",name:"ThermalSensor",category:"Sensor",price:800000},
-{id:"CC-001",name:"ChargeController",category:"Electronic",price:5000000},
-{id:"MCU-001",name:"MotorControllerUnit",category:"DriveSystem",price:20000000},
-{id:"CB-001",name:"ChargingCable",category:"Accessory",price:1200000},
-{id:"BMS-001",name:"BatteryManagementSystem",category:"Battery",price:8000000},
-{id:"INV-001",name:"DC-DCInverter",category:"Power",price:6500000},
-{id:"CCS-001",name:"ClimateControlSensor",category:"Sensor",price:600000}
+{id:"BP-001",name:" BatteryCellModule",category:" Battery",price:15000000},
+{id:"TS-001",name:" ThermalSensor",category:" Sensor",price:800000},
+{id:"CC-001",name:" ChargeController",category:" Electronic",price:5000000},
+{id:"MCU-001",name:" MotorControllerUnit",category:" DriveSystem",price:20000000},
+{id:"CB-001",name:" ChargingCable",category:" Accessory",price:1200000},
+{id:"BMS-001",name:" BatteryManagementSystem",category:" Battery",price:8000000},
+{id:"INV-001",name:" DC-DCInverter",category:" Power",price:6500000},
+{id:"CCS-001",name:" ClimateControlSensor",category:" Sensor",price:600000}
 ];
 
 const categories=[
@@ -73,9 +73,9 @@ const categories=[
 ];
 
 const filteredParts=availableParts.filter(part=>
-part.name.toLowerCase().includes(partSearchTerm.toLowerCase())||
-part.id.toLowerCase().includes(partSearchTerm.toLowerCase())||
-part.category.toLowerCase().includes(partSearchTerm.toLowerCase())
+part.name.toLowerCas e().includes(partSearchTerm.toLowerCas e())||
+part.id.toLowerCas e().includes(partSearchTerm.toLowerCas e())||
+part.category.toLowerCas e().includes(partSearchTerm.toLowerCas e())
 );
 
 const handleInputChange=(field:string,value:any)=>{
@@ -139,13 +139,13 @@ const additionalCost=parseFloat(formData.estimatedCost)||0;
 returnpartsCost+laborCost+additionalCost;
 };
 
-const handleSubmit=(asDraft:boolean=false)=>{
-if(!asDraft){
+const handleSubmit=(as Draft:boolean=false)=>{
+if(!as Draft){
 //Validationforfinalsubmission
 if(!formData.title||!formData.category||!formData.diagnosis){
 toast({
 title:"Requiredfieldsmissing",
-description:"Pleasefillintitle,category,anddiagnosis",
+description:"Pleas efillintitle,category,anddiagnosis",
 variant:"destructive"
 });
 return;
@@ -154,17 +154,17 @@ return;
 
 const reportData={
 ...formData,
-caseId,
+cas eId,
 attachments,
 totalCost:calculateTotalCost(),
-status:asDraft'draft':'submitted',
+status:as Draft'draft':'submitted',
 submittedAt:newDate().toISOString(),
 reportId:`DR-${Date.now()}`
 };
 
 toast({
-title:asDraft"Draftsaved":"Reportsubmitted",
-description:asDraft"Yourdiagnosticreporthasbeensavedasdraft":"Yourdiagnosticreporthasbeensubmittedforreview",
+title:as Draft"Draftsaved":" Reportsubmitted",
+description:as Draft"Yourdiagnosticreporthas beensavedas draft":" Yourdiagnosticreporthas beensubmittedforreview",
 variant:"default"
 });
 
@@ -174,22 +174,22 @@ onClose.();
 
 return(
 <Dialogopen={true}onOpenChange={()=>onClose.()}>
-<DialogContentclassName="max-w-4xlmax-h-[90vh]overflow-y-auto">
+<DialogContentclas sName="max-w-4xlmax-h-[90vh]overflow-y-auto">
 <DialogHeader>
-<DialogTitle>AddDiagnosticReport-{caseId}</DialogTitle>
+<DialogTitle>AddDiagnosticReport-{cas eId}</DialogTitle>
 <DialogDescription>
-Createacomprehensivediagnosticreportforthiswarrantycase
+Createacomprehensivediagnosticreportforthiswarrantycas e
 </DialogDescription>
 </DialogHeader>
 
-<divclassName="space-y-6">
-{/*BasicInformation*/}
+<divclas sName="space-y-6">
+{/*Bas icInformation*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">BasicInformation</CardTitle>
+<CardTitleclas sName="text-bas e">Bas icInformation</CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="gridgap-4md:grid-cols-2">
+<CardContentclas sName="space-y-4">
+<divclas sName="gridgap-4md:grid-cols-2">
 <div>
 <LabelhtmlFor="title">ReportTitle*</Label>
 <Input
@@ -236,9 +236,9 @@ onChange={(e)=>handleInputChange('title',e.target.value)}
 {/*DiagnosticDetails*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">DiagnosticDetails</CardTitle>
+<CardTitleclas sName="text-bas e">DiagnosticDetails</CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
+<CardContentclas sName="space-y-4">
 <div>
 <LabelhtmlFor="symptoms">ReportedSymptoms</Label>
 <Textarea
@@ -299,40 +299,40 @@ rows={3}
 {/*RequiredParts*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">RequiredParts</CardTitle>
+<CardTitleclas sName="text-bas e">RequiredParts</CardTitle>
 <CardDescription>
 Searchandselectpartsneededforthisrepair
 </CardDescription>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="relative">
-<SearchclassName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
+<CardContentclas sName="space-y-4">
+<divclas sName="relative">
+<Searchclas sName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
 <Input
 placeholder="Searchpartsbyname,ID,orcategory..."
 value={partSearchTerm}
 onChange={(e)=>setPartSearchTerm(e.target.value)}
-className="pl-10"
+clas sName="pl-10"
 />
 </div>
 
 {partSearchTerm&&(
-<divclassName="borderrounded-lgp-2max-h-40overflow-y-auto">
+<divclas sName="borderrounded-lgp-2max-h-40overflow-y-auto">
 {filteredParts.map((part)=>(
 <div
 key={part.id}
-className="flexitems-centerjustify-betweenp-2hover:bg-mutedroundedcursor-pointer"
+clas sName="flexitems-centerjustify-betweenp-2hover:bg-mutedroundedcursor-pointer"
 onClick={()=>handlePartSelect(part.id)}
 >
 <div>
-<pclassName="font-mediumtext-sm">{part.name}</p>
-<pclassName="text-xstext-muted-foreground">{part.id}-{part.category}</p>
+<pclas sName="font-mediumtext-sm">{part.name}</p>
+<pclas sName="text-xstext-muted-foreground">{part.id}-{part.category}</p>
 </div>
-<divclassName="text-right">
-<pclassName="text-smfont-medium">
+<divclas sName="text-right">
+<pclas sName="text-smfont-medium">
 {newIntl.NumberFormat('vi-VN',{style:'currency',currency:'VND'}).format(part.price)}
 </p>
-<Buttonvariant="ghost"size="sm">
-<PlusclassName="h-4w-4"/>
+<Buttonvariant="ghost" size="sm">
+<Plusclas sName="h-4w-4"/>
 </Button>
 </div>
 </div>
@@ -341,23 +341,23 @@ onClick={()=>handlePartSelect(part.id)}
 )}
 
 {selectedParts.length>0&&(
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <Label>SelectedParts:</Label>
-<divclassName="flexflex-wrapgap-2">
+<divclas sName="flexflex-wrapgap-2">
 {selectedParts.map((partId)=>{
 const part=availableParts.find(p=>p.id===partId);
 if(!part)returnnull;
 
 return(
-<Badgekey={partId}variant="secondary"className="flexitems-centergap-2">
+<Badgekey={partId}variant="secondary" clas sName="flexitems-centergap-2">
 {part.name}-{newIntl.NumberFormat('vi-VN',{style:'currency',currency:'VND'}).format(part.price)}
 <Button
 variant="ghost"
 size="sm"
 onClick={()=>handlePartRemove(partId)}
-className="h-4w-4p-0hover:bg-transparent"
+clas sName="h-4w-4p-0hover:bg-transparent"
 >
-<XclassName="h-3w-3"/>
+<Xclas sName="h-3w-3"/>
 </Button>
 </Badge>
 );
@@ -371,10 +371,10 @@ className="h-4w-4p-0hover:bg-transparent"
 {/*CostEstimation*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">CostEstimation</CardTitle>
+<CardTitleclas sName="text-bas e">CostEstimation</CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="gridgap-4md:grid-cols-2">
+<CardContentclas sName="space-y-4">
+<divclas sName="gridgap-4md:grid-cols-2">
 <div>
 <LabelhtmlFor="laborHours">LaborHours</Label>
 <Input
@@ -398,8 +398,8 @@ onChange={(e)=>handleInputChange('estimatedCost',e.target.value)}
 </div>
 </div>
 
-<divclassName="p-4bg-mutedrounded-lg">
-<divclassName="flexitems-centerjustify-betweentext-sm">
+<divclas sName="p-4bg-mutedrounded-lg">
+<divclas sName="flexitems-centerjustify-betweentext-sm">
 <span>PartsCost:</span>
 <span>{newIntl.NumberFormat('vi-VN',{style:'currency',currency:'VND'}).format(
 selectedParts.reduce((total,partId)=>{
@@ -408,20 +408,20 @@ returntotal+(partpart.price:0);
 },0)
 )}</span>
 </div>
-<divclassName="flexitems-centerjustify-betweentext-sm">
+<divclas sName="flexitems-centerjustify-betweentext-sm">
 <span>LaborCost:</span>
 <span>{newIntl.NumberFormat('vi-VN',{style:'currency',currency:'VND'}).format(
 (parseFloat(formData.laborHours)*150000)||0
 )}</span>
 </div>
-<divclassName="flexitems-centerjustify-betweentext-sm">
+<divclas sName="flexitems-centerjustify-betweentext-sm">
 <span>Additional:</span>
 <span>{newIntl.NumberFormat('vi-VN',{style:'currency',currency:'VND'}).format(
 parseFloat(formData.estimatedCost)||0
 )}</span>
 </div>
-<divclassName="border-tpt-2mt-2">
-<divclassName="flexitems-centerjustify-betweenfont-medium">
+<divclas sName="border-tpt-2mt-2">
+<divclas sName="flexitems-centerjustify-betweenfont-medium">
 <span>TotalEstimatedCost:</span>
 <span>{newIntl.NumberFormat('vi-VN',{style:'currency',currency:'VND'}).format(
 calculateTotalCost()
@@ -430,13 +430,13 @@ calculateTotalCost()
 </div>
 </div>
 
-<divclassName="flexitems-centerspace-x-2">
+<divclas sName="flexitems-centerspace-x-2">
 <Checkbox
 id="customerApproval"
 checked={formData.customerApprovalRequired}
 onCheckedChange={(checked)=>handleInputChange('customerApprovalRequired',checked)}
 />
-<LabelhtmlFor="customerApproval"className="text-sm">
+<LabelhtmlFor="customerApproval" clas sName="text-sm">
 Customerapprovalrequiredbeforeproceeding
 </Label>
 </div>
@@ -446,43 +446,43 @@ Customerapprovalrequiredbeforeproceeding
 {/*Attachments*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">Attachments</CardTitle>
+<CardTitleclas sName="text-bas e">Attachments</CardTitle>
 <CardDescription>
 Uploadphotos,videos,anddocuments(Max10files,5MBeach)
 </CardDescription>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="border-2border-dashedborder-muted-foreground/25rounded-lgp-6text-center">
+<CardContentclas sName="space-y-4">
+<divclas sName="border-2border-das hedborder-muted-foreground/25rounded-lgp-6text-center">
 <input
 type="file"
 id="file-upload"
 multiple
 accept="image/*,video/*,.pdf,.doc,.docx"
 onChange={handleFileUpload}
-className="hidden"
+clas sName="hidden"
 />
 <label
 htmlFor="file-upload"
-className="cursor-pointerflexflex-colitems-centerspace-y-2"
+clas sName="cursor-pointerflexflex-colitems-centerspace-y-2"
 >
-<UploadclassName="h-8w-8text-muted-foreground"/>
-<pclassName="text-smtext-muted-foreground">
+<Uploadclas sName="h-8w-8text-muted-foreground"/>
+<pclas sName="text-smtext-muted-foreground">
 Clicktouploadordraganddropfileshere
 </p>
 </label>
 </div>
 
 {attachments.length>0&&(
-<divclassName="gridgap-2md:grid-cols-2">
+<divclas sName="gridgap-2md:grid-cols-2">
 {attachments.map((file,index)=>{
 const Icon=getFileIcon(file);
 return(
-<divkey={index}className="flexitems-centerjustify-betweenp-2borderrounded">
-<divclassName="flexitems-centerspace-x-2">
-<IconclassName="h-4w-4text-muted-foreground"/>
+<divkey={index}clas sName="flexitems-centerjustify-betweenp-2borderrounded">
+<divclas sName="flexitems-centerspace-x-2">
+<Iconclas sName="h-4w-4text-muted-foreground"/>
 <div>
-<pclassName="text-smfont-mediumtruncatemax-w-[200px]">{file.name}</p>
-<pclassName="text-xstext-muted-foreground">{formatFileSize(file.size)}</p>
+<pclas sName="text-smfont-mediumtruncatemax-w-[200px]">{file.name}</p>
+<pclas sName="text-xstext-muted-foreground">{formatFileSize(file.size)}</p>
 </div>
 </div>
 <Button
@@ -490,7 +490,7 @@ variant="ghost"
 size="sm"
 onClick={()=>handleRemoveAttachment(index)}
 >
-<XclassName="h-4w-4"/>
+<Xclas sName="h-4w-4"/>
 </Button>
 </div>
 );
@@ -501,24 +501,24 @@ onClick={()=>handleRemoveAttachment(index)}
 </Card>
 
 {/*Actions*/}
-<divclassName="flexitems-centerjustify-betweenpt-4border-t">
-<Buttonvariant="outline"onClick={onClose}>
+<divclas sName="flexitems-centerjustify-betweenpt-4border-t">
+<Buttonvariant="outline" onClick={onClose}>
 Cancel
 </Button>
 
-<divclassName="flexitems-centerspace-x-3">
+<divclas sName="flexitems-centerspace-x-3">
 <Button
 variant="secondary"
 onClick={()=>handleSubmit(true)}
 >
-<FileTextclassName="mr-2h-4w-4"/>
-SaveasDraft
+<FileTextclas sName="mr-2h-4w-4"/>
+Saveas Draft
 </Button>
 <Button
 variant="gradient"
 onClick={()=>handleSubmit(false)}
 >
-<CheckCircleclassName="mr-2h-4w-4"/>
+<CheckCircleclas sName="mr-2h-4w-4"/>
 SubmitReport
 </Button>
 </div>

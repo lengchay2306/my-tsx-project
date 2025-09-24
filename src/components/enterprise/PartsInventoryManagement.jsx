@@ -1,22 +1,22 @@
-importReact,{useState } from'react';
-import { Card,CardContent,CardHeader,CardTitle } from'@/components/ui/card';
-import { Button } from'@/components/ui/button';
-import { Input } from'@/components/ui/input';
-import { Label } from'@/components/ui/label';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from'@/components/ui/select';
-import { Textarea } from'@/components/ui/textarea';
-import { Badge } from'@/components/ui/badge';
-import { Tabs,TabsContent,TabsList,TabsTrigger } from'@/components/ui/tabs';
-import { Dialog,DialogContent,DialogHeader,DialogTitle } from'@/components/ui/dialog';
-import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from'@/components/ui/table';
-import { toast } from'sonner';
+importReact,{useState } from 'react';
+import { Card,CardContent,CardHeader,CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
+import { Badge } from '@/components/ui/badge';
+import { Tabs,TabsContent,TabsList,TabsTrigger } from '@/components/ui/tabs';
+import { Dialog,DialogContent,DialogHeader,DialogTitle } from '@/components/ui/dialog';
+import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from '@/components/ui/table';
+import { toast } from 'sonner';
 import { 
 Package,
 Plus,
 Search,
 Filter,
 Edit2,
-Trash2,
+Tras h2,
 AlertTriangle,
 TrendingUp,
 TrendingDown,
@@ -24,7 +24,7 @@ BarChart3,
 Download,
 Upload,
 Eye
- } from'lucide-react';
+ } from 'lucide-react';
 
 interfacePart{
 id:string;
@@ -39,7 +39,7 @@ unitCost:number;
 supplierName:string;
 location:string;
 status:'active'|'discontinued'|'low-stock';
-lastUpdated:string;
+las tUpdated:string;
 stockMovements:StockMovement[];
 }
 
@@ -47,7 +47,7 @@ interfaceStockMovement{
 id:string;
 type:'in'|'out';
 quantity:number;
-reason:string;
+reas on:string;
 date:string;
 reference:string;
 performedBy:string;
@@ -80,13 +80,13 @@ unitCost:15000000,
 supplierName:'BatteryTechCo',
 location:'A1-01',
 status:'low-stock',
-lastUpdated:'2024-09-18',
+las tUpdated:'2024-09-18',
 stockMovements:[
 {
 id:'1',
 type:'out',
 quantity:2,
-reason:'Warrantyreplacement',
+reas on:'Warrantyreplacement',
 date:'2024-09-18',
 reference:'WC-24-001',
 performedBy:'Tech001'
@@ -106,13 +106,13 @@ unitCost:8000000,
 supplierName:'ElectroMotorLtd',
 location:'B2-05',
 status:'active',
-lastUpdated:'2024-09-17',
+las tUpdated:'2024-09-17',
 stockMovements:[]
 },
 {
 id:'3',
 partCode:'CHG-DC-003',
-partName:'DCFastChargerPort',
+partName:'DCFas tChargerPort',
 category:'Charging',
 vehicleModel:'AllModels',
 currentStock:25,
@@ -122,7 +122,7 @@ unitCost:2500000,
 supplierName:'ChargeTechInc',
 location:'C1-12',
 status:'active',
-lastUpdated:'2024-09-16',
+las tUpdated:'2024-09-16',
 stockMovements:[]
 }
 ]);
@@ -130,8 +130,8 @@ stockMovements:[]
 const categories=['all','Battery','Motor','Charging','Electronics','Mechanical'];
 
 const filteredParts=parts.filter(part=>{
-const matchesSearch=part.partName.toLowerCase().includes(searchTerm.toLowerCase())||
-part.partCode.toLowerCase().includes(searchTerm.toLowerCase());
+const matchesSearch=part.partName.toLowerCas e().includes(searchTerm.toLowerCas e())||
+part.partCode.toLowerCas e().includes(searchTerm.toLowerCas e());
 const matchesCategory=selectedCategory==='all'||part.category===selectedCategory;
 returnmatchesSearch&&matchesCategory;
 });
@@ -144,21 +144,21 @@ return{
 status:'low-stock',
 label:'Thiếuhàng',
 variant:'destructive',
-icon:<AlertTriangleclassName="w-3h-3"/>
+icon:<AlertTriangleclas sName="w-3h-3"/>
 };
 }elseif(part.currentStock>=part.maxStock*0.8){
 return{
 status:'high-stock',
 label:'Dưthừa',
 variant:'secondary',
-icon:<TrendingUpclassName="w-3h-3"/>
+icon:<TrendingUpclas sName="w-3h-3"/>
 };
 }
 return{
 status:'normal',
 label:'Bìnhthường',
 variant:'default',
-icon:<PackageclassName="w-3h-3"/>
+icon:<Packageclas sName="w-3h-3"/>
 };
 };
 
@@ -178,7 +178,7 @@ minStock:parseInt(formData.minStock),
 maxStock:parseInt(formData.maxStock),
 unitCost:parseInt(formData.unitCost),
 status:'active',
-lastUpdated:newDate().toISOString().split('T')[0],
+las tUpdated:newDate().toISOString().split('T')[0],
 stockMovements:[]
 };
 
@@ -197,7 +197,7 @@ currentStock:parseInt(formData.currentStock),
 minStock:parseInt(formData.minStock),
 maxStock:parseInt(formData.maxStock),
 unitCost:parseInt(formData.unitCost),
-lastUpdated:newDate().toISOString().split('T')[0]
+las tUpdated:newDate().toISOString().split('T')[0]
 }
 :part
 ));
@@ -223,37 +223,37 @@ setShowDetailView(true);
 
 return(
 <Dialogopen={true}onOpenChange={onClose}>
-<DialogContentclassName="max-w-7xlmax-h-[90vh]overflow-hidden">
+<DialogContentclas sName="max-w-7xlmax-h-[90vh]overflow-hidden">
 <DialogHeader>
-<DialogTitleclassName="flexitems-centergap-2">
-<PackageclassName="w-5h-5text-primary"/>
+<DialogTitleclas sName="flexitems-centergap-2">
+<Packageclas sName="w-5h-5text-primary"/>
 Quảnlýkhophụtùng
 </DialogTitle>
 </DialogHeader>
 
-<TabsdefaultValue="inventory"className="w-full">
-<TabsListclassName="gridw-fullgrid-cols-4">
+<TabsdefaultValue="inventory" clas sName="w-full">
+<TabsListclas sName="gridw-fullgrid-cols-4">
 <TabsTriggervalue="inventory">Khohàng</TabsTrigger>
 <TabsTriggervalue="alerts">Cảnhbáo({lowStockParts.length})</TabsTrigger>
 <TabsTriggervalue="movements">Xuấtnhậpkho</TabsTrigger>
 <TabsTriggervalue="analytics">Phântích</TabsTrigger>
 </TabsList>
 
-<TabsContentvalue="inventory"className="space-y-4">
+<TabsContentvalue="inventory" clas sName="space-y-4">
 {/*SearchandFilters*/}
-<divclassName="flexflex-colsm:flex-rowgap-4">
-<divclassName="relativeflex-1">
-<SearchclassName="absoluteleft-3top-1/2transform-translate-y-1/2text-muted-foregroundw-4h-4"/>
+<divclas sName="flexflex-colsm:flex-rowgap-4">
+<divclas sName="relativeflex-1">
+<Searchclas sName="absoluteleft-3top-1/2transform-translate-y-1/2text-muted-foregroundw-4h-4"/>
 <Input
 placeholder="Tìmkiếmtheotênhoặcmãphụtùng..."
 value={searchTerm}
 onChange={(e)=>setSearchTerm(e.target.value)}
-className="pl-10"
+clas sName="pl-10"
 />
 </div>
 <Selectvalue={selectedCategory}onValueChange={setSelectedCategory}>
-<SelectTriggerclassName="w-[200px]">
-<FilterclassName="w-4h-4mr-2"/>
+<SelectTriggerclas sName="w-[200px]">
+<Filterclas sName="w-4h-4mr-2"/>
 <SelectValue/>
 </SelectTrigger>
 <SelectContent>
@@ -264,15 +264,15 @@ className="pl-10"
 ))}
 </SelectContent>
 </Select>
-<ButtononClick={()=>setShowAddForm(true)}className="shrink-0">
-<PlusclassName="w-4h-4mr-2"/>
+<ButtononClick={()=>setShowAddForm(true)}clas sName="shrink-0">
+<Plusclas sName="w-4h-4mr-2"/>
 Thêmphụtùng
 </Button>
 </div>
 
 {/*PartsTable*/}
 <Card>
-<CardContentclassName="p-0">
+<CardContentclas sName="p-0">
 <Table>
 <TableHeader>
 <TableRow>
@@ -291,15 +291,15 @@ Thêmphụtùng
 const stockStatus=getStockStatus(part);
 return(
 <TableRowkey={part.id}>
-<TableCellclassName="font-medium">{part.partCode}</TableCell>
+<TableCellclas sName="font-medium">{part.partCode}</TableCell>
 <TableCell>{part.partName}</TableCell>
 <TableCell>{part.category}</TableCell>
 <TableCell>
-<spanclassName="font-medium">{part.currentStock}</span>
-<spanclassName="text-muted-foreground">/{part.maxStock}</span>
+<spanclas sName="font-medium">{part.currentStock}</span>
+<spanclas sName="text-muted-foreground">/{part.maxStock}</span>
 </TableCell>
 <TableCell>
-<Badgevariant={stockStatus.variant}className="gap-1">
+<Badgevariant={stockStatus.variant}clas sName="gap-1">
 {stockStatus.icon}
 {stockStatus.label}
 </Badge>
@@ -307,27 +307,27 @@ return(
 <TableCell>{formatCurrency(part.unitCost)}</TableCell>
 <TableCell>{part.location}</TableCell>
 <TableCell>
-<divclassName="flexitems-centergap-2">
+<divclas sName="flexitems-centergap-2">
 <Button
 variant="ghost"
 size="sm"
 onClick={()=>openDetailView(part)}
 >
-<EyeclassName="w-4h-4"/>
+<Eyeclas sName="w-4h-4"/>
 </Button>
 <Button
 variant="ghost"
 size="sm"
 onClick={()=>openEditForm(part)}
 >
-<Edit2className="w-4h-4"/>
+<Edit2clas sName="w-4h-4"/>
 </Button>
 <Button
 variant="ghost"
 size="sm"
 onClick={()=>handleDeletePart(part.id)}
 >
-<Trash2className="w-4h-4"/>
+<Tras h2clas sName="w-4h-4"/>
 </Button>
 </div>
 </TableCell>
@@ -340,15 +340,15 @@ onClick={()=>handleDeletePart(part.id)}
 </Card>
 </TabsContent>
 
-<TabsContentvalue="alerts"className="space-y-4">
+<TabsContentvalue="alerts" clas sName="space-y-4">
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centergap-2text-orange-600">
-<AlertTriangleclassName="w-5h-5"/>
+<CardTitleclas sName="flexitems-centergap-2text-orange-600">
+<AlertTriangleclas sName="w-5h-5"/>
 Cảnhbáothiếuhàng({lowStockParts.length}mặthàng)
 </CardTitle>
 </CardHeader>
-<CardContentclassName="p-0">
+<CardContentclas sName="p-0">
 <Table>
 <TableHeader>
 <TableRow>
@@ -362,16 +362,16 @@ Cảnhbáothiếuhàng({lowStockParts.length}mặthàng)
 </TableHeader>
 <TableBody>
 {lowStockParts.map(part=>(
-<TableRowkey={part.id}className="bg-orange-50">
-<TableCellclassName="font-medium">{part.partCode}</TableCell>
+<TableRowkey={part.id}clas sName="bg-orange-50">
+<TableCellclas sName="font-medium">{part.partCode}</TableCell>
 <TableCell>{part.partName}</TableCell>
-<TableCellclassName="text-red-600font-medium">{part.currentStock}</TableCell>
+<TableCellclas sName="text-red-600font-medium">{part.currentStock}</TableCell>
 <TableCell>{part.minStock}</TableCell>
-<TableCellclassName="font-mediumtext-blue-600">
+<TableCellclas sName="font-mediumtext-blue-600">
 {part.maxStock-part.currentStock}
 </TableCell>
 <TableCell>
-<Buttonvariant="outline"size="sm">
+<Buttonvariant="outline" size="sm">
 Đặthàng
 </Button>
 </TableCell>
@@ -383,12 +383,12 @@ Cảnhbáothiếuhàng({lowStockParts.length}mặthàng)
 </Card>
 </TabsContent>
 
-<TabsContentvalue="movements"className="space-y-4">
+<TabsContentvalue="movements" clas sName="space-y-4">
 <Card>
 <CardHeader>
 <CardTitle>Lịchsửxuấtnhậpkho</CardTitle>
 </CardHeader>
-<CardContentclassName="p-0">
+<CardContentclas sName="p-0">
 <Table>
 <TableHeader>
 <TableRow>
@@ -411,19 +411,19 @@ part.stockMovements.map(movement=>(
 <Badgevariant={movement.type==='in''default':'secondary'}>
 {movement.type==='in'(
 <>
-<TrendingUpclassName="w-3h-3mr-1"/>
+<TrendingUpclas sName="w-3h-3mr-1"/>
 Nhập
 </>
 ):(
 <>
-<TrendingDownclassName="w-3h-3mr-1"/>
+<TrendingDownclas sName="w-3h-3mr-1"/>
 Xuất
 </>
 )}
 </Badge>
 </TableCell>
 <TableCell>{movement.quantity}</TableCell>
-<TableCell>{movement.reason}</TableCell>
+<TableCell>{movement.reas on}</TableCell>
 <TableCell>{movement.reference}</TableCell>
 <TableCell>{movement.performedBy}</TableCell>
 </TableRow>
@@ -435,54 +435,54 @@ Xuất
 </Card>
 </TabsContent>
 
-<TabsContentvalue="analytics"className="space-y-4">
-<divclassName="gridgrid-cols-1md:grid-cols-4gap-4">
+<TabsContentvalue="analytics" clas sName="space-y-4">
+<divclas sName="gridgrid-cols-1md:grid-cols-4gap-4">
 <Card>
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smtext-muted-foreground">Tổngphụtùng</p>
-<pclassName="text-2xlfont-bold">{parts.length}</p>
+<pclas sName="text-smtext-muted-foreground">Tổngphụtùng</p>
+<pclas sName="text-2xlfont-bold">{parts.length}</p>
 </div>
-<PackageclassName="w-8h-8text-blue-600"/>
+<Packageclas sName="w-8h-8text-blue-600"/>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smtext-muted-foreground">Thiếuhàng</p>
-<pclassName="text-2xlfont-boldtext-red-600">{lowStockParts.length}</p>
+<pclas sName="text-smtext-muted-foreground">Thiếuhàng</p>
+<pclas sName="text-2xlfont-boldtext-red-600">{lowStockParts.length}</p>
 </div>
-<AlertTriangleclassName="w-8h-8text-red-600"/>
+<AlertTriangleclas sName="w-8h-8text-red-600"/>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smtext-muted-foreground">Giátrịtồnkho</p>
-<pclassName="text-2xlfont-bold">
+<pclas sName="text-smtext-muted-foreground">Giátrịtồnkho</p>
+<pclas sName="text-2xlfont-bold">
 {formatCurrency(parts.reduce((sum,part)=>sum+(part.currentStock*part.unitCost),0))}
 </p>
 </div>
-<BarChart3className="w-8h-8text-green-600"/>
+<BarChart3clas sName="w-8h-8text-green-600"/>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smtext-muted-foreground">Danhmục</p>
-<pclassName="text-2xlfont-bold">{categories.length-1}</p>
+<pclas sName="text-smtext-muted-foreground">Danhmục</p>
+<pclas sName="text-2xlfont-bold">{categories.length-1}</p>
 </div>
-<FilterclassName="w-8h-8text-purple-600"/>
+<Filterclas sName="w-8h-8text-purple-600"/>
 </div>
 </CardContent>
 </Card>
@@ -551,15 +551,15 @@ onSubmit(formData);
 
 return(
 <Dialogopen={true}onOpenChange={onCancel}>
-<DialogContentclassName="max-w-2xl">
+<DialogContentclas sName="max-w-2xl">
 <DialogHeader>
 <DialogTitle>
 {initialData'Chỉnhsửaphụtùng':'Thêmphụtùngmới'}
 </DialogTitle>
 </DialogHeader>
 
-<formonSubmit={handleSubmit}className="space-y-4">
-<divclassName="gridgrid-cols-2gap-4">
+<formonSubmit={handleSubmit}clas sName="space-y-4">
+<divclas sName="gridgrid-cols-2gap-4">
 <div>
 <LabelhtmlFor="partCode">Mãphụtùng</Label>
 <Input
@@ -596,7 +596,7 @@ required
 />
 </div>
 
-<divclassName="gridgrid-cols-3gap-4">
+<divclas sName="gridgrid-cols-3gap-4">
 <div>
 <LabelhtmlFor="currentStock">Tồnkhohiệntại</Label>
 <Input
@@ -629,7 +629,7 @@ required
 </div>
 </div>
 
-<divclassName="gridgrid-cols-2gap-4">
+<divclas sName="gridgrid-cols-2gap-4">
 <div>
 <LabelhtmlFor="unitCost">Đơngiá(VNĐ)</Label>
 <Input
@@ -671,8 +671,8 @@ required
 />
 </div>
 
-<divclassName="flexjustify-endgap-2pt-4">
-<Buttontype="button"variant="outline"onClick={onCancel}>
+<divclas sName="flexjustify-endgap-2pt-4">
+<Buttontype="button" variant="outline" onClick={onCancel}>
 Hủy
 </Button>
 <Buttontype="submit">
@@ -702,40 +702,40 @@ currency:'VND'
 
 return(
 <Dialogopen={true}onOpenChange={onClose}>
-<DialogContentclassName="max-w-2xl">
+<DialogContentclas sName="max-w-2xl">
 <DialogHeader>
 <DialogTitle>Chitiếtphụtùng:{part.partCode}</DialogTitle>
 </DialogHeader>
 
-<divclassName="space-y-6">
-{/*BasicInfo*/}
+<divclas sName="space-y-6">
+{/*Bas icInfo*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">Thôngtincơbản</CardTitle>
+<CardTitleclas sName="text-bas e">Thôngtincơbản</CardTitle>
 </CardHeader>
-<CardContentclassName="gridgrid-cols-2gap-4">
+<CardContentclas sName="gridgrid-cols-2gap-4">
 <div>
-<LabelclassName="text-smtext-muted-foreground">Mãphụtùng</Label>
-<pclassName="font-medium">{part.partCode}</p>
+<Labelclas sName="text-smtext-muted-foreground">Mãphụtùng</Label>
+<pclas sName="font-medium">{part.partCode}</p>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Tênphụtùng</Label>
-<pclassName="font-medium">{part.partName}</p>
+<Labelclas sName="text-smtext-muted-foreground">Tênphụtùng</Label>
+<pclas sName="font-medium">{part.partName}</p>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Danhmục</Label>
+<Labelclas sName="text-smtext-muted-foreground">Danhmục</Label>
 <p>{part.category}</p>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Dòngxe</Label>
+<Labelclas sName="text-smtext-muted-foreground">Dòngxe</Label>
 <p>{part.vehicleModel}</p>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Nhàcungcấp</Label>
+<Labelclas sName="text-smtext-muted-foreground">Nhàcungcấp</Label>
 <p>{part.supplierName}</p>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Vịtríkho</Label>
+<Labelclas sName="text-smtext-muted-foreground">Vịtríkho</Label>
 <p>{part.location}</p>
 </div>
 </CardContent>
@@ -744,18 +744,18 @@ return(
 {/*StockInfo*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">Thôngtintồnkho</CardTitle>
+<CardTitleclas sName="text-bas e">Thôngtintồnkho</CardTitle>
 </CardHeader>
-<CardContentclassName="gridgrid-cols-2gap-4">
+<CardContentclas sName="gridgrid-cols-2gap-4">
 <div>
-<LabelclassName="text-smtext-muted-foreground">Tồnkhohiệntại</Label>
-<pclassName={`text-2xlfont-bold${stockStatus==='low-stock''text-red-600':'text-green-600'}`}>
+<Labelclas sName="text-smtext-muted-foreground">Tồnkhohiệntại</Label>
+<pclas sName={`text-2xlfont-bold${stockStatus==='low-stock''text-red-600':'text-green-600'}`}>
 {part.currentStock}
 </p>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Trạngthái</Label>
-<divclassName="mt-1">
+<Labelclas sName="text-smtext-muted-foreground">Trạngthái</Label>
+<divclas sName="mt-1">
 <Badgevariant={stockStatus==='low-stock''destructive':'default'}>
 {stockStatus==='low-stock''Thiếuhàng':
 stockStatus==='high-stock''Dưthừa':'Bìnhthường'}
@@ -763,20 +763,20 @@ stockStatus==='high-stock''Dưthừa':'Bìnhthường'}
 </div>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Mứctốithiểu</Label>
+<Labelclas sName="text-smtext-muted-foreground">Mứctốithiểu</Label>
 <p>{part.minStock}</p>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Mứctốiđa</Label>
+<Labelclas sName="text-smtext-muted-foreground">Mứctốiđa</Label>
 <p>{part.maxStock}</p>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Đơngiá</Label>
-<pclassName="font-medium">{formatCurrency(part.unitCost)}</p>
+<Labelclas sName="text-smtext-muted-foreground">Đơngiá</Label>
+<pclas sName="font-medium">{formatCurrency(part.unitCost)}</p>
 </div>
 <div>
-<LabelclassName="text-smtext-muted-foreground">Giátrịtồnkho</Label>
-<pclassName="font-medium">{formatCurrency(part.currentStock*part.unitCost)}</p>
+<Labelclas sName="text-smtext-muted-foreground">Giátrịtồnkho</Label>
+<pclas sName="font-medium">{formatCurrency(part.currentStock*part.unitCost)}</p>
 </div>
 </CardContent>
 </Card>
@@ -784,16 +784,16 @@ stockStatus==='high-stock''Dưthừa':'Bìnhthường'}
 {/*RecentMovements*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">Xuấtnhậpkhogầnđây</CardTitle>
+<CardTitleclas sName="text-bas e">Xuấtnhậpkhogầnđây</CardTitle>
 </CardHeader>
 <CardContent>
 {part.stockMovements.length>0(
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 {part.stockMovements.slice(0,3).map(movement=>(
-<divkey={movement.id}className="flexjustify-betweenitems-centerp-2bg-mutedrounded">
+<divkey={movement.id}clas sName="flexjustify-betweenitems-centerp-2bg-mutedrounded">
 <div>
-<pclassName="text-smfont-medium">{movement.reason}</p>
-<pclassName="text-xstext-muted-foreground">{movement.date}</p>
+<pclas sName="text-smfont-medium">{movement.reas on}</p>
+<pclas sName="text-xstext-muted-foreground">{movement.date}</p>
 </div>
 <Badgevariant={movement.type==='in''default':'secondary'}>
 {movement.type==='in''+':'-'}{movement.quantity}
@@ -802,13 +802,13 @@ stockStatus==='high-stock''Dưthừa':'Bìnhthường'}
 ))}
 </div>
 ):(
-<pclassName="text-smtext-muted-foreground">Chưacógiaodịchnào</p>
+<pclas sName="text-smtext-muted-foreground">Chưacógiaodịchnào</p>
 )}
 </CardContent>
 </Card>
 </div>
 
-<divclassName="flexjustify-endpt-4">
+<divclas sName="flexjustify-endpt-4">
 <ButtononClick={onClose}>Đóng</Button>
 </div>
 </DialogContent>

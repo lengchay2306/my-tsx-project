@@ -1,11 +1,11 @@
-import { useState } from"react";
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from"@/components/ui/card";
-import { Button } from"@/components/ui/button";
-import { Badge } from"@/components/ui/badge";
-import { Avatar,AvatarFallback,AvatarImage } from"@/components/ui/avatar";
-import { Textarea } from"@/components/ui/textarea";
-import { Dialog,DialogContent,DialogHeader,DialogTitle,DialogTrigger } from"@/components/ui/dialog";
-import { Label } from"@/components/ui/label";
+import { useState } from "react";
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar,AvatarFallback,AvatarImage } from "@/components/ui/avatar";
+import { Textarea } from "@/components/ui/textarea";
+import { Dialog,DialogContent,DialogHeader,DialogTitle,DialogTrigger } from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
 import { 
 CheckCircle,
 X,
@@ -20,18 +20,18 @@ FileText,
 Camera,
 Send,
 ChevronRight
- } from"lucide-react";
+ } from "lucide-react";
 
 interfaceReportDecision{
 reportId:string;
 status:'pending'|'approved'|'rejected';
-rejectReason:string;
+rejectReas on:string;
 }
 
 const ClaimReviewInterfacePro=()=>{
 const[selectedClaim,setSelectedClaim]=useState("WC-25-09-001");
 const[decisions,setDecisions]=useState<Record<string,ReportDecision>>({});
-const[rejectReason,setRejectReason]=useState("");
+const[rejectReas on,setRejectReas on]=useState("");
 const[isRejectDialogOpen,setIsRejectDialogOpen]=useState(false);
 const[pendingRejectReportId,setPendingRejectReportId]=useState("");
 
@@ -39,7 +39,7 @@ const[pendingRejectReportId,setPendingRejectReportId]=useState("");
 const pendingClaims=[
 {
 id:"WC-25-09-001",
-serviceCenter:"VinFastServiceCenterHanoi",
+serviceCenter:"VinFas tServiceCenterHanoi",
 customer:"NguyễnVănAn",
 vin:"VF8ABC123456789",
 model:"VF8Plus",
@@ -49,7 +49,7 @@ reportsCount:2
 },
 {
 id:"WC-25-09-006",
-serviceCenter:"VinFastServiceCenterHCMC",
+serviceCenter:"VinFas tServiceCenterHCMC",
 customer:"TrầnThịBích",
 vin:"VF9DEF456789012",
 model:"VF9Premium",
@@ -59,7 +59,7 @@ reportsCount:1
 },
 {
 id:"WC-25-09-007",
-serviceCenter:"VinFastServiceCenterDaNang",
+serviceCenter:"VinFas tServiceCenterDaNang",
 customer:"LêMinhHoàng",
 vin:"VF8GHI789012345",
 model:"VF8Eco",
@@ -73,7 +73,7 @@ reportsCount:3
 const claimDetails={
 id:"WC-25-09-001",
 serviceCenter:{
-name:"VinFastServiceCenterHanoi",
+name:"VinFas tServiceCenterHanoi",
 address:"123CầuGiấyStreet,CầuGiấyDistrict,Hanoi",
 contact:"+842412345678"
 },
@@ -85,7 +85,7 @@ email:"nguyen.van.an@email.com"
 vehicle:{
 model:"VF8Plus",
 vin:"VF8ABC123456789",
-purchaseDate:"2024-03-15",
+purchas eDate:"2024-03-15",
 odometer:"12,450km",
 color:"ArcticWhite"
 },
@@ -97,8 +97,8 @@ diagnosticReports:[
 id:"DR-001",
 title:"BatterySystemDiagnostic",
 technician:"TrầnMinhBảo",
-diagnosis:"Batterypackshowingdegradedcellsinmodule3.Thermalrunawayprotectiontriggeredtwiceduringchargingcycles.Cellvoltageimbalancedetectedacross4cellswithinmodule.RecommendimmediatereplacementofbatterymoduleBM-VF8-03andcoolingsystemgaskettopreventfurtherdegradation.",
-requiredParts:["BatteryModuleBM-VF8-03($2,850)","CoolingSystemGasketCSG-001($45)"],
+diagnosis:"Batterypackshowingdegradedcellsinmodule3.Thermalrunawayprotectiontriggeredtwiceduringchargingcycles.Cellvoltageimbalancedetectedacross4cellswithinmodule.RecommendimmediatereplacementofbatterymoduleBM-VF8-03andcoolingsystemgas kettopreventfurtherdegradation.",
+requiredParts:["BatteryModuleBM-VF8-03($2,850)"," CoolingSystemGas ketCSG-001($45)"],
 photos:[
 {id:1,description:"Batterymodulethermalimagingshowinghotspots"},
 {id:2,description:"Cellvoltagereadingsdisplay"},
@@ -134,17 +134,17 @@ setIsRejectDialogOpen(true);
 };
 
 const confirmRejectReport=()=>{
-if(rejectReason.trim()&&pendingRejectReportId){
+if(rejectReas on.trim()&&pendingRejectReportId){
 setDecisions(prev=>({
 ...prev,
 [pendingRejectReportId]:{
 reportId:pendingRejectReportId,
 status:'rejected',
-rejectReason:rejectReason.trim()
+rejectReas on:rejectReas on.trim()
 }
 }));
 
-setRejectReason("");
+setRejectReas on("");
 setPendingRejectReportId("");
 setIsRejectDialogOpen(false);
 }
@@ -169,59 +169,59 @@ returndecision.status;
 
 const getPriorityBadge=(priority))=>{
 const config={
-high:{className:"bg-destructive/10text-destructiveborder-destructive"},
-medium:{className:"bg-warning/10text-warningborder-warning"},
-low:{className:"bg-mutedtext-muted-foregroundborder-muted-foreground"}
+high:{clas sName:"bg-destructive/10text-destructiveborder-destructive"},
+medium:{clas sName:"bg-warning/10text-warningborder-warning"},
+low:{clas sName:"bg-mutedtext-muted-foregroundborder-muted-foreground"}
 };
 
-const style=config[priorityaskeyoftypeofconfig]||config.medium;
+const style=config[priorityas keyoftypeofconfig]||config.medium;
 return(
-<Badgevariant="outline"className={`${style.className}text-xscapitalize`}>
+<Badgevariant="outline" clas sName={`${style.clas sName}text-xscapitalize`}>
 {priority}
 </Badge>
 );
 };
 
 return(
-<divclassName="flexh-screenbg-background">
+<divclas sName="flexh-screenbg-background">
 {/*LeftPanel-ClaimsQueue*/}
-<divclassName="w-80border-rbg-card">
-<divclassName="p-6border-b">
-<h2className="text-xlfont-bold">ClaimsPendingReview</h2>
-<pclassName="text-smtext-muted-foregroundmt-1">{pendingClaims.length}claimsawaitingdecision</p>
+<divclas sName="w-80border-rbg-card">
+<divclas sName="p-6border-b">
+<h2clas sName="text-xlfont-bold">ClaimsPendingReview</h2>
+<pclas sName="text-smtext-muted-foregroundmt-1">{pendingClaims.length}claimsawaitingdecision</p>
 </div>
 
-<divclassName="overflow-y-autoh-fullpb-20">
+<divclas sName="overflow-y-autoh-fullpb-20">
 {pendingClaims.map((claim)=>(
 <div
 key={claim.id}
-className={`p-4border-bcursor-pointerhover:bg-muted/50transition-colors${
+clas sName={`p-4border-bcursor-pointerhover:bg-muted/50transition-colors${
 selectedClaim===claim.id'bg-primary/5border-r-4border-r-primary':''
 }`}
 onClick={()=>setSelectedClaim(claim.id)}
 >
-<divclassName="space-y-2">
-<divclassName="flexitems-centerjustify-between">
-<spanclassName="font-monotext-smfont-mediumtext-primary">{claim.id}</span>
+<divclas sName="space-y-2">
+<divclas sName="flexitems-centerjustify-between">
+<spanclas sName="font-monotext-smfont-mediumtext-primary">{claim.id}</span>
 {getPriorityBadge(claim.priority)}
 </div>
 
 <div>
-<pclassName="font-mediumtext-sm">{claim.customer}</p>
-<pclassName="text-xstext-muted-foreground">{claim.model}•{claim.vin}</p>
+<pclas sName="font-mediumtext-sm">{claim.customer}</p>
+<pclas sName="text-xstext-muted-foreground">{claim.model}•{claim.vin}</p>
 </div>
 
-<divclassName="text-xstext-muted-foreground">
-<divclassName="flexitems-centerspace-x-1">
-<MapPinclassName="h-3w-3"/>
-<spanclassName="truncate">{claim.serviceCenter}</span>
+<divclas sName="text-xstext-muted-foreground">
+<divclas sName="flexitems-centerspace-x-1">
+<MapPinclas sName="h-3w-3"/>
+<spanclas sName="truncate">{claim.serviceCenter}</span>
 </div>
-<divclassName="flexitems-centerspace-x-1mt-1">
-<CalendarclassName="h-3w-3"/>
+<divclas sName="flexitems-centerspace-x-1mt-1">
+<Calendarclas sName="h-3w-3"/>
 <span>Submitted{claim.dateSubmitted}</span>
 </div>
-<divclassName="flexitems-centerspace-x-1mt-1">
-<FileTextclassName="h-3w-3"/>
+<divclas sName="flexitems-centerspace-x-1mt-1">
+<FileTextclas sName="h-3w-3"/>
 <span>{claim.reportsCount}diagnosticreports</span>
 </div>
 </div>
@@ -232,70 +232,70 @@ onClick={()=>setSelectedClaim(claim.id)}
 </div>
 
 {/*RightPanel-ClaimDetails*/}
-<divclassName="flex-1overflow-y-auto">
-<divclassName="p-6space-y-6">
+<divclas sName="flex-1overflow-y-auto">
+<divclas sName="p-6space-y-6">
 {/*Header*/}
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<h1className="text-3xlfont-bold">{claimDetails.id}</h1>
-<pclassName="text-muted-foreground">Submittedby{claimDetails.submittedBy}on{claimDetails.dateSubmitted}</p>
+<h1clas sName="text-3xlfont-bold">{claimDetails.id}</h1>
+<pclas sName="text-muted-foreground">Submittedby{claimDetails.submittedBy}on{claimDetails.dateSubmitted}</p>
 </div>
 <Button
 size="lg"
 disabled={!canFinalize}
 onClick={handleFinalize}
-className={`${!canFinalize'opacity-50':'animate-pulse-glow'}`}
+clas sName={`${!canFinalize'opacity-50':'animate-pulse-glow'}`}
 >
-<SendclassName="h-4w-4mr-2"/>
+<Sendclas sName="h-4w-4mr-2"/>
 Finalize&SubmitDecisions
 </Button>
 </div>
 
-<divclassName="gridgap-6lg:grid-cols-3">
+<divclas sName="gridgap-6lg:grid-cols-3">
 {/*MainContent-Reports*/}
-<divclassName="lg:col-span-2space-y-6">
+<divclas sName="lg:col-span-2space-y-6">
 <Card>
 <CardHeader>
-<CardTitleclassName="text-xl">CustomerComplaint</CardTitle>
+<CardTitleclas sName="text-xl">CustomerComplaint</CardTitle>
 </CardHeader>
 <CardContent>
-<pclassName="text-smbg-mutedp-4rounded-lg">{claimDetails.complaint}</p>
+<pclas sName="text-smbg-mutedp-4rounded-lg">{claimDetails.complaint}</p>
 </CardContent>
 </Card>
 
 {/*DiagnosticReportsforReview*/}
-<divclassName="space-y-4">
-<h2className="text-2xlfont-bold">ReportsforApproval</h2>
+<divclas sName="space-y-4">
+<h2clas sName="text-2xlfont-bold">ReportsforApproval</h2>
 
 {claimDetails.diagnosticReports.map((report,index)=>{
 const status=getReportStatus(report.id);
 const decision=decisions[report.id];
 
 return(
-<Cardkey={report.id}className={`border-l-4${
+<Cardkey={report.id}clas sName={`border-l-4${
 status==='approved''border-l-successbg-success/5':
 status==='rejected''border-l-destructivebg-destructive/5':
 'border-l-warningbg-warning/5'
 }`}>
-<CardHeaderclassName="pb-4">
-<divclassName="flexitems-centerjustify-between">
-<CardTitleclassName="text-lg">{report.title}</CardTitle>
-<divclassName="flexitems-centerspace-x-2">
+<CardHeaderclas sName="pb-4">
+<divclas sName="flexitems-centerjustify-between">
+<CardTitleclas sName="text-lg">{report.title}</CardTitle>
+<divclas sName="flexitems-centerspace-x-2">
 {status==='pending'&&(
-<Badgevariant="outline"className="border-warningtext-warningbg-warning/5">
-<ClockclassName="h-3w-3mr-1"/>
+<Badgevariant="outline" clas sName="border-warningtext-warningbg-warning/5">
+<Clockclas sName="h-3w-3mr-1"/>
 AwaitingDecision
 </Badge>
 )}
 {status==='approved'&&(
-<Badgevariant="outline"className="border-successtext-successbg-success/5">
-<CheckCircleclassName="h-3w-3mr-1"/>
+<Badgevariant="outline" clas sName="border-successtext-successbg-success/5">
+<CheckCircleclas sName="h-3w-3mr-1"/>
 Approved
 </Badge>
 )}
 {status==='rejected'&&(
-<Badgevariant="outline"className="border-destructivetext-destructivebg-destructive/5">
-<XclassName="h-3w-3mr-1"/>
+<Badgevariant="outline" clas sName="border-destructivetext-destructivebg-destructive/5">
+<Xclas sName="h-3w-3mr-1"/>
 Rejected
 </Badge>
 )}
@@ -304,22 +304,22 @@ Rejected
 <CardDescription>By{report.technician}</CardDescription>
 </CardHeader>
 
-<CardContentclassName="space-y-4">
+<CardContentclas sName="space-y-4">
 <div>
-<h4className="font-mediummb-2">Diagnosis</h4>
-<pclassName="text-smbg-mutedp-3rounded-md">{report.diagnosis}</p>
+<h4clas sName="font-mediummb-2">Diagnosis</h4>
+<pclas sName="text-smbg-mutedp-3rounded-md">{report.diagnosis}</p>
 </div>
 
 {report.requiredParts.length>0&&(
 <div>
-<h4className="font-mediummb-2">RequiredParts&Cost</h4>
-<divclassName="space-y-1">
+<h4clas sName="font-mediummb-2">RequiredParts&Cost</h4>
+<divclas sName="space-y-1">
 {report.requiredParts.map((part,partIndex)=>(
-<divkey={partIndex}className="text-smbg-accentp-2roundedflexitems-centerjustify-between">
+<divkey={partIndex}clas sName="text-smbg-accentp-2roundedflexitems-centerjustify-between">
 <span>{part}</span>
 </div>
 ))}
-<divclassName="font-semiboldtext-rightpt-2border-t">
+<divclas sName="font-semiboldtext-rightpt-2border-t">
 Total:${report.estimatedCost.toLocaleString()}
 </div>
 </div>
@@ -327,42 +327,42 @@ Total:${report.estimatedCost.toLocaleString()}
 )}
 
 <div>
-<h4className="font-mediummb-2flexitems-center">
-<CameraclassName="h-4w-4mr-2"/>
+<h4clas sName="font-mediummb-2flexitems-center">
+<Cameraclas sName="h-4w-4mr-2"/>
 AttachedPhotos({report.photos.length})
 </h4>
-<divclassName="gridgrid-cols-2gap-2">
+<divclas sName="gridgrid-cols-2gap-2">
 {report.photos.map((photo)=>(
-<divkey={photo.id}className="text-xsbg-mutedp-2roundedflexitems-center">
-<EyeclassName="h-3w-3mr-2"/>
-<spanclassName="truncate">{photo.description}</span>
+<divkey={photo.id}clas sName="text-xsbg-mutedp-2roundedflexitems-center">
+<Eyeclas sName="h-3w-3mr-2"/>
+<spanclas sName="truncate">{photo.description}</span>
 </div>
 ))}
 </div>
 </div>
 
-{status==='rejected'&&decision.rejectReason&&(
-<divclassName="p-3bg-destructive/10borderborder-destructive/20rounded-lg">
-<h4className="font-mediumtext-destructivemb-1">RejectionReason</h4>
-<pclassName="text-smtext-destructive">{decision.rejectReason}</p>
+{status==='rejected'&&decision.rejectReas on&&(
+<divclas sName="p-3bg-destructive/10borderborder-destructive/20rounded-lg">
+<h4clas sName="font-mediumtext-destructivemb-1">RejectionReas on</h4>
+<pclas sName="text-smtext-destructive">{decision.rejectReas on}</p>
 </div>
 )}
 
 {status==='pending'&&(
-<divclassName="flexspace-x-3pt-4border-t">
+<divclas sName="flexspace-x-3pt-4border-t">
 <Button
 onClick={()=>handleApproveReport(report.id)}
-className="flex-1bg-successhover:bg-success/90text-success-foreground"
+clas sName="flex-1bg-successhover:bg-success/90text-success-foreground"
 >
-<CheckCircleclassName="h-4w-4mr-2"/>
+<CheckCircleclas sName="h-4w-4mr-2"/>
 ApproveReport
 </Button>
 <Button
 variant="destructive"
 onClick={()=>handleRejectReport(report.id)}
-className="flex-1"
+clas sName="flex-1"
 >
-<XclassName="h-4w-4mr-2"/>
+<Xclas sName="h-4w-4mr-2"/>
 RejectReport
 </Button>
 </div>
@@ -375,42 +375,42 @@ RejectReport
 </div>
 
 {/*Sidebar-ClaimInformation*/}
-<divclassName="space-y-6">
+<divclas sName="space-y-6">
 {/*ServiceCenterInfo*/}
 <Card>
-<CardHeaderclassName="pb-3">
-<CardTitleclassName="text-lgflexitems-center">
-<MapPinclassName="h-4w-4mr-2"/>
+<CardHeaderclas sName="pb-3">
+<CardTitleclas sName="text-lgflexitems-center">
+<MapPinclas sName="h-4w-4mr-2"/>
 ServiceCenter
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-3">
+<CardContentclas sName="space-y-3">
 <div>
-<pclassName="font-mediumtext-sm">{claimDetails.serviceCenter.name}</p>
-<pclassName="text-xstext-muted-foregroundmt-1">{claimDetails.serviceCenter.address}</p>
-<pclassName="text-xstext-muted-foreground">{claimDetails.serviceCenter.contact}</p>
+<pclas sName="font-mediumtext-sm">{claimDetails.serviceCenter.name}</p>
+<pclas sName="text-xstext-muted-foregroundmt-1">{claimDetails.serviceCenter.address}</p>
+<pclas sName="text-xstext-muted-foreground">{claimDetails.serviceCenter.contact}</p>
 </div>
 </CardContent>
 </Card>
 
 {/*CustomerInfo*/}
 <Card>
-<CardHeaderclassName="pb-3">
-<CardTitleclassName="text-lgflexitems-center">
-<UserclassName="h-4w-4mr-2"/>
+<CardHeaderclas sName="pb-3">
+<CardTitleclas sName="text-lgflexitems-center">
+<Userclas sName="h-4w-4mr-2"/>
 Customer
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-3">
-<divclassName="flexitems-centerspace-x-3">
-<AvatarclassName="h-10w-10">
+<CardContentclas sName="space-y-3">
+<divclas sName="flexitems-centerspace-x-3">
+<Avatarclas sName="h-10w-10">
 <AvatarImagesrc="/api/placeholder/40/40"/>
 <AvatarFallback>{claimDetails.customer.name.charAt(0)}</AvatarFallback>
 </Avatar>
-<divclassName="flex-1min-w-0">
-<pclassName="font-mediumtext-sm">{claimDetails.customer.name}</p>
-<pclassName="text-xstext-muted-foreground">{claimDetails.customer.phone}</p>
-<pclassName="text-xstext-muted-foregroundtruncate">{claimDetails.customer.email}</p>
+<divclas sName="flex-1min-w-0">
+<pclas sName="font-mediumtext-sm">{claimDetails.customer.name}</p>
+<pclas sName="text-xstext-muted-foreground">{claimDetails.customer.phone}</p>
+<pclas sName="text-xstext-muted-foregroundtruncate">{claimDetails.customer.email}</p>
 </div>
 </div>
 </CardContent>
@@ -418,19 +418,19 @@ Customer
 
 {/*VehicleInfo*/}
 <Card>
-<CardHeaderclassName="pb-3">
-<CardTitleclassName="text-lgflexitems-center">
-<CarclassName="h-4w-4mr-2"/>
+<CardHeaderclas sName="pb-3">
+<CardTitleclas sName="text-lgflexitems-center">
+<Carclas sName="h-4w-4mr-2"/>
 Vehicle
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-3">
+<CardContentclas sName="space-y-3">
 <div>
-<pclassName="font-medium">{claimDetails.vehicle.model}</p>
-<pclassName="text-xsfont-monotext-muted-foreground">{claimDetails.vehicle.vin}</p>
+<pclas sName="font-medium">{claimDetails.vehicle.model}</p>
+<pclas sName="text-xsfont-monotext-muted-foreground">{claimDetails.vehicle.vin}</p>
 </div>
-<divclassName="space-y-1text-smtext-muted-foreground">
-<div>Purchase:{claimDetails.vehicle.purchaseDate}</div>
+<divclas sName="space-y-1text-smtext-muted-foreground">
+<div>Purchas e:{claimDetails.vehicle.purchas eDate}</div>
 <div>Odometer:{claimDetails.vehicle.odometer}</div>
 <div>Color:{claimDetails.vehicle.color}</div>
 </div>
@@ -439,28 +439,28 @@ Vehicle
 
 {/*ProgressIndicator*/}
 <Card>
-<CardHeaderclassName="pb-3">
-<CardTitleclassName="text-lg">ReviewProgress</CardTitle>
+<CardHeaderclas sName="pb-3">
+<CardTitleclas sName="text-lg">ReviewProgress</CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-3">
+<divclas sName="space-y-3">
 {claimDetails.diagnosticReports.map((report,index)=>(
-<divkey={report.id}className="flexitems-centerjustify-betweentext-sm">
-<spanclassName="truncate">{report.title}</span>
-<divclassName="flexitems-center">
-{getReportStatus(report.id)==='pending'&&<ClockclassName="h-4w-4text-warning"/>}
-{getReportStatus(report.id)==='approved'&&<CheckCircleclassName="h-4w-4text-success"/>}
-{getReportStatus(report.id)==='rejected'&&<XclassName="h-4w-4text-destructive"/>}
+<divkey={report.id}clas sName="flexitems-centerjustify-betweentext-sm">
+<spanclas sName="truncate">{report.title}</span>
+<divclas sName="flexitems-center">
+{getReportStatus(report.id)==='pending'&&<Clockclas sName="h-4w-4text-warning"/>}
+{getReportStatus(report.id)==='approved'&&<CheckCircleclas sName="h-4w-4text-success"/>}
+{getReportStatus(report.id)==='rejected'&&<Xclas sName="h-4w-4text-destructive"/>}
 </div>
 </div>
 ))}
 </div>
 
 {!canFinalize&&(
-<divclassName="mt-4p-3bg-warning/10borderborder-warning/20rounded-lg">
-<divclassName="flexitems-centerspace-x-2">
-<AlertTriangleclassName="h-4w-4text-warning"/>
-<pclassName="text-xstext-warning-foreground">Reviewallreportstofinalize</p>
+<divclas sName="mt-4p-3bg-warning/10borderborder-warning/20rounded-lg">
+<divclas sName="flexitems-centerspace-x-2">
+<AlertTriangleclas sName="h-4w-4text-warning"/>
+<pclas sName="text-xstext-warning-foreground">Reviewallreportstofinalize</p>
 </div>
 </div>
 )}
@@ -477,32 +477,32 @@ Vehicle
 <DialogHeader>
 <DialogTitle>RejectDiagnosticReport</DialogTitle>
 </DialogHeader>
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 <div>
-<LabelhtmlFor="rejectReason">Reasonforrejection*</Label>
+<LabelhtmlFor="rejectReas on">Reas onforrejection*</Label>
 <Textarea
-id="rejectReason"
-value={rejectReason}
-onChange={(e)=>setRejectReason(e.target.value)}
-placeholder="Pleaseprovideadetailedreasonforrejectingthisreport..."
-className="mt-2min-h-[100px]"
+id="rejectReas on"
+value={rejectReas on}
+onChange={(e)=>setRejectReas on(e.target.value)}
+placeholder="Pleas eprovideadetailedreas onforrejectingthisreport..."
+clas sName="mt-2min-h-[100px]"
 required
 />
 </div>
 
-<divclassName="flexspace-x-3pt-4">
+<divclas sName="flexspace-x-3pt-4">
 <Button
 variant="outline"
 onClick={()=>setIsRejectDialogOpen(false)}
-className="flex-1"
+clas sName="flex-1"
 >
 Cancel
 </Button>
 <Button
 variant="destructive"
 onClick={confirmRejectReport}
-disabled={!rejectReason.trim()}
-className="flex-1"
+disabled={!rejectReas on.trim()}
+clas sName="flex-1"
 >
 ConfirmRejection
 </Button>

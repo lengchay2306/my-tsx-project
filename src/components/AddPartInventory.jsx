@@ -1,13 +1,13 @@
-import { useState } from'react';
-import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle } from'@/components/ui/dialog';
-import { Button } from'@/components/ui/button';
-import { Input } from'@/components/ui/input';
-import { Label } from'@/components/ui/label';
-import { Textarea } from'@/components/ui/textarea';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from'@/components/ui/select';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Badge } from'@/components/ui/badge';
-import { useToast } from'@/hooks/use-toast';
+import { useState } from 'react';
+import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
 import { 
 Plus,
 Save,
@@ -20,7 +20,7 @@ AlertTriangle,
 CheckCircle,
 Upload,
 Search
- } from'lucide-react';
+ } from 'lucide-react';
 
 interfaceAddPartInventoryProps{
 onClose:()=>void;
@@ -71,7 +71,7 @@ if(!partName||!partNumber||!category||!unitPrice||!initialStock||!minimumStock){
 toast({
 variant:"destructive",
 title:"MissingInformation",
-description:"Pleasefillinallrequiredfields"
+description:"Pleas efillinallrequiredfields"
 });
 return;
 }
@@ -93,7 +93,7 @@ awaitnewPromise(resolve=>setTimeout(resolve,2000));
 
 toast({
 title:"Success",
-description:`Part"${partName}"hasbeenaddedtoinventorysuccessfully`
+description:`Part"${partName}" has beenaddedtoinventorysuccessfully`
 });
 
 onClose();
@@ -101,7 +101,7 @@ onClose();
 toast({
 variant:"destructive",
 title:"Error",
-description:"Failedtoaddparttoinventory.Pleasetryagain."
+description:"Failedtoaddparttoinventory.Pleas etryagain."
 });
 }finally{
 setIsLoading(false);
@@ -109,7 +109,7 @@ setIsLoading(false);
 };
 
 const generatePartNumber=()=>{
-const categoryCode=category.toUpperCase().slice(0,3);
+const categoryCode=category.toUpperCas e().slice(0,3);
 const randomNum=Math.floor(Math.random()*10000).toString().padStart(4,'0');
 const generated=`${categoryCode}-${randomNum}-${newDate().getFullYear()}`;
 setPartNumber(generated);
@@ -125,30 +125,30 @@ returnsuppliers.find(sup=>sup.id===selectedSupplier);
 
 return(
 <Dialogopen={true}onOpenChange={onClose}>
-<DialogContentclassName="max-w-4xlmax-h-[90vh]overflow-y-auto">
+<DialogContentclas sName="max-w-4xlmax-h-[90vh]overflow-y-auto">
 <DialogHeader>
-<DialogTitleclassName="flexitems-centerspace-x-2">
-<PlusclassName="h-5w-5text-primary"/>
+<DialogTitleclas sName="flexitems-centerspace-x-2">
+<Plusclas sName="h-5w-5text-primary"/>
 <span>AddNewParttoInventory</span>
-<PackageclassName="h-5w-5text-muted-foreground"/>
+<Packageclas sName="h-5w-5text-muted-foreground"/>
 </DialogTitle>
 <DialogDescription>
 Addanewparttotheinventorysystemwithallnecessarydetails
 </DialogDescription>
 </DialogHeader>
 
-<divclassName="space-y-6">
-{/*BasicInformation*/}
+<divclas sName="space-y-6">
+{/*Bas icInformation*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-baseflexitems-centerspace-x-2">
-<PackageclassName="h-4w-4"/>
-<span>BasicInformation</span>
+<CardTitleclas sName="text-bas eflexitems-centerspace-x-2">
+<Packageclas sName="h-4w-4"/>
+<span>Bas icInformation</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="gridgrid-cols-2gap-4">
-<divclassName="space-y-2">
+<CardContentclas sName="space-y-4">
+<divclas sName="gridgrid-cols-2gap-4">
+<divclas sName="space-y-2">
 <LabelhtmlFor="partName">PartName*</Label>
 <Input
 id="partName"
@@ -157,23 +157,23 @@ value={partName}
 onChange={(e)=>setPartName(e.target.value)}
 />
 </div>
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="partNumber">PartNumber*</Label>
-<divclassName="flexspace-x-2">
+<divclas sName="flexspace-x-2">
 <Input
 id="partNumber"
 placeholder="e.g.,BAT-2024-001"
 value={partNumber}
 onChange={(e)=>setPartNumber(e.target.value)}
 />
-<Buttonvariant="outline"size="sm"onClick={generatePartNumber}disabled={!category}>
-<BarcodeclassName="h-4w-4"/>
+<Buttonvariant="outline" size="sm" onClick={generatePartNumber}disabled={!category}>
+<Barcodeclas sName="h-4w-4"/>
 </Button>
 </div>
 </div>
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="category">Category*</Label>
 <Selectvalue={category}onValueChange={setCategory}>
 <SelectTrigger>
@@ -182,7 +182,7 @@ onChange={(e)=>setPartNumber(e.target.value)}
 <SelectContent>
 {categories.map((cat)=>(
 <SelectItemkey={cat.value}value={cat.value}>
-<divclassName="flexitems-centerspace-x-2">
+<divclas sName="flexitems-centerspace-x-2">
 <span>{cat.icon}</span>
 <span>{cat.label}</span>
 </div>
@@ -192,18 +192,18 @@ onChange={(e)=>setPartNumber(e.target.value)}
 </Select>
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="description">Description</Label>
 <Textarea
 id="description"
 placeholder="Detaileddescriptionofthepart,specifications,andusage..."
 value={description}
 onChange={(e)=>setDescription(e.target.value)}
-className="min-h-[80px]"
+clas sName="min-h-[80px]"
 />
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="compatibleModels">CompatibleVehicleModels</Label>
 <Input
 id="compatibleModels"
@@ -218,14 +218,14 @@ onChange={(e)=>setCompatibleModels(e.target.value)}
 {/*Inventory&Pricing*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-baseflexitems-centerspace-x-2">
-<DollarSignclassName="h-4w-4"/>
+<CardTitleclas sName="text-bas eflexitems-centerspace-x-2">
+<DollarSignclas sName="h-4w-4"/>
 <span>Inventory&Pricing</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="gridgrid-cols-3gap-4">
-<divclassName="space-y-2">
+<CardContentclas sName="space-y-4">
+<divclas sName="gridgrid-cols-3gap-4">
+<divclas sName="space-y-2">
 <LabelhtmlFor="unitPrice">UnitPrice(VND)*</Label>
 <Input
 id="unitPrice"
@@ -235,7 +235,7 @@ value={unitPrice}
 onChange={(e)=>setUnitPrice(e.target.value)}
 />
 </div>
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="initialStock">InitialStock*</Label>
 <Input
 id="initialStock"
@@ -245,7 +245,7 @@ value={initialStock}
 onChange={(e)=>setInitialStock(e.target.value)}
 />
 </div>
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="minimumStock">MinimumStock*</Label>
 <Input
 id="minimumStock"
@@ -257,8 +257,8 @@ onChange={(e)=>setMinimumStock(e.target.value)}
 </div>
 </div>
 
-<divclassName="gridgrid-cols-2gap-4">
-<divclassName="space-y-2">
+<divclas sName="gridgrid-cols-2gap-4">
+<divclas sName="space-y-2">
 <LabelhtmlFor="location">StorageLocation</Label>
 <Selectvalue={location}onValueChange={setLocation}>
 <SelectTrigger>
@@ -272,7 +272,7 @@ onChange={(e)=>setMinimumStock(e.target.value)}
 </SelectContent>
 </Select>
 </div>
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="leadTime">LeadTime(Days)</Label>
 <Input
 id="leadTime"
@@ -289,13 +289,13 @@ onChange={(e)=>setLeadTime(e.target.value)}
 {/*SupplierInformation*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-baseflexitems-centerspace-x-2">
-<TruckclassName="h-4w-4"/>
+<CardTitleclas sName="text-bas eflexitems-centerspace-x-2">
+<Truckclas sName="h-4w-4"/>
 <span>SupplierInformation</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="space-y-2">
+<CardContentclas sName="space-y-4">
+<divclas sName="space-y-2">
 <LabelhtmlFor="supplier">PrimarySupplier</Label>
 <Selectvalue={selectedSupplier}onValueChange={setSelectedSupplier}>
 <SelectTrigger>
@@ -304,10 +304,10 @@ onChange={(e)=>setLeadTime(e.target.value)}
 <SelectContent>
 {suppliers.map((supplier)=>(
 <SelectItemkey={supplier.id}value={supplier.id}>
-<divclassName="flexitems-centerjustify-betweenw-full">
+<divclas sName="flexitems-centerjustify-betweenw-full">
 <div>
-<divclassName="font-medium">{supplier.name}</div>
-<divclassName="text-xstext-muted-foreground">{supplier.contact}</div>
+<divclas sName="font-medium">{supplier.name}</div>
+<divclas sName="text-xstext-muted-foreground">{supplier.contact}</div>
 </div>
 <Badgevariant="secondary">
 ⭐{supplier.rating}
@@ -320,14 +320,14 @@ onChange={(e)=>setLeadTime(e.target.value)}
 </div>
 
 {getSelectedSupplier()&&(
-<CardclassName="bg-accent/5">
-<CardContentclassName="pt-4">
-<divclassName="flexitems-centerjustify-between">
+<Cardclas sName="bg-accent/5">
+<CardContentclas sName="pt-4">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="font-medium">{getSelectedSupplier().name}</p>
-<pclassName="text-smtext-muted-foreground">{getSelectedSupplier().contact}</p>
+<pclas sName="font-medium">{getSelectedSupplier().name}</p>
+<pclas sName="text-smtext-muted-foreground">{getSelectedSupplier().contact}</p>
 </div>
-<divclassName="text-right">
+<divclas sName="text-right">
 <Badgevariant="secondary">
 ⭐{getSelectedSupplier().rating}Rating
 </Badge>
@@ -340,16 +340,16 @@ onChange={(e)=>setLeadTime(e.target.value)}
 </Card>
 
 {/*PartPreview*/}
-<CardclassName="bg-primary/5">
+<Cardclas sName="bg-primary/5">
 <CardHeader>
-<CardTitleclassName="text-baseflexitems-centerspace-x-2">
-<CheckCircleclassName="h-4w-4text-success"/>
+<CardTitleclas sName="text-bas eflexitems-centerspace-x-2">
+<CheckCircleclas sName="h-4w-4text-success"/>
 <span>PartPreview</span>
 </CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-2text-sm">
-<divclassName="flexitems-centerspace-x-2">
+<divclas sName="space-y-2text-sm">
+<divclas sName="flexitems-centerspace-x-2">
 {getSelectedCategory()&&<span>{getSelectedCategory().icon}</span>}
 <p><strong>Part:</strong>{partName||'Notspecified'}({partNumber||'Auto-generated'})</p>
 </div>
@@ -363,20 +363,20 @@ onChange={(e)=>setLeadTime(e.target.value)}
 </div>
 
 {/*Footer*/}
-<divclassName="flexjustify-betweenpt-4border-t">
-<Buttonvariant="outline"onClick={onClose}>
-<XclassName="mr-2h-4w-4"/>
+<divclas sName="flexjustify-betweenpt-4border-t">
+<Buttonvariant="outline" onClick={onClose}>
+<Xclas sName="mr-2h-4w-4"/>
 Cancel
 </Button>
-<Buttonvariant="gradient"onClick={handleSave}disabled={isLoading}>
+<Buttonvariant="gradient" onClick={handleSave}disabled={isLoading}>
 {isLoading(
-<divclassName="flexitems-centerspace-x-2">
-<divclassName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
+<divclas sName="flexitems-centerspace-x-2">
+<divclas sName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
 <span>AddingPart...</span>
 </div>
 ):(
 <>
-<SaveclassName="mr-2h-4w-4"/>
+<Saveclas sName="mr-2h-4w-4"/>
 AddtoInventory
 </>
 )}

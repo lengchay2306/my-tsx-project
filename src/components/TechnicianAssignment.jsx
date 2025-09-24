@@ -1,11 +1,11 @@
-import { useState } from'react';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Button } from'@/components/ui/button';
-import { Badge } from'@/components/ui/badge';
-import { Textarea } from'@/components/ui/textarea';
-import { Label } from'@/components/ui/label';
-import { useToast } from'@/hooks/use-toast';
-import { Users,Star,Clock,CheckCircle,User } from'lucide-react';
+import { useState } from 'react';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { useToast } from '@/hooks/use-toast';
+import { Users,Star,Clock,CheckCircle,User } from 'lucide-react';
 
 interfaceTechnician{
 id:string;
@@ -21,13 +21,13 @@ isAvailable:boolean;
 interfaceTechnicianAssignmentProps{
 claimId:string;
 issueCategory:string;
-onAssignmentComplete:(assignment:TechnicianAssignment)=>void;
+onAssignmentComplete:(as signment:TechnicianAssignment)=>void;
 onClose:()=>void;
 }
 
 interfaceTechnicianAssignment{
 mainTechnician:Technician;
-assistantTechnicians:Technician[];
+as sistantTechnicians:Technician[];
 estimatedTime:string;
 specialInstructions:string;
 }
@@ -39,7 +39,7 @@ const[specialInstructions,setSpecialInstructions]=useState('');
 const[estimatedTime,setEstimatedTime]=useState('');
 const{toast}=useToast();
 
-//Mocktechniciansdatabase
+//Mocktechniciansdatabas e
 consttechnicians:Technician[]=[
 {
 id:'tech-1',
@@ -97,7 +97,7 @@ isAvailable:false
 }
 ];
 
-//Getrecommendedtechniciansbasedonissuecategory
+//Getrecommendedtechniciansbas edonissuecategory
 const getRecommendedTechnicians=()=>{
 constcategorySpecialtyMap:Record<string,string[]>={
 'battery-performance':['BatterySystems','GeneralDiagnostics'],
@@ -145,13 +145,13 @@ if(selectedMainTech.id===tech.id){
 setSelectedMainTech(null);
 }else{
 setSelectedMainTech(tech);
-//Removefrom assistantsifselectedasmain
+//Removefrom as sistantsifselectedas main
 setSelectedAssistants(prev=>prev.filter(t=>t.id!==tech.id));
 }
 };
 
 const handleAssistantSelect=(tech:Technician)=>{
-if(selectedMainTech.id===tech.id)return;//Can'tbeassistantifmain
+if(selectedMainTech.id===tech.id)return;//Can'tbeas sistantifmain
 
 const isSelected=selectedAssistants.some(t=>t.id===tech.id);
 if(isSelected){
@@ -171,9 +171,9 @@ variant:"destructive"
 return;
 }
 
-constassignment:TechnicianAssignment={
+constas signment:TechnicianAssignment={
 mainTechnician:selectedMainTech,
-assistantTechnicians:selectedAssistants,
+as sistantTechnicians:selectedAssistants,
 estimatedTime:estimatedTime||'2-4giờ',
 specialInstructions
 };
@@ -183,7 +183,7 @@ title:"Phâncôngthànhcông",
 description:`Đãphâncông${selectedMainTech.name}làkỹthuậtviênchính${selectedAssistants.length>0`và${selectedAssistants.length}kỹthuậtviênhỗtrợ`:''}.`
 });
 
-onAssignmentComplete(assignment);
+onAssignmentComplete(as signment);
 };
 
 const TechnicianCard=({tech,isRecommended=false}:{tech:Technician;isRecommended:boolean})=>{
@@ -191,7 +191,7 @@ const isMainSelected=selectedMainTech.id===tech.id;
 const isAssistantSelected=selectedAssistants.some(t=>t.id===tech.id);
 
 return(
-<CardclassName={`cursor-pointertransition-allrelative${
+<Cardclas sName={`cursor-pointertransition-allrelative${
 isMainSelected
 'border-primarybg-primary/5'
 :isAssistantSelected
@@ -199,54 +199,54 @@ isMainSelected
 :'hover:border-primary/50'
 }`}>
 {isRecommended&&(
-<divclassName="absolute-top-2-right-2">
-<Badgevariant="default"className="text-xs">
-<StarclassName="h-3w-3mr-1"/>
+<divclas sName="absolute-top-2-right-2">
+<Badgevariant="default" clas sName="text-xs">
+<Starclas sName="h-3w-3mr-1"/>
 Đềxuất
 </Badge>
 </div>
 )}
 
-<CardContentclassName="p-4">
-<divclassName="flexitems-startjustify-betweenmb-3">
-<divclassName="flexitems-centergap-3">
-<divclassName="h-10w-10rounded-fullbg-accentflexitems-centerjustify-center">
-<UserclassName="h-5w-5"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-startjustify-betweenmb-3">
+<divclas sName="flexitems-centergap-3">
+<divclas sName="h-10w-10rounded-fullbg-accentflexitems-centerjustify-center">
+<Userclas sName="h-5w-5"/>
 </div>
 <div>
-<h4className="font-medium">{tech.name}</h4>
-<pclassName="text-smtext-muted-foreground">{tech.specialty}</p>
+<h4clas sName="font-medium">{tech.name}</h4>
+<pclas sName="text-smtext-muted-foreground">{tech.specialty}</p>
 </div>
 </div>
-<divclassName="flexitems-centergap-1">
-<StarclassName="h-4w-4text-yellow-500fill-current"/>
-<spanclassName="text-smfont-medium">{tech.rating}</span>
+<divclas sName="flexitems-centergap-1">
+<Starclas sName="h-4w-4text-yellow-500fill-current"/>
+<spanclas sName="text-smfont-medium">{tech.rating}</span>
 </div>
 </div>
 
-<divclassName="gridgrid-cols-2gap-3text-sm">
+<divclas sName="gridgrid-cols-2gap-3text-sm">
 <div>
-<spanclassName="text-muted-foreground">Kinhnghiệm:</span>
-<pclassName="font-medium">{tech.experience}năm</p>
+<spanclas sName="text-muted-foreground">Kinhnghiệm:</span>
+<pclas sName="font-medium">{tech.experience}năm</p>
 </div>
 <div>
-<spanclassName="text-muted-foreground">Tìnhtrạng:</span>
-<pclassName={`font-medium${getWorkloadColor(tech.workload)}`}>
+<spanclas sName="text-muted-foreground">Tìnhtrạng:</span>
+<pclas sName={`font-medium${getWorkloadColor(tech.workload)}`}>
 {getWorkloadText(tech.workload)}
 </p>
 </div>
 </div>
 
-<divclassName="flexgap-2mt-3">
+<divclas sName="flexgap-2mt-3">
 <Button
 size="sm"
-variant={isMainSelected"default":"outline"}
+variant={isMainSelected"default":" outline"}
 onClick={()=>handleMainTechSelect(tech)}
-className="flex-1"
+clas sName="flex-1"
 >
 {isMainSelected(
 <>
-<CheckCircleclassName="h-3w-3mr-1"/>
+<CheckCircleclas sName="h-3w-3mr-1"/>
 Kỹthuậtviênchính
 </>
 ):(
@@ -257,12 +257,12 @@ Kỹthuậtviênchính
 {!isMainSelected&&(
 <Button
 size="sm"
-variant={isAssistantSelected"secondary":"outline"}
+variant={isAssistantSelected"secondary":" outline"}
 onClick={()=>handleAssistantSelect(tech)}
 >
 {isAssistantSelected(
 <>
-<CheckCircleclassName="h-3w-3mr-1"/>
+<CheckCircleclas sName="h-3w-3mr-1"/>
 Hỗtrợ
 </>
 ):(
@@ -277,11 +277,11 @@ Hỗtrợ
 };
 
 return(
-<divclassName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
-<CardclassName="w-fullmax-w-5xlmax-h-[90vh]overflow-hidden">
+<divclas sName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
+<Cardclas sName="w-fullmax-w-5xlmax-h-[90vh]overflow-hidden">
 <CardHeader>
-<CardTitleclassName="flexitems-centergap-2">
-<UsersclassName="h-5w-5text-primary"/>
+<CardTitleclas sName="flexitems-centergap-2">
+<Usersclas sName="h-5w-5text-primary"/>
 Phâncôngkỹthuậtviên
 </CardTitle>
 <CardDescription>
@@ -289,14 +289,14 @@ Chọnkỹthuậtviênchínhvàkỹthuậtviênhỗtrợchoyêucầubảohành#{
 </CardDescription>
 </CardHeader>
 
-<CardContentclassName="overflow-y-automax-h-[calc(90vh-200px)]space-y-6">
+<CardContentclas sName="overflow-y-automax-h-[calc(90vh-200px)]space-y-6">
 {/*RecommendedTechnicians*/}
 <div>
-<h3className="font-semiboldmb-3flexitems-centergap-2">
-<StarclassName="h-4w-4text-yellow-500"/>
+<h3clas sName="font-semiboldmb-3flexitems-centergap-2">
+<Starclas sName="h-4w-4text-yellow-500"/>
 Kỹthuậtviênđượcđềxuất
 </h3>
-<divclassName="gridmd:grid-cols-2gap-4">
+<divclas sName="gridmd:grid-cols-2gap-4">
 {recommendedTechs.slice(0,4).map((tech)=>(
 <TechnicianCardkey={tech.id}tech={tech}isRecommended={true}/>
 ))}
@@ -305,8 +305,8 @@ Kỹthuậtviênđượcđềxuất
 
 {/*AllAvailableTechnicians*/}
 <div>
-<h3className="font-semiboldmb-3">Tấtcảkỹthuậtviêncósẵn</h3>
-<divclassName="gridmd:grid-cols-2lg:grid-cols-3gap-4">
+<h3clas sName="font-semiboldmb-3">Tấtcảkỹthuậtviêncósẵn</h3>
+<divclas sName="gridmd:grid-cols-2lg:grid-cols-3gap-4">
 {availableTechs.map((tech)=>(
 <TechnicianCardkey={tech.id}tech={tech}/>
 ))}
@@ -315,20 +315,20 @@ Kỹthuậtviênđượcđềxuất
 
 {/*AssignmentSummary*/}
 {selectedMainTech&&(
-<CardclassName="border-primary/20bg-primary/5">
+<Cardclas sName="border-primary/20bg-primary/5">
 <CardHeader>
-<CardTitleclassName="text-base">Tómtắtphâncông</CardTitle>
+<CardTitleclas sName="text-bas e">Tómtắtphâncông</CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
+<CardContentclas sName="space-y-4">
 <div>
-<LabelclassName="font-medium">Kỹthuậtviênchính:</Label>
-<pclassName="text-smmt-1">{selectedMainTech.name}-{selectedMainTech.specialty}</p>
+<Labelclas sName="font-medium">Kỹthuậtviênchính:</Label>
+<pclas sName="text-smmt-1">{selectedMainTech.name}-{selectedMainTech.specialty}</p>
 </div>
 
 {selectedAssistants.length>0&&(
 <div>
-<LabelclassName="font-medium">Kỹthuậtviênhỗtrợ:</Label>
-<divclassName="flexflex-wrapgap-2mt-1">
+<Labelclas sName="font-medium">Kỹthuậtviênhỗtrợ:</Label>
+<divclas sName="flexflex-wrapgap-2mt-1">
 {selectedAssistants.map((tech)=>(
 <Badgekey={tech.id}variant="outline">
 {tech.name}
@@ -346,7 +346,7 @@ type="text"
 placeholder="Vídụ:2-4giờ"
 value={estimatedTime}
 onChange={(e)=>setEstimatedTime(e.target.value)}
-className="w-fullmt-1px-3py-2borderrounded-mdtext-sm"
+clas sName="w-fullmt-1px-3py-2borderrounded-mdtext-sm"
 />
 </div>
 
@@ -357,15 +357,15 @@ id="instructions"
 placeholder="Ghichúđặcbiệthoặchướngdẫnchokỹthuậtviên..."
 value={specialInstructions}
 onChange={(e)=>setSpecialInstructions(e.target.value)}
-className="mt-1"
+clas sName="mt-1"
 />
 </div>
 </CardContent>
 </Card>
 )}
 
-<divclassName="flexjustify-betweenpt-4border-t">
-<Buttonvariant="outline"onClick={onClose}>
+<divclas sName="flexjustify-betweenpt-4border-t">
+<Buttonvariant="outline" onClick={onClose}>
 Hủy
 </Button>
 <ButtononClick={handleAssignment}disabled={!selectedMainTech}>

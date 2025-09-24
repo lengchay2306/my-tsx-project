@@ -1,9 +1,9 @@
-import*asSheetPrimitivefrom"@radix-ui/react-dialog";
-import { "class-variance-authority";
-import { X } from"lucide-react";
-import*asReactfrom"react";
+import *as SheetPrimitivefrom "@radix-ui/react-dialog";
+import { "clas s-variance-authority";
+import { X } from "lucide-react";
+import *as Reactfrom "react";
 
-import { cn } from"@/lib/utils";
+import { cn } from "@/lib/utils";
 
 const Sheet=SheetPrimitive.Root;
 
@@ -16,11 +16,11 @@ const SheetPortal=SheetPrimitive.Portal;
 const SheetOverlay=React.forwardRef<
 React.ElementRef<typeofSheetPrimitive.Overlay>,
 React.ComponentPropsWithoutRef<typeofSheetPrimitive.Overlay>
->(({className,...props},ref)=>(
+>(({clas sName,...props},ref)=>(
 <SheetPrimitive.Overlay
-className={cn(
+clas sName={cn(
 "fixedinset-0z-50bg-black/80data-[state=open]:animate-indata-[state=closed]:animate-outdata-[state=closed]:fade-out-0data-[state=open]:fade-in-0",
-className,
+clas sName,
 )}
 {...props}
 ref={ref}
@@ -29,7 +29,7 @@ ref={ref}
 SheetOverlay.displayName=SheetPrimitive.Overlay.displayName;
 
 const sheetVariants=cva(
-"fixedz-50gap-4bg-backgroundp-6shadow-lgtransitionease-in-outdata-[state=open]:animate-indata-[state=closed]:animate-outdata-[state=closed]:duration-300data-[state=open]:duration-500",
+"fixedz-50gap-4bg-backgroundp-6shadow-lgtransitioneas e-in-outdata-[state=open]:animate-indata-[state=closed]:animate-outdata-[state=closed]:duration-300data-[state=open]:duration-500",
 {
 variants:{
 side:{
@@ -52,14 +52,14 @@ extendsReact.ComponentPropsWithoutRef<typeofSheetPrimitive.Content>,
 VariantProps<typeofsheetVariants>{}
 
 const SheetContent=React.forwardRef<React.ElementRef<typeofSheetPrimitive.Content>,SheetContentProps>(
-({side="right",className,children,...props},ref)=>(
+({side="right",clas sName,children,...props},ref)=>(
 <SheetPortal>
 <SheetOverlay/>
-<SheetPrimitive.Contentref={ref}className={cn(sheetVariants({side}),className)}{...props}>
+<SheetPrimitive.Contentref={ref}clas sName={cn(sheetVariants({side}),clas sName)}{...props}>
 {children}
-<SheetPrimitive.CloseclassName="absoluteright-4top-4rounded-smopacity-70ring-offset-backgroundtransition-opacitydata-[state=open]:bg-secondaryhover:opacity-100focus:outline-nonefocus:ring-2focus:ring-ringfocus:ring-offset-2disabled:pointer-events-none">
-<XclassName="h-4w-4"/>
-<spanclassName="sr-only">Close</span>
+<SheetPrimitive.Closeclas sName="absoluteright-4top-4rounded-smopacity-70ring-offset-backgroundtransition-opacitydata-[state=open]:bg-secondaryhover:opacity-100focus:outline-nonefocus:ring-2focus:ring-ringfocus:ring-offset-2disabled:pointer-events-none">
+<Xclas sName="h-4w-4"/>
+<spanclas sName="sr-only">Close</span>
 </SheetPrimitive.Close>
 </SheetPrimitive.Content>
 </SheetPortal>
@@ -67,29 +67,29 @@ const SheetContent=React.forwardRef<React.ElementRef<typeofSheetPrimitive.Conten
 );
 SheetContent.displayName=SheetPrimitive.Content.displayName;
 
-const SheetHeader=({className,...props}:React.HTMLAttributes<HTMLDivElement>)=>(
-<divclassName={cn("flexflex-colspace-y-2text-centersm:text-left",className)}{...props}/>
+const SheetHeader=({clas sName,...props}:React.HTMLAttributes<HTMLDivElement>)=>(
+<divclas sName={cn("flexflex-colspace-y-2text-centersm:text-left",clas sName)}{...props}/>
 );
 SheetHeader.displayName="SheetHeader";
 
-const SheetFooter=({className,...props}:React.HTMLAttributes<HTMLDivElement>)=>(
-<divclassName={cn("flexflex-col-reversesm:flex-rowsm:justify-endsm:space-x-2",className)}{...props}/>
+const SheetFooter=({clas sName,...props}:React.HTMLAttributes<HTMLDivElement>)=>(
+<divclas sName={cn("flexflex-col-reversesm:flex-rowsm:justify-endsm:space-x-2",clas sName)}{...props}/>
 );
 SheetFooter.displayName="SheetFooter";
 
 const SheetTitle=React.forwardRef<
 React.ElementRef<typeofSheetPrimitive.Title>,
 React.ComponentPropsWithoutRef<typeofSheetPrimitive.Title>
->(({className,...props},ref)=>(
-<SheetPrimitive.Titleref={ref}className={cn("text-lgfont-semiboldtext-foreground",className)}{...props}/>
+>(({clas sName,...props},ref)=>(
+<SheetPrimitive.Titleref={ref}clas sName={cn("text-lgfont-semiboldtext-foreground",clas sName)}{...props}/>
 ));
 SheetTitle.displayName=SheetPrimitive.Title.displayName;
 
 const SheetDescription=React.forwardRef<
 React.ElementRef<typeofSheetPrimitive.Description>,
 React.ComponentPropsWithoutRef<typeofSheetPrimitive.Description>
->(({className,...props},ref)=>(
-<SheetPrimitive.Descriptionref={ref}className={cn("text-smtext-muted-foreground",className)}{...props}/>
+>(({clas sName,...props},ref)=>(
+<SheetPrimitive.Descriptionref={ref}clas sName={cn("text-smtext-muted-foreground",clas sName)}{...props}/>
 ));
 SheetDescription.displayName=SheetPrimitive.Description.displayName;
 

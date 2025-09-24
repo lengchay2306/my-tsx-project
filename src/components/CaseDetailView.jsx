@@ -1,11 +1,11 @@
-import { useState } from"react";
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from"@/components/ui/card";
-import { Button } from"@/components/ui/button";
-import { Badge } from"@/components/ui/badge";
-import { Tabs,TabsContent,TabsList,TabsTrigger } from"@/components/ui/tabs";
-import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from"@/components/ui/table";
-import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle,DialogTrigger } from"@/components/ui/dialog";
-import { Avatar,AvatarFallback } from"@/components/ui/avatar";
+import { useState } from "react";
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs,TabsContent,TabsList,TabsTrigger } from "@/components/ui/tabs";
+import { Table,TableBody,TableCell,TableHead,TableHeader,TableRow } from "@/components/ui/table";
+import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle,DialogTrigger } from "@/components/ui/dialog";
+import { Avatar,AvatarFallback } from "@/components/ui/avatar";
 import { 
 User,
 Car,
@@ -24,28 +24,28 @@ ArrowLeft,
 Settings,
 Send,
 Eye
- } from"lucide-react";
+ } from "lucide-react";
 
-interfaceCaseDetailViewProps{
-caseId:string;
+interfaceCas eDetailViewProps{
+cas eId:string;
 onClose:()=>void;
 onAssignTechnician:()=>void;
 onSubmitToManufacturer:()=>void;
 onMarkCompleted:()=>void;
 }
 
-const CaseDetailView=({
-caseId,
+const Cas eDetailView=({
+cas eId,
 onClose,
 onAssignTechnician,
 onSubmitToManufacturer,
 onMarkCompleted
-}:CaseDetailViewProps)=>{
+}:Cas eDetailViewProps)=>{
 const[activeTab,setActiveTab]=useState("summary");
 
-//Mockdata-inrealappwouldfetchbasedoncaseId
-const caseData={
-id:caseId,
+//Mockdata-inrealappwouldfetchbas edoncas eId
+const cas eData={
+id:cas eId,
 status:"in-progress",
 customer:{
 name:"NguyễnVănA",
@@ -55,13 +55,13 @@ address:"123LêLợi,Quận1,TP.HCM"
 },
 vehicle:{
 vin:"1HGBH41JXMN109186",
-model:"VinFastVF82023",
-purchaseDate:"2023-06-15",
+model:"VinFas tVF82023",
+purchas eDate:"2023-06-15",
 odometer:"15,420km",
 warrantyExpiry:"2026-06-15",
 color:"XanhOcean"
 },
-assignedTech:{
+as signedTech:{
 id:"tech-002",
 name:"TrầnMinhB",
 specialty:"BatterySystems",
@@ -71,7 +71,7 @@ avatar:"TB"
 issue:"BatteryPerformanceIssue",
 priority:"high",
 dateCreated:"2024-01-15",
-lastUpdated:"2024-01-1614:30"
+las tUpdated:"2024-01-1614:30"
 };
 
 const diagnosticReports=[
@@ -83,7 +83,7 @@ status:"pending",
 dateSubmitted:"2024-01-16",
 details:"Initialdiagnosticshows15%capacitylossinbatterycells3-6.Requiresdetailedtesting.",
 attachments:3,
-requiredParts:["BatteryCellModule","CoolingSystemSensor"]
+requiredParts:["BatteryCellModule"," CoolingSystemSensor"]
 },
 {
 id:"DR-002",
@@ -103,7 +103,7 @@ id:"PS-001",
 status:"in-transit",
 shippedDate:"2024-01-14",
 expectedArrival:"2024-01-18",
-items:["BatteryCellModulex2","ThermalSensorx1"],
+items:["BatteryCellModulex2"," ThermalSensorx1"],
 trackingNumber:"VF2024001234"
 },
 {
@@ -111,7 +111,7 @@ id:"PS-002",
 status:"delivered",
 shippedDate:"2024-01-12",
 expectedArrival:"2024-01-15",
-items:["DiagnosticCable","SoftwareUpdateKit"],
+items:["DiagnosticCable"," SoftwareUpdateKit"],
 trackingNumber:"VF2024001235"
 }
 ];
@@ -142,26 +142,26 @@ type:"report"
 id:4,
 timestamp:"2024-01-1509:30",
 user:"NguyễnThịStaff",
-action:"CasecreatedandassignedtoTrầnMinhB",
-type:"assignment"
+action:"Cas ecreatedandas signedtoTrầnMinhB",
+type:"as signment"
 }
 ];
 
 const getStatusBadge=(status))=>{
 const statusConfig={
-pending:{variant:"pending",text:"Chờduyệt",icon:Clock},
+pending:{variant:"pending",text:" Chờduyệt",icon:Clock},
 approved:{variant:"approved",text:"Đãduyệt",icon:CheckCircle},
-rejected:{variant:"rejected",text:"Từchối",icon:XCircle},
-"in-progress":{variant:"warning",text:"Đangsửa",icon:Wrench}
+rejected:{variant:"rejected",text:" Từchối",icon:XCircle},
+"in-progress":{variant:" warning",text:"Đangsửa",icon:Wrench}
 };
 
-const config=statusConfig[statusaskeyoftypeofstatusConfig];
+const config=statusConfig[statusas keyoftypeofstatusConfig];
 if(!config)returnnull;
 
 const Icon=config.icon;
 return(
 <Badgevariant={config.variant}>
-<IconclassName="mr-1h-3w-3"/>
+<Iconclas sName="mr-1h-3w-3"/>
 {config.text}
 </Badge>
 );
@@ -170,11 +170,11 @@ return(
 const getShipmentStatusBadge=(status))=>{
 const statusConfig={
 shipped:{variant:"secondary",text:"Đãgửi"},
-"in-transit":{variant:"warning",text:"Đangvậnchuyển"},
+"in-transit":{variant:" warning",text:"Đangvậnchuyển"},
 delivered:{variant:"success",text:"Đãgiao"}
 };
 
-const config=statusConfig[statusaskeyoftypeofstatusConfig];
+const config=statusConfig[statusas keyoftypeofstatusConfig];
 if(!config)returnnull;
 
 return<Badgevariant={config.variant}>{config.text}</Badge>;
@@ -185,82 +185,82 @@ const iconConfig={
 update:Wrench,
 system:Settings,
 report:FileText,
-assignment:User
+as signment:User
 };
 
-returniconConfig[typeaskeyoftypeoficonConfig]||FileText;
+returniconConfig[typeas keyoftypeoficonConfig]||FileText;
 };
 
 return(
 <Dialogopen={true}onOpenChange={()=>onClose.()}>
-<DialogContentclassName="max-w-7xlmax-h-[90vh]overflow-y-auto">
+<DialogContentclas sName="max-w-7xlmax-h-[90vh]overflow-y-auto">
 <DialogHeader>
-<divclassName="flexitems-centerjustify-between">
-<divclassName="flexitems-centerspace-x-3">
-<Buttonvariant="ghost"size="sm"onClick={onClose}>
-<ArrowLeftclassName="h-4w-4"/>
+<divclas sName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerspace-x-3">
+<Buttonvariant="ghost" size="sm" onClick={onClose}>
+<ArrowLeftclas sName="h-4w-4"/>
 </Button>
 <div>
-<DialogTitleclassName="text-xl">CaseDetails-{caseData.id}</DialogTitle>
+<DialogTitleclas sName="text-xl">Cas eDetails-{cas eData.id}</DialogTitle>
 <DialogDescription>
-Comprehensivecaseinformationandmanagement
+Comprehensivecas einformationandmanagement
 </DialogDescription>
 </div>
 </div>
-<divclassName="flexitems-centerspace-x-2">
-{getStatusBadge(caseData.status)}
-<Badgevariant="outline"className="text-xs">
+<divclas sName="flexitems-centerspace-x-2">
+{getStatusBadge(cas eData.status)}
+<Badgevariant="outline" clas sName="text-xs">
 HighPriority
 </Badge>
 </div>
 </div>
 </DialogHeader>
 
-{/*CaseOverviewCards*/}
-<divclassName="gridgap-4md:grid-cols-4mb-6">
+{/*Cas eOverviewCards*/}
+<divclas sName="gridgap-4md:grid-cols-4mb-6">
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<UserclassName="h-5w-5text-primary"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<Userclas sName="h-5w-5text-primary"/>
 <div>
-<pclassName="text-smfont-medium">{caseData.customer.name}</p>
-<pclassName="text-xstext-muted-foreground">Customer</p>
+<pclas sName="text-smfont-medium">{cas eData.customer.name}</p>
+<pclas sName="text-xstext-muted-foreground">Customer</p>
 </div>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<CarclassName="h-5w-5text-primary"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<Carclas sName="h-5w-5text-primary"/>
 <div>
-<pclassName="text-smfont-medium">{caseData.vehicle.model}</p>
-<pclassName="text-xstext-muted-foregroundfont-mono">{caseData.vehicle.vin}</p>
+<pclas sName="text-smfont-medium">{cas eData.vehicle.model}</p>
+<pclas sName="text-xstext-muted-foregroundfont-mono">{cas eData.vehicle.vin}</p>
 </div>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<WrenchclassName="h-5w-5text-primary"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<Wrenchclas sName="h-5w-5text-primary"/>
 <div>
-<pclassName="text-smfont-medium">{caseData.assignedTech.name}</p>
-<pclassName="text-xstext-muted-foreground">{caseData.assignedTech.specialty}</p>
+<pclas sName="text-smfont-medium">{cas eData.as signedTech.name}</p>
+<pclas sName="text-xstext-muted-foreground">{cas eData.as signedTech.specialty}</p>
 </div>
 </div>
 </CardContent>
 </Card>
 
 <Card>
-<CardContentclassName="p-4">
-<divclassName="flexitems-centerspace-x-2">
-<CalendarclassName="h-5w-5text-primary"/>
+<CardContentclas sName="p-4">
+<divclas sName="flexitems-centerspace-x-2">
+<Calendarclas sName="h-5w-5text-primary"/>
 <div>
-<pclassName="text-smfont-medium">{caseData.dateCreated}</p>
-<pclassName="text-xstext-muted-foreground">Created</p>
+<pclas sName="text-smfont-medium">{cas eData.dateCreated}</p>
+<pclas sName="text-xstext-muted-foreground">Created</p>
 </div>
 </div>
 </CardContent>
@@ -268,52 +268,52 @@ HighPriority
 </div>
 
 {/*ActionButtons*/}
-<divclassName="flexitems-centerspace-x-3mb-6">
-<Buttonvariant="gradient"onClick={onAssignTechnician}>
-<UserclassName="mr-2h-4w-4"/>
+<divclas sName="flexitems-centerspace-x-3mb-6">
+<Buttonvariant="gradient" onClick={onAssignTechnician}>
+<Userclas sName="mr-2h-4w-4"/>
 AssignTechnician
 </Button>
-<Buttonvariant="outline"onClick={onSubmitToManufacturer}>
-<SendclassName="mr-2h-4w-4"/>
+<Buttonvariant="outline" onClick={onSubmitToManufacturer}>
+<Sendclas sName="mr-2h-4w-4"/>
 SubmittoManufacturer
 </Button>
-<Buttonvariant="success"onClick={onMarkCompleted}>
-<CheckCircleclassName="mr-2h-4w-4"/>
-MarkasCompleted
+<Buttonvariant="success" onClick={onMarkCompleted}>
+<CheckCircleclas sName="mr-2h-4w-4"/>
+Markas Completed
 </Button>
 </div>
 
 {/*TabbedContent*/}
 <Tabsvalue={activeTab}onValueChange={setActiveTab}>
-<TabsListclassName="gridw-fullgrid-cols-4">
+<TabsListclas sName="gridw-fullgrid-cols-4">
 <TabsTriggervalue="summary">Summary&Details</TabsTrigger>
 <TabsTriggervalue="diagnostics">DiagnosticReports</TabsTrigger>
 <TabsTriggervalue="parts">PartShipments</TabsTrigger>
 <TabsTriggervalue="activity">ActivityLog</TabsTrigger>
 </TabsList>
 
-<TabsContentvalue="summary"className="space-y-6">
-<divclassName="gridgap-6md:grid-cols-2">
+<TabsContentvalue="summary" clas sName="space-y-6">
+<divclas sName="gridgap-6md:grid-cols-2">
 {/*CustomerInformation*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<UserclassName="h-5w-5"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<Userclas sName="h-5w-5"/>
 <span>CustomerInformation</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="flexitems-centerspace-x-3">
-<PhoneclassName="h-4w-4text-muted-foreground"/>
-<spanclassName="text-sm">{caseData.customer.phone}</span>
+<CardContentclas sName="space-y-4">
+<divclas sName="flexitems-centerspace-x-3">
+<Phoneclas sName="h-4w-4text-muted-foreground"/>
+<spanclas sName="text-sm">{cas eData.customer.phone}</span>
 </div>
-<divclassName="flexitems-centerspace-x-3">
-<MailclassName="h-4w-4text-muted-foreground"/>
-<spanclassName="text-sm">{caseData.customer.email}</span>
+<divclas sName="flexitems-centerspace-x-3">
+<Mailclas sName="h-4w-4text-muted-foreground"/>
+<spanclas sName="text-sm">{cas eData.customer.email}</span>
 </div>
-<divclassName="flexitems-centerspace-x-3">
-<MapPinclassName="h-4w-4text-muted-foreground"/>
-<spanclassName="text-sm">{caseData.customer.address}</span>
+<divclas sName="flexitems-centerspace-x-3">
+<MapPinclas sName="h-4w-4text-muted-foreground"/>
+<spanclas sName="text-sm">{cas eData.customer.address}</span>
 </div>
 </CardContent>
 </Card>
@@ -321,28 +321,28 @@ MarkasCompleted
 {/*VehicleInformation*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<CarclassName="h-5w-5"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<Carclas sName="h-5w-5"/>
 <span>VehicleInformation</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-3">
-<divclassName="gridgrid-cols-2gap-4">
+<CardContentclas sName="space-y-3">
+<divclas sName="gridgrid-cols-2gap-4">
 <div>
-<pclassName="text-xstext-muted-foreground">PurchaseDate</p>
-<pclassName="text-smfont-medium">{caseData.vehicle.purchaseDate}</p>
+<pclas sName="text-xstext-muted-foreground">Purchas eDate</p>
+<pclas sName="text-smfont-medium">{cas eData.vehicle.purchas eDate}</p>
 </div>
 <div>
-<pclassName="text-xstext-muted-foreground">Odometer</p>
-<pclassName="text-smfont-medium">{caseData.vehicle.odometer}</p>
+<pclas sName="text-xstext-muted-foreground">Odometer</p>
+<pclas sName="text-smfont-medium">{cas eData.vehicle.odometer}</p>
 </div>
 <div>
-<pclassName="text-xstext-muted-foreground">WarrantyExpiry</p>
-<pclassName="text-smfont-medium">{caseData.vehicle.warrantyExpiry}</p>
+<pclas sName="text-xstext-muted-foreground">WarrantyExpiry</p>
+<pclas sName="text-smfont-medium">{cas eData.vehicle.warrantyExpiry}</p>
 </div>
 <div>
-<pclassName="text-xstext-muted-foreground">Color</p>
-<pclassName="text-smfont-medium">{caseData.vehicle.color}</p>
+<pclas sName="text-xstext-muted-foreground">Color</p>
+<pclas sName="text-smfont-medium">{cas eData.vehicle.color}</p>
 </div>
 </div>
 </CardContent>
@@ -352,57 +352,57 @@ MarkasCompleted
 {/*AssignedTechnician*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="flexitems-centerjustify-between">
-<divclassName="flexitems-centerspace-x-2">
-<WrenchclassName="h-5w-5"/>
+<CardTitleclas sName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerspace-x-2">
+<Wrenchclas sName="h-5w-5"/>
 <span>AssignedTechnician</span>
 </div>
-<Buttonvariant="outline"size="sm"onClick={onAssignTechnician}>
+<Buttonvariant="outline" size="sm" onClick={onAssignTechnician}>
 ChangeAssignment
 </Button>
 </CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="flexitems-centerspace-x-4">
+<divclas sName="flexitems-centerspace-x-4">
 <Avatar>
-<AvatarFallback>{caseData.assignedTech.avatar}</AvatarFallback>
+<AvatarFallback>{cas eData.as signedTech.avatar}</AvatarFallback>
 </Avatar>
 <div>
-<pclassName="font-medium">{caseData.assignedTech.name}</p>
-<pclassName="text-smtext-muted-foreground">{caseData.assignedTech.specialty}</p>
-<pclassName="text-smtext-muted-foreground">{caseData.assignedTech.phone}</p>
+<pclas sName="font-medium">{cas eData.as signedTech.name}</p>
+<pclas sName="text-smtext-muted-foreground">{cas eData.as signedTech.specialty}</p>
+<pclas sName="text-smtext-muted-foreground">{cas eData.as signedTech.phone}</p>
 </div>
 </div>
 </CardContent>
 </Card>
 </TabsContent>
 
-<TabsContentvalue="diagnostics"className="space-y-4">
+<TabsContentvalue="diagnostics" clas sName="space-y-4">
 {diagnosticReports.map((report)=>(
 <Cardkey={report.id}>
 <CardHeader>
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<CardTitleclassName="text-base">{report.id}-{report.summary}</CardTitle>
+<CardTitleclas sName="text-bas e">{report.id}-{report.summary}</CardTitle>
 <CardDescription>
 By{report.technician}on{report.dateSubmitted}
 </CardDescription>
 </div>
-<divclassName="flexitems-centerspace-x-2">
+<divclas sName="flexitems-centerspace-x-2">
 {getStatusBadge(report.status)}
-<Buttonvariant="ghost"size="sm">
-<EyeclassName="h-4w-4"/>
+<Buttonvariant="ghost" size="sm">
+<Eyeclas sName="h-4w-4"/>
 </Button>
 </div>
 </div>
 </CardHeader>
 <CardContent>
-<pclassName="text-smtext-muted-foregroundmb-4">{report.details}</p>
+<pclas sName="text-smtext-muted-foregroundmb-4">{report.details}</p>
 
 {report.requiredParts.length>0&&(
-<divclassName="mb-4">
-<pclassName="text-smfont-mediummb-2">RequiredParts:</p>
-<divclassName="flexflex-wrapgap-2">
+<divclas sName="mb-4">
+<pclas sName="text-smfont-mediummb-2">RequiredParts:</p>
+<divclas sName="flexflex-wrapgap-2">
 {report.requiredParts.map((part,index)=>(
 <Badgekey={index}variant="outline">{part}</Badge>
 ))}
@@ -410,16 +410,16 @@ By{report.technician}on{report.dateSubmitted}
 </div>
 )}
 
-<divclassName="flexitems-centerjustify-betweentext-smtext-muted-foreground">
+<divclas sName="flexitems-centerjustify-betweentext-smtext-muted-foreground">
 <span>{report.attachments}attachments</span>
-<Buttonvariant="outline"size="sm">ViewFullReport</Button>
+<Buttonvariant="outline" size="sm">ViewFullReport</Button>
 </div>
 </CardContent>
 </Card>
 ))}
 </TabsContent>
 
-<TabsContentvalue="parts"className="space-y-4">
+<TabsContentvalue="parts" clas sName="space-y-4">
 <Table>
 <TableHeader>
 <TableRow>
@@ -434,21 +434,21 @@ By{report.technician}on{report.dateSubmitted}
 <TableBody>
 {partShipments.map((shipment)=>(
 <TableRowkey={shipment.id}>
-<TableCellclassName="font-medium">{shipment.id}</TableCell>
+<TableCellclas sName="font-medium">{shipment.id}</TableCell>
 <TableCell>{getShipmentStatusBadge(shipment.status)}</TableCell>
 <TableCell>{shipment.shippedDate}</TableCell>
 <TableCell>{shipment.expectedArrival}</TableCell>
 <TableCell>
-<divclassName="space-y-1">
+<divclas sName="space-y-1">
 {shipment.items.map((item,index)=>(
-<Badgekey={index}variant="outline"className="text-xs">
+<Badgekey={index}variant="outline" clas sName="text-xs">
 {item}
 </Badge>
 ))}
 </div>
 </TableCell>
 <TableCell>
-<Buttonvariant="outline"size="sm">
+<Buttonvariant="outline" size="sm">
 Track
 </Button>
 </TableCell>
@@ -458,26 +458,26 @@ Track
 </Table>
 </TabsContent>
 
-<TabsContentvalue="activity"className="space-y-4">
+<TabsContentvalue="activity" clas sName="space-y-4">
 <Card>
 <CardHeader>
 <CardTitle>ActivityTimeline</CardTitle>
 <CardDescription>
-Chronologicalrecordofallcaseactivities
+Chronologicalrecordofallcas eactivities
 </CardDescription>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 {activityLog.map((activity)=>{
 const Icon=getActivityIcon(activity.type);
 return(
-<divkey={activity.id}className="flexitems-startspace-x-3">
-<divclassName="flexh-8w-8items-centerjustify-centerrounded-fullbg-accent">
-<IconclassName="h-4w-4text-accent-foreground"/>
+<divkey={activity.id}clas sName="flexitems-startspace-x-3">
+<divclas sName="flexh-8w-8items-centerjustify-centerrounded-fullbg-accent">
+<Iconclas sName="h-4w-4text-accent-foreground"/>
 </div>
-<divclassName="flex-1">
-<pclassName="text-sm">{activity.action}</p>
-<divclassName="flexitems-centerspace-x-2text-xstext-muted-foreground">
+<divclas sName="flex-1">
+<pclas sName="text-sm">{activity.action}</p>
+<divclas sName="flexitems-centerspace-x-2text-xstext-muted-foreground">
 <span>{activity.user}</span>
 <span>•</span>
 <span>{activity.timestamp}</span>
@@ -496,4 +496,4 @@ return(
 );
 };
 
-exportdefaultCaseDetailView;
+exportdefaultCas eDetailView;

@@ -1,9 +1,9 @@
-import { useState } from'react';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Button } from'@/components/ui/button';
-import { Badge } from'@/components/ui/badge';
-import { Tabs,TabsContent,TabsList,TabsTrigger } from'@/components/ui/tabs';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from'@/components/ui/select';
+import { useState } from 'react';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Tabs,TabsContent,TabsList,TabsTrigger } from '@/components/ui/tabs';
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
 import { 
 BarChart,
 Bar,
@@ -18,7 +18,7 @@ Pie,
 Cell,
 LineChart,
 Line
- } from'recharts';
+ } from 'recharts';
 import { 
 TrendingUp,
 TrendingDown,
@@ -30,7 +30,7 @@ Car,
 Package,
 Clock,
 CheckCircle
- } from'lucide-react';
+ } from 'lucide-react';
 
 interfaceDashboardStatsProps{
 userRole:string;
@@ -87,7 +87,7 @@ high:{variant:'destructive',text:'Cao'},
 medium:{variant:'warning',text:'Trungbình'},
 low:{variant:'secondary',text:'Thấp'}
 };
-const config=configs[levelaskeyoftypeofconfigs];
+const config=configs[levelas keyoftypeofconfigs];
 return<Badgevariant={config.variant}>{config.text}</Badge>;
 };
 
@@ -101,11 +101,11 @@ maximumFractionDigits:0
 };
 
 return(
-<divclassName="space-y-6">
+<divclas sName="space-y-6">
 {/*Period&ModelFilters*/}
-<divclassName="flexgap-4">
+<divclas sName="flexgap-4">
 <Selectvalue={selectedPeriod}onValueChange={setSelectedPeriod}>
-<SelectTriggerclassName="w-48">
+<SelectTriggerclas sName="w-48">
 <SelectValue/>
 </SelectTrigger>
 <SelectContent>
@@ -117,7 +117,7 @@ return(
 </Select>
 
 <Selectvalue={selectedModel}onValueChange={setSelectedModel}>
-<SelectTriggerclassName="w-48">
+<SelectTriggerclas sName="w-48">
 <SelectValue/>
 </SelectTrigger>
 <SelectContent>
@@ -130,8 +130,8 @@ return(
 </Select>
 </div>
 
-<TabsdefaultValue="overview"className="space-y-6">
-<TabsListclassName="gridw-fullgrid-cols-5">
+<TabsdefaultValue="overview" clas sName="space-y-6">
+<TabsListclas sName="gridw-fullgrid-cols-5">
 <TabsTriggervalue="overview">Tổngquan</TabsTrigger>
 <TabsTriggervalue="claims">ClaimstheoModel</TabsTrigger>
 <TabsTriggervalue="parts">Phụtùnglỗi</TabsTrigger>
@@ -139,142 +139,142 @@ return(
 <TabsTriggervalue="regions">Theokhuvực</TabsTrigger>
 </TabsList>
 
-<TabsContentvalue="overview"className="space-y-6">
+<TabsContentvalue="overview" clas sName="space-y-6">
 {/*KeyMetrics*/}
-<divclassName="gridgap-4md:grid-cols-4">
-<CardclassName="shadow-elegant">
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="gridgap-4md:grid-cols-4">
+<Cardclas sName="shadow-elegant">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smfont-mediumtext-muted-foreground">TổngClaims</p>
-<pclassName="text-2xlfont-bold">120</p>
-<pclassName="text-xstext-successflexitems-center">
-<TrendingUpclassName="mr-1h-3w-3"/>
+<pclas sName="text-smfont-mediumtext-muted-foreground">TổngClaims</p>
+<pclas sName="text-2xlfont-bold">120</p>
+<pclas sName="text-xstext-successflexitems-center">
+<TrendingUpclas sName="mr-1h-3w-3"/>
 +12%sovớithángtrước
 </p>
 </div>
-<CarclassName="h-8w-8text-primary"/>
+<Carclas sName="h-8w-8text-primary"/>
 </div>
 </CardContent>
 </Card>
 
-<CardclassName="shadow-elegant">
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<Cardclas sName="shadow-elegant">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smfont-mediumtext-muted-foreground">Chiphíbảohành</p>
-<pclassName="text-2xlfont-bold">1.64tỷ</p>
-<pclassName="text-xstext-destructiveflexitems-center">
-<TrendingUpclassName="mr-1h-3w-3"/>
+<pclas sName="text-smfont-mediumtext-muted-foreground">Chiphíbảohành</p>
+<pclas sName="text-2xlfont-bold">1.64tỷ</p>
+<pclas sName="text-xstext-destructiveflexitems-center">
+<TrendingUpclas sName="mr-1h-3w-3"/>
 +18%sovớithángtrước
 </p>
 </div>
-<DollarSignclassName="h-8w-8text-warning"/>
+<DollarSignclas sName="h-8w-8text-warning"/>
 </div>
 </CardContent>
 </Card>
 
-<CardclassName="shadow-elegant">
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<Cardclas sName="shadow-elegant">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smfont-mediumtext-muted-foreground">ThờigianxửlýTB</p>
-<pclassName="text-2xlfont-bold">2.3ngày</p>
-<pclassName="text-xstext-successflexitems-center">
-<TrendingDownclassName="mr-1h-3w-3"/>
+<pclas sName="text-smfont-mediumtext-muted-foreground">ThờigianxửlýTB</p>
+<pclas sName="text-2xlfont-bold">2.3ngày</p>
+<pclas sName="text-xstext-successflexitems-center">
+<TrendingDownclas sName="mr-1h-3w-3"/>
 -8%sovớithángtrước
 </p>
 </div>
-<ClockclassName="h-8w-8text-automotive-steel"/>
+<Clockclas sName="h-8w-8text-automotive-steel"/>
 </div>
 </CardContent>
 </Card>
 
-<CardclassName="shadow-elegant">
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<Cardclas sName="shadow-elegant">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smfont-mediumtext-muted-foreground">Tỷlệhàilòng</p>
-<pclassName="text-2xlfont-bold">8.4/10</p>
-<pclassName="text-xstext-successflexitems-center">
-<TrendingUpclassName="mr-1h-3w-3"/>
+<pclas sName="text-smfont-mediumtext-muted-foreground">Tỷlệhàilòng</p>
+<pclas sName="text-2xlfont-bold">8.4/10</p>
+<pclas sName="text-xstext-successflexitems-center">
+<TrendingUpclas sName="mr-1h-3w-3"/>
 +0.3điểm
 </p>
 </div>
-<CheckCircleclassName="h-8w-8text-success"/>
+<CheckCircleclas sName="h-8w-8text-success"/>
 </div>
 </CardContent>
 </Card>
 </div>
 
 {/*TrendsChart*/}
-<CardclassName="shadow-elegant">
+<Cardclas sName="shadow-elegant">
 <CardHeader>
 <CardTitle>Xuhướngtheotháng</CardTitle>
 <CardDescription>Sốlượngclaimsvàchiphíbảohành</CardDescription>
 </CardHeader>
 <CardContent>
-<ResponsiveContainerwidth="100%"height={300}>
+<ResponsiveContainerwidth="100%" height={300}>
 <LineChartdata={monthlyTrends}>
-<CartesianGridstrokeDasharray="33"/>
+<CartesianGridstrokeDas harray="33"/>
 <XAxisdataKey="month"/>
 <YAxisyAxisId="left"/>
-<YAxisyAxisId="right"orientation="right"/>
+<YAxisyAxisId="right" orientation="right"/>
 <Tooltip
 formatter={(value,name)=>{
-if(name==='cost')return[formatCurrency(valueasnumber),'Chiphí'];
+if(name==='cost')return[formatCurrency(valueas number),'Chiphí'];
 if(name==='claims')return[value,'Claims'];
 if(name==='satisfaction')return[value+'/10','Hàilòng'];
 return[value,name];
 }}
 />
 <Legend/>
-<BaryAxisId="left"dataKey="claims"fill="hsl(var(--primary))"name="Claims"/>
-<LineyAxisId="right"type="monotone"dataKey="satisfaction"stroke="hsl(var(--success))"name="Hàilòng"/>
+<BaryAxisId="left" dataKey="claims" fill="hsl(var(--primary))" name="Claims"/>
+<LineyAxisId="right" type="monotone" dataKey="satisfaction" stroke="hsl(var(--success))" name="Hàilòng"/>
 </LineChart>
 </ResponsiveContainer>
 </CardContent>
 </Card>
 </TabsContent>
 
-<TabsContentvalue="claims"className="space-y-6">
-<CardclassName="shadow-elegant">
+<TabsContentvalue="claims" clas sName="space-y-6">
+<Cardclas sName="shadow-elegant">
 <CardHeader>
 <CardTitle>PhântíchClaimstheoModelxe</CardTitle>
 <CardDescription>Thốngkêsốlượng,chiphívàtỷlệhỏnghóc</CardDescription>
 </CardHeader>
-<CardContentclassName="space-y-6">
-<ResponsiveContainerwidth="100%"height={300}>
+<CardContentclas sName="space-y-6">
+<ResponsiveContainerwidth="100%" height={300}>
 <BarChartdata={claimsByModel}>
-<CartesianGridstrokeDasharray="33"/>
+<CartesianGridstrokeDas harray="33"/>
 <XAxisdataKey="model"/>
 <YAxis/>
 <Tooltipformatter={(value)=>[value,'Claims']}/>
 <Legend/>
-<BardataKey="claims"fill="hsl(var(--primary))"name="SốClaims"/>
+<BardataKey="claims" fill="hsl(var(--primary))" name="SốClaims"/>
 </BarChart>
 </ResponsiveContainer>
 
-<divclassName="gridgap-4">
+<divclas sName="gridgap-4">
 {claimsByModel.map((model,index)=>(
-<Cardkey={model.model}className="border-l-4" style={{borderLeftColor:COLORS[index%COLORS.length]}}>
-<CardContentclassName="pt-4">
-<divclassName="gridgrid-cols-4gap-4">
+<Cardkey={model.model}clas sName="border-l-4" style={{borderLeftColor:COLORS[index%COLORS.length]}}>
+<CardContentclas sName="pt-4">
+<divclas sName="gridgrid-cols-4gap-4">
 <div>
-<pclassName="font-medium">{model.model}</p>
-<pclassName="text-smtext-muted-foreground">Modelxe</p>
+<pclas sName="font-medium">{model.model}</p>
+<pclas sName="text-smtext-muted-foreground">Modelxe</p>
 </div>
 <div>
-<pclassName="text-2xlfont-bold">{model.claims}</p>
-<pclassName="text-smtext-muted-foreground">Claims</p>
+<pclas sName="text-2xlfont-bold">{model.claims}</p>
+<pclas sName="text-smtext-muted-foreground">Claims</p>
 </div>
 <div>
-<pclassName="text-lgfont-semibold">{formatCurrency(model.cost)}</p>
-<pclassName="text-smtext-muted-foreground">Chiphí</p>
+<pclas sName="text-lgfont-semibold">{formatCurrency(model.cost)}</p>
+<pclas sName="text-smtext-muted-foreground">Chiphí</p>
 </div>
 <div>
-<pclassName="text-lgfont-semibold">{model.failureRate}%</p>
-<pclassName="text-smtext-muted-foreground">Tỷlệhỏnghóc</p>
+<pclas sName="text-lgfont-semibold">{model.failureRate}%</p>
+<pclas sName="text-smtext-muted-foreground">Tỷlệhỏnghóc</p>
 </div>
 </div>
 </CardContent>
@@ -285,32 +285,32 @@ return[value,name];
 </Card>
 </TabsContent>
 
-<TabsContentvalue="parts"className="space-y-6">
-<CardclassName="shadow-elegant">
+<TabsContentvalue="parts" clas sName="space-y-6">
+<Cardclas sName="shadow-elegant">
 <CardHeader>
 <CardTitle>Topphụtùnghayhỏng</CardTitle>
 <CardDescription>Phântíchchitiếtcácphụtùngcótỷlệhỏngcao</CardDescription>
 </CardHeader>
-<CardContentclassName="space-y-4">
+<CardContentclas sName="space-y-4">
 {topFailureParts.map((part,index)=>(
-<Cardkey={part.part}className="border">
-<CardContentclassName="pt-4">
-<divclassName="flexitems-centerjustify-between">
-<divclassName="flexitems-centerspace-x-4">
-<divclassName="flexh-10w-10items-centerjustify-centerrounded-fullbg-accenttext-accent-foregroundfont-bold">
+<Cardkey={part.part}clas sName="border">
+<CardContentclas sName="pt-4">
+<divclas sName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerspace-x-4">
+<divclas sName="flexh-10w-10items-centerjustify-centerrounded-fullbg-accenttext-accent-foregroundfont-bold">
 {index+1}
 </div>
 <div>
-<pclassName="font-medium">{part.part}</p>
-<divclassName="flexitems-centerspace-x-2">
+<pclas sName="font-medium">{part.part}</p>
+<divclas sName="flexitems-centerspace-x-2">
 <Badgevariant="outline">{part.failures}lầnhỏng</Badge>
 {getCriticalityBadge(part.criticality)}
 </div>
 </div>
 </div>
-<divclassName="text-right">
-<pclassName="text-lgfont-semibold">{formatCurrency(part.cost)}</p>
-<pclassName="text-smtext-muted-foreground">Chiphíthaythế</p>
+<divclas sName="text-right">
+<pclas sName="text-lgfont-semibold">{formatCurrency(part.cost)}</p>
+<pclas sName="text-smtext-muted-foreground">Chiphíthaythế</p>
 </div>
 </div>
 </CardContent>
@@ -320,44 +320,44 @@ return[value,name];
 </Card>
 </TabsContent>
 
-<TabsContentvalue="technicians"className="space-y-6">
-<CardclassName="shadow-elegant">
+<TabsContentvalue="technicians" clas sName="space-y-6">
+<Cardclas sName="shadow-elegant">
 <CardHeader>
 <CardTitle>HiệusuấtKỹthuậtviên</CardTitle>
 <CardDescription>Đánhgiáchấtlượngvàhiệuquảcôngviệc</CardDescription>
 </CardHeader>
-<CardContentclassName="space-y-4">
+<CardContentclas sName="space-y-4">
 {technicianPerformance.map((tech)=>(
-<Cardkey={tech.name}className="border">
-<CardContentclassName="pt-4">
-<divclassName="gridgrid-cols-5gap-4">
+<Cardkey={tech.name}clas sName="border">
+<CardContentclas sName="pt-4">
+<divclas sName="gridgrid-cols-5gap-4">
 <div>
-<pclassName="font-medium">{tech.name}</p>
-<pclassName="text-smtext-muted-foreground">Kỹthuậtviên</p>
+<pclas sName="font-medium">{tech.name}</p>
+<pclas sName="text-smtext-muted-foreground">Kỹthuậtviên</p>
 </div>
 <div>
-<pclassName="text-xlfont-bold">{tech.completedClaims}</p>
-<pclassName="text-smtext-muted-foreground">Claimshoànthành</p>
+<pclas sName="text-xlfont-bold">{tech.completedClaims}</p>
+<pclas sName="text-smtext-muted-foreground">Claimshoànthành</p>
 </div>
 <div>
-<pclassName="text-xlfont-bold">{tech.avgTime}ngày</p>
-<pclassName="text-smtext-muted-foreground">ThờigianTB</p>
+<pclas sName="text-xlfont-bold">{tech.avgTime}ngày</p>
+<pclas sName="text-smtext-muted-foreground">ThờigianTB</p>
 </div>
 <div>
-<pclassName="text-xlfont-bold">{tech.qualityScore}/10</p>
-<pclassName="text-smtext-muted-foreground">Điểmchấtlượng</p>
+<pclas sName="text-xlfont-bold">{tech.qualityScore}/10</p>
+<pclas sName="text-smtext-muted-foreground">Điểmchấtlượng</p>
 </div>
 <div>
-<divclassName="flexitems-centerspace-x-2">
-<divclassName="flex-1bg-mutedrounded-fullh-2">
+<divclas sName="flexitems-centerspace-x-2">
+<divclas sName="flex-1bg-mutedrounded-fullh-2">
 <div
-className="bg-primaryh-2rounded-full"
+clas sName="bg-primaryh-2rounded-full"
 style={{width:`${tech.efficiency}%`}}
 />
 </div>
-<spanclassName="text-smfont-medium">{tech.efficiency}%</span>
+<spanclas sName="text-smfont-medium">{tech.efficiency}%</span>
 </div>
-<pclassName="text-smtext-muted-foreground">Hiệusuất</p>
+<pclas sName="text-smtext-muted-foreground">Hiệusuất</p>
 </div>
 </div>
 </CardContent>
@@ -367,43 +367,43 @@ style={{width:`${tech.efficiency}%`}}
 </Card>
 </TabsContent>
 
-<TabsContentvalue="regions"className="space-y-6">
-<CardclassName="shadow-elegant">
+<TabsContentvalue="regions" clas sName="space-y-6">
+<Cardclas sName="shadow-elegant">
 <CardHeader>
 <CardTitle>Thốngkêtheokhuvực</CardTitle>
 <CardDescription>Phântíchclaimsvàhiệusuấttheođịalý</CardDescription>
 </CardHeader>
-<CardContentclassName="space-y-6">
-<ResponsiveContainerwidth="100%"height={300}>
+<CardContentclas sName="space-y-6">
+<ResponsiveContainerwidth="100%" height={300}>
 <BarChartdata={claimsByRegion}>
-<CartesianGridstrokeDasharray="33"/>
+<CartesianGridstrokeDas harray="33"/>
 <XAxisdataKey="region"/>
 <YAxis/>
 <Tooltip/>
 <Legend/>
-<BardataKey="claims"fill="hsl(var(--primary))"name="Claims"/>
-<BardataKey="technicians"fill="hsl(var(--success))"name="Kỹthuậtviên"/>
+<BardataKey="claims" fill="hsl(var(--primary))" name="Claims"/>
+<BardataKey="technicians" fill="hsl(var(--success))" name="Kỹthuậtviên"/>
 </BarChart>
 </ResponsiveContainer>
 
-<divclassName="gridgap-4md:grid-cols-2">
+<divclas sName="gridgap-4md:grid-cols-2">
 {claimsByRegion.map((region)=>(
 <Cardkey={region.region}>
 <CardHeader>
-<CardTitleclassName="text-base">{region.region}</CardTitle>
+<CardTitleclas sName="text-bas e">{region.region}</CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-2">
-<divclassName="flexjustify-between">
+<CardContentclas sName="space-y-2">
+<divclas sName="flexjustify-between">
 <span>Claims:</span>
-<spanclassName="font-medium">{region.claims}</span>
+<spanclas sName="font-medium">{region.claims}</span>
 </div>
-<divclassName="flexjustify-between">
+<divclas sName="flexjustify-between">
 <span>Kỹthuậtviên:</span>
-<spanclassName="font-medium">{region.technicians}</span>
+<spanclas sName="font-medium">{region.technicians}</span>
 </div>
-<divclassName="flexjustify-between">
+<divclas sName="flexjustify-between">
 <span>ThờigianTB:</span>
-<spanclassName="font-medium">{region.avgTime}ngày</span>
+<spanclas sName="font-medium">{region.avgTime}ngày</span>
 </div>
 </CardContent>
 </Card>

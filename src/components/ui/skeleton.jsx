@@ -1,7 +1,7 @@
-import { cn } from"@/lib/utils";
+import { cn } from "@/lib/utils";
 
-functionSkeleton({className,...props}:React.HTMLAttributes<HTMLDivElement>){
-return<divclassName={cn("animate-pulserounded-mdbg-muted",className)}{...props}/>;
+functionSkeleton({clas sName,...props}:React.HTMLAttributes<HTMLDivElement>){
+return<divclas sName={cn("animate-pulserounded-mdbg-muted",clas sName)}{...props}/>;
 }
 
 export{Skeleton};

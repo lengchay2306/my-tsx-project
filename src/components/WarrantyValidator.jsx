@@ -1,17 +1,17 @@
-import { useState } from'react';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Button } from'@/components/ui/button';
-import { Input } from'@/components/ui/input';
-import { Label } from'@/components/ui/label';
-import { Badge } from'@/components/ui/badge';
-import { useToast } from'@/hooks/use-toast';
-import { Search,Car,Clock,AlertTriangle,CheckCircle,Calendar } from'lucide-react';
+import { useState } from 'react';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
+import { Search,Car,Clock,AlertTriangle,CheckCircle,Calendar } from 'lucide-react';
 
 interfaceVehicleWarrantyInfo{
 vin:string;
 model:string;
 year:string;
-purchaseDate:string;
+purchas eDate:string;
 warrantyStartDate:string;
 warrantyEndDate:string;
 mileage:number;
@@ -35,13 +35,13 @@ const[isLoading,setIsLoading]=useState(false);
 const[validationResult,setValidationResult]=useState<VehicleWarrantyInfo|null>(null);
 const{toast}=useToast();
 
-//Mockvehiclewarrantydatabase
-constvehicleDatabase:VehicleWarrantyInfo[]=[
+//Mockvehiclewarrantydatabas e
+constvehicleDatabas e:VehicleWarrantyInfo[]=[
 {
 vin:'1HGBH41JXMN109186',
 model:'EVModelXPro',
 year:'2023',
-purchaseDate:'2023-03-15',
+purchas eDate:'2023-03-15',
 warrantyStartDate:'2023-03-15',
 warrantyEndDate:'2028-03-15',
 mileage:15000,
@@ -57,7 +57,7 @@ email:'minh.nguyen@email.com'
 vin:'WVWZZZ1JZ3W386752',
 model:'EVCompactPlus',
 year:'2022',
-purchaseDate:'2022-01-20',
+purchas eDate:'2022-01-20',
 warrantyStartDate:'2022-01-20',
 warrantyEndDate:'2025-01-20',
 mileage:85000,
@@ -73,7 +73,7 @@ email:'lan.tran@email.com'
 vin:'JH4KA7532MC123456',
 model:'EVCityCar',
 year:'2020',
-purchaseDate:'2020-06-10',
+purchas eDate:'2020-06-10',
 warrantyStartDate:'2020-06-10',
 warrantyEndDate:'2023-06-10',
 mileage:45000,
@@ -89,7 +89,7 @@ email:'hung.pham@email.com'
 vin:'KMHGH4JH3EA123789',
 model:'EVSportSedan',
 year:'2021',
-purchaseDate:'2021-08-15',
+purchas eDate:'2021-08-15',
 warrantyStartDate:'2021-08-15',
 warrantyEndDate:'2026-08-15',
 mileage:105000,
@@ -108,14 +108,14 @@ setIsLoading(true);
 
 //SimulateAPIcall
 setTimeout(()=>{
-const vehicle=vehicleDatabase.find(v=>v.vin.toLowerCase()===vinSearch.toLowerCase());
+const vehicle=vehicleDatabas e.find(v=>v.vin.toLowerCas e()===vinSearch.toLowerCas e());
 
 if(!vehicle){
 setValidationResult({
 vin:vinSearch,
 model:'Unknown',
 year:'Unknown',
-purchaseDate:'',
+purchas eDate:'',
 warrantyStartDate:'',
 warrantyEndDate:'',
 mileage:0,
@@ -152,10 +152,10 @@ title:"Xecònbảohành",
 description:`${vehicle.model}của${vehicle.customer.name}còntrongthờigianbảohành.`
 });
 }else{
-const reason=status==='expired_time''hếtthờigianbảohành':'vượtquásốkmchophép';
+const reas on=status==='expired_time''hếtthờigianbảohành':'vượtquásốkmchophép';
 toast({
 title:"Xehếtbảohành",
-description:`${vehicle.model}đã${reason}.Gợiýkháchhànggiahạnbảohành.`,
+description:`${vehicle.model}đã${reas on}.Gợiýkháchhànggiahạnbảohành.`,
 variant:"destructive"
 });
 }
@@ -166,14 +166,14 @@ setIsLoading(false);
 
 const getWarrantyStatusBadge=(status:VehicleWarrantyInfo['warrantyStatus'])=>{
 switch(status){
-case'valid':
-return<Badgevariant="success"className="flexitems-centergap-1"><CheckCircleclassName="h-3w-3"/>Cònbảohành</Badge>;
-case'expired_time':
-return<Badgevariant="destructive"className="flexitems-centergap-1"><ClockclassName="h-3w-3"/>Hếthạn(thờigian)</Badge>;
-case'expired_mileage':
-return<Badgevariant="destructive"className="flexitems-centergap-1"><AlertTriangleclassName="h-3w-3"/>Hếthạn(km)</Badge>;
-case'not_found':
-return<Badgevariant="secondary"className="flexitems-centergap-1"><AlertTriangleclassName="h-3w-3"/>Khôngtìmthấy</Badge>;
+cas e'valid':
+return<Badgevariant="success" clas sName="flexitems-centergap-1"><CheckCircleclas sName=" h-3w-3"/>Cònbảohành</Badge>;
+cas e'expired_time':
+return<Badgevariant="destructive" clas sName="flexitems-centergap-1"><Clockclas sName=" h-3w-3"/>Hếthạn(thờigian)</Badge>;
+cas e'expired_mileage':
+return<Badgevariant="destructive" clas sName="flexitems-centergap-1"><AlertTriangleclas sName=" h-3w-3"/>Hếthạn(km)</Badge>;
+cas e'not_found':
+return<Badgevariant="secondary" clas sName="flexitems-centergap-1"><AlertTriangleclas sName=" h-3w-3"/>Khôngtìmthấy</Badge>;
 default:
 returnnull;
 }
@@ -186,48 +186,48 @@ onValidationComplete(validationResult);
 };
 
 return(
-<divclassName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
-<CardclassName="w-fullmax-w-3xl">
+<divclas sName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
+<Cardclas sName="w-fullmax-w-3xl">
 <CardHeader>
-<CardTitleclassName="flexitems-centergap-2">
-<CarclassName="h-5w-5text-primary"/>
+<CardTitleclas sName="flexitems-centergap-2">
+<Carclas sName="h-5w-5text-primary"/>
 Kiểmtrabảohànhxe
 </CardTitle>
 <CardDescription>
 NhậpmãVINđểkiểmtratìnhtrạngbảohànhcủaxe
 </CardDescription>
 </CardHeader>
-<CardContentclassName="space-y-6">
+<CardContentclas sName="space-y-6">
 <div>
 <LabelhtmlFor="vin-input">MãVIN</Label>
-<divclassName="flexgap-2mt-2">
+<divclas sName="flexgap-2mt-2">
 <Input
 id="vin-input"
 placeholder="NhậpmãVIN(vídụ:1HGBH41JXMN109186)"
 value={vinSearch}
 onChange={(e)=>setVinSearch(e.target.value)}
-className="flex-1"
+clas sName="flex-1"
 />
 <Button
 onClick={validateWarranty}
 disabled={!vinSearch.trim()||isLoading}
 >
-<SearchclassName="h-4w-4mr-2"/>
+<Searchclas sName="h-4w-4mr-2"/>
 {isLoading'Đangkiểmtra...':'Kiểmtra'}
 </Button>
 </div>
 </div>
 
 {/*DemoVINs*/}
-<CardclassName="bg-accent/20">
-<CardContentclassName="pt-4">
-<pclassName="font-mediummb-2">MãVINdemo:</p>
-<divclassName="flexflex-wrapgap-2">
-{vehicleDatabase.map((vehicle)=>(
+<Cardclas sName="bg-accent/20">
+<CardContentclas sName="pt-4">
+<pclas sName="font-mediummb-2">MãVINdemo:</p>
+<divclas sName="flexflex-wrapgap-2">
+{vehicleDatabas e.map((vehicle)=>(
 <Badge
 key={vehicle.vin}
 variant="outline"
-className="cursor-pointerhover:bg-primaryhover:text-primary-foreground"
+clas sName="cursor-pointerhover:bg-primaryhover:text-primary-foreground"
 onClick={()=>setVinSearch(vehicle.vin)}
 >
 {vehicle.vin}
@@ -239,7 +239,7 @@ onClick={()=>setVinSearch(vehicle.vin)}
 
 {/*ValidationResult*/}
 {validationResult&&(
-<CardclassName={`border-2${
+<Cardclas sName={`border-2${
 validationResult.warrantyStatus==='valid'
 'border-green-200'
 :validationResult.warrantyStatus==='not_found'
@@ -247,34 +247,34 @@ validationResult.warrantyStatus==='valid'
 :'border-red-200'
 }`}>
 <CardHeader>
-<divclassName="flexitems-centerjustify-between">
-<CardTitleclassName="text-base">Kếtquảkiểmtra</CardTitle>
+<divclas sName="flexitems-centerjustify-between">
+<CardTitleclas sName="text-bas e">Kếtquảkiểmtra</CardTitle>
 {getWarrantyStatusBadge(validationResult.warrantyStatus)}
 </div>
 </CardHeader>
 <CardContent>
 {validationResult.warrantyStatus!=='not_found'(
-<divclassName="gridmd:grid-cols-2gap-4">
-<divclassName="space-y-3">
-<h4className="font-medium">Thôngtinxe</h4>
-<divclassName="text-smspace-y-1">
+<divclas sName="gridmd:grid-cols-2gap-4">
+<divclas sName="space-y-3">
+<h4clas sName="font-medium">Thôngtinxe</h4>
+<divclas sName="text-smspace-y-1">
 <p><strong>VIN:</strong>{validationResult.vin}</p>
 <p><strong>Model:</strong>{validationResult.model}</p>
 <p><strong>Năm:</strong>{validationResult.year}</p>
-<p><strong>Ngàymua:</strong>{newDate(validationResult.purchaseDate).toLocaleDateString('vi-VN')}</p>
+<p><strong>Ngàymua:</strong>{newDate(validationResult.purchas eDate).toLocaleDateString('vi-VN')}</p>
 </div>
 </div>
-<divclassName="space-y-3">
-<h4className="font-medium">Thôngtinkháchhàng</h4>
-<divclassName="text-smspace-y-1">
+<divclas sName="space-y-3">
+<h4clas sName="font-medium">Thôngtinkháchhàng</h4>
+<divclas sName="text-smspace-y-1">
 <p><strong>Tên:</strong>{validationResult.customer.name}</p>
 <p><strong>SĐT:</strong>{validationResult.customer.phone}</p>
 <p><strong>Email:</strong>{validationResult.customer.email}</p>
 </div>
 </div>
-<divclassName="md:col-span-2space-y-3">
-<h4className="font-medium">Tìnhtrạngbảohành</h4>
-<divclassName="gridmd:grid-cols-2gap-4text-sm">
+<divclas sName="md:col-span-2space-y-3">
+<h4clas sName="font-medium">Tìnhtrạngbảohành</h4>
+<divclas sName="gridmd:grid-cols-2gap-4text-sm">
 <div>
 <p><strong>Bắtđầu:</strong>{newDate(validationResult.warrantyStartDate).toLocaleDateString('vi-VN')}</p>
 <p><strong>Kếtthúc:</strong>{newDate(validationResult.warrantyEndDate).toLocaleDateString('vi-VN')}</p>
@@ -287,12 +287,12 @@ validationResult.warrantyStatus==='valid'
 </div>
 </div>
 ):(
-<divclassName="text-centerpy-8">
-<AlertTriangleclassName="h-12w-12mx-automb-4text-muted-foreground"/>
-<pclassName="text-muted-foreground">
+<divclas sName="text-centerpy-8">
+<AlertTriangleclas sName="h-12w-12mx-automb-4text-muted-foreground"/>
+<pclas sName="text-muted-foreground">
 KhôngtìmthấythôngtinxevớiVIN:<strong>{validationResult.vin}</strong>
 </p>
-<pclassName="text-smtext-muted-foregroundmt-2">
+<pclas sName="text-smtext-muted-foregroundmt-2">
 Vuilòngliênhệbộphậnhỗtrợđểđượctrợgiúp.
 </p>
 </div>
@@ -300,18 +300,18 @@ Vuilòngliênhệbộphậnhỗtrợđểđượctrợgiúp.
 
 {/*Recommendations*/}
 {validationResult.warrantyStatus==='expired_time'&&(
-<divclassName="mt-4p-4bg-amber-50borderborder-amber-200rounded-lg">
-<h5className="font-mediumtext-amber-800mb-2">Gợiýchokháchhàng:</h5>
-<pclassName="text-smtext-amber-700">
+<divclas sName="mt-4p-4bg-amber-50borderborder-amber-200rounded-lg">
+<h5clas sName="font-mediumtext-amber-800mb-2">Gợiýchokháchhàng:</h5>
+<pclas sName="text-smtext-amber-700">
 Xeđãhếtthờigianbảohành.Kháchhàngcóthểgiahạnbảohànhmởrộng
 hoặcsửdụngdịchvụsửachữatrảphí.
 </p>
 </div>
 )}
 {validationResult.warrantyStatus==='expired_mileage'&&(
-<divclassName="mt-4p-4bg-amber-50borderborder-amber-200rounded-lg">
-<h5className="font-mediumtext-amber-800mb-2">Gợiýchokháchhàng:</h5>
-<pclassName="text-smtext-amber-700">
+<divclas sName="mt-4p-4bg-amber-50borderborder-amber-200rounded-lg">
+<h5clas sName="font-mediumtext-amber-800mb-2">Gợiýchokháchhàng:</h5>
+<pclas sName="text-smtext-amber-700">
 Xeđãvượtquásốkmbảohànhchophép.Kháchhàngcóthểgiahạnbảohành
 theokmhoặcsửdụngdịchvụsửachữatrảphí.
 </p>
@@ -321,8 +321,8 @@ theokmhoặcsửdụngdịchvụsửachữatrảphí.
 </Card>
 )}
 
-<divclassName="flexjustify-between">
-<Buttonvariant="outline"onClick={onClose}>
+<divclas sName="flexjustify-between">
+<Buttonvariant="outline" onClick={onClose}>
 Hủy
 </Button>
 <Button

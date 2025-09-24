@@ -1,4 +1,4 @@
-import*asAspectRatioPrimitivefrom"@radix-ui/react-aspect-ratio";
+import *as AspectRatioPrimitivefrom "@radix-ui/react-as pect-ratio";
 
 const AspectRatio=AspectRatioPrimitive.Root;
 

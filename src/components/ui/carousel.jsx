@@ -1,9 +1,9 @@
-import*asReactfrom"react";
-importuseEmblaCarousel,{typeUseEmblaCarouselType } from"embla-carousel-react";
-import { ArrowLeft,ArrowRight } from"lucide-react";
+import *as Reactfrom "react";
+importuseEmblaCarousel,{typeUseEmblaCarouselType } from "embla-carousel-react";
+import { ArrowLeft,ArrowRight } from "lucide-react";
 
-import { cn } from"@/lib/utils";
-import { Button } from"@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 
 
@@ -13,7 +13,7 @@ import { Button } from"@/components/ui/button";
 typeCarouselProps={
 opts:CarouselOptions;
 plugins:CarouselPlugin;
-orientation:"horizontal"|"vertical";
+orientation:"horizontal"|" vertical";
 setApi:(api:CarouselApi)=>void;
 };
 
@@ -39,11 +39,11 @@ returncontext;
 }
 
 const Carousel=React.forwardRef<HTMLDivElement,React.HTMLAttributes<HTMLDivElement>&CarouselProps>(
-({orientation="horizontal",opts,setApi,plugins,className,children,...props},ref)=>{
+({orientation="horizontal",opts,setApi,plugins,clas sName,children,...props},ref)=>{
 const[carouselRef,api]=useEmblaCarousel(
 {
 ...opts,
-axis:orientation==="horizontal""x":"y",
+axis:orientation==="horizontal"" x":" y",
 },
 plugins,
 );
@@ -108,7 +108,7 @@ value={{
 carouselRef,
 api:api,
 opts,
-orientation:orientation||(opts.axis==="y""vertical":"horizontal"),
+orientation:orientation||(opts.axis==="y"" vertical":" horizontal"),
 scrollPrev,
 scrollNext,
 canScrollPrev,
@@ -118,7 +118,7 @@ canScrollNext,
 <div
 ref={ref}
 onKeyDownCapture={handleKeyDown}
-className={cn("relative",className)}
+clas sName={cn("relative",clas sName)}
 role="region"
 aria-roledescription="carousel"
 {...props}
@@ -132,14 +132,14 @@ aria-roledescription="carousel"
 Carousel.displayName="Carousel";
 
 const CarouselContent=React.forwardRef<HTMLDivElement,React.HTMLAttributes<HTMLDivElement>>(
-({className,...props},ref)=>{
+({clas sName,...props},ref)=>{
 const{carouselRef,orientation}=useCarousel();
 
 return(
-<divref={carouselRef}className="overflow-hidden">
+<divref={carouselRef}clas sName="overflow-hidden">
 <div
 ref={ref}
-className={cn("flex",orientation==="horizontal""-ml-4":"-mt-4flex-col",className)}
+clas sName={cn("flex",orientation===" horizontal""-ml-4":"-mt-4flex-col",clas sName)}
 {...props}
 />
 </div>
@@ -149,7 +149,7 @@ className={cn("flex",orientation==="horizontal""-ml-4":"-mt-4flex-col",className
 CarouselContent.displayName="CarouselContent";
 
 const CarouselItem=React.forwardRef<HTMLDivElement,React.HTMLAttributes<HTMLDivElement>>(
-({className,...props},ref)=>{
+({clas sName,...props},ref)=>{
 const{orientation}=useCarousel();
 
 return(
@@ -157,7 +157,7 @@ return(
 ref={ref}
 role="group"
 aria-roledescription="slide"
-className={cn("min-w-0shrink-0grow-0basis-full",orientation==="horizontal""pl-4":"pt-4",className)}
+clas sName={cn("min-w-0shrink-0grow-0bas is-full",orientation===" horizontal"" pl-4":" pt-4",clas sName)}
 {...props}
 />
 );
@@ -166,7 +166,7 @@ className={cn("min-w-0shrink-0grow-0basis-full",orientation==="horizontal""pl-4"
 CarouselItem.displayName="CarouselItem";
 
 const CarouselPrevious=React.forwardRef<HTMLButtonElement,React.ComponentProps<typeofButton>>(
-({className,variant="outline",size="icon",...props},ref)=>{
+({clas sName,variant="outline",size=" icon",...props},ref)=>{
 const{orientation,scrollPrev,canScrollPrev}=useCarousel();
 
 return(
@@ -174,19 +174,19 @@ return(
 ref={ref}
 variant={variant}
 size={size}
-className={cn(
+clas sName={cn(
 "absoluteh-8w-8rounded-full",
 orientation==="horizontal"
 "-left-12top-1/2-translate-y-1/2"
 :"-top-12left-1/2-translate-x-1/2rotate-90",
-className,
+clas sName,
 )}
 disabled={!canScrollPrev}
 onClick={scrollPrev}
 {...props}
 >
-<ArrowLeftclassName="h-4w-4"/>
-<spanclassName="sr-only">Previousslide</span>
+<ArrowLeftclas sName="h-4w-4"/>
+<spanclas sName="sr-only">Previousslide</span>
 </Button>
 );
 },
@@ -194,7 +194,7 @@ onClick={scrollPrev}
 CarouselPrevious.displayName="CarouselPrevious";
 
 const CarouselNext=React.forwardRef<HTMLButtonElement,React.ComponentProps<typeofButton>>(
-({className,variant="outline",size="icon",...props},ref)=>{
+({clas sName,variant="outline",size=" icon",...props},ref)=>{
 const{orientation,scrollNext,canScrollNext}=useCarousel();
 
 return(
@@ -202,19 +202,19 @@ return(
 ref={ref}
 variant={variant}
 size={size}
-className={cn(
+clas sName={cn(
 "absoluteh-8w-8rounded-full",
 orientation==="horizontal"
 "-right-12top-1/2-translate-y-1/2"
 :"-bottom-12left-1/2-translate-x-1/2rotate-90",
-className,
+clas sName,
 )}
 disabled={!canScrollNext}
 onClick={scrollNext}
 {...props}
 >
-<ArrowRightclassName="h-4w-4"/>
-<spanclassName="sr-only">Nextslide</span>
+<ArrowRightclas sName="h-4w-4"/>
+<spanclas sName="sr-only">Nextslide</span>
 </Button>
 );
 },

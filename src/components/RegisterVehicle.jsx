@@ -1,12 +1,12 @@
-import { useState } from'react';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Button } from'@/components/ui/button';
-import { Input } from'@/components/ui/input';
-import { Label } from'@/components/ui/label';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from'@/components/ui/select';
-import { Badge } from'@/components/ui/badge';
-import { useToast } from'@/hooks/use-toast';
-import { useAuth } from'@/contexts/AuthContext';
+import { useState } from 'react';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
+import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 import { 
 Car,
 Calendar,
@@ -17,7 +17,7 @@ Search,
 User,
 CheckCircle,
 AlertCircle
- } from'lucide-react';
+ } from 'lucide-react';
 
 interfaceVehicleData{
 vin:string;
@@ -26,7 +26,7 @@ year:string;
 color:string;
 batteryCapacity:string;
 motorType:string;
-purchaseDate:string;
+purchas eDate:string;
 warrantyStartDate:string;
 warrantyEndDate:string;
 customerId:string;
@@ -46,7 +46,7 @@ year:'',
 color:'',
 batteryCapacity:'',
 motorType:'',
-purchaseDate:'',
+purchas eDate:'',
 warrantyStartDate:'',
 warrantyEndDate:'',
 customerId:'',
@@ -117,7 +117,7 @@ const searchCustomer=()=>{
 const customer=mockCustomers.find(c=>
 c.phone===customerSearch||
 c.email===customerSearch||
-c.name.toLowerCase().includes(customerSearch.toLowerCase())
+c.name.toLowerCas e().includes(customerSearch.toLowerCas e())
 );
 
 if(customer){
@@ -130,18 +130,18 @@ description:`Found${customer.name}`,
 }else{
 toast({
 title:"CustomerNotFound",
-description:"Pleasechecktheinformationoraddanewcustomer",
+description:"Pleas echecktheinformationoraddanewcustomer",
 variant:"destructive"
 });
 }
 };
 
-const calculateWarrantyDates=(purchaseDate))=>{
-if(!purchaseDate)return;
+const calculateWarrantyDates=(purchas eDate))=>{
+if(!purchas eDate)return;
 
-const purchase=newDate(purchaseDate);
-const warrantyStart=newDate(purchase);
-const warrantyEnd=newDate(purchase);
+const purchas e=newDate(purchas eDate);
+const warrantyStart=newDate(purchas e);
+const warrantyEnd=newDate(purchas e);
 warrantyEnd.setFullYear(warrantyEnd.getFullYear()+8);//8yearwarranty
 
 setVehicleData(prev=>({
@@ -156,7 +156,7 @@ setIsLoading(true);
 setTimeout(()=>{
 toast({
 title:"VehicleRegisteredSuccessfully!",
-description:`VIN${vehicleData.vin}hasbeenregisteredfor${selectedCustomer.name}`,
+description:`VIN${vehicleData.vin}has beenregisteredfor${selectedCustomer.name}`,
 });
 setIsLoading(false);
 onClose();
@@ -165,67 +165,67 @@ onClose();
 
 const isStep1Valid=vehicleData.vin&&vehicleData.model&&vehicleData.year&&selectedCustomer;
 const isStep2Valid=vehicleData.color&&vehicleData.batteryCapacity&&vehicleData.motorType;
-const isStep3Valid=vehicleData.purchaseDate&&vehicleData.warrantyStartDate;
+const isStep3Valid=vehicleData.purchas eDate&&vehicleData.warrantyStartDate;
 
 return(
-<divclassName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
-<CardclassName="w-fullmax-w-3xlmax-h-[90vh]overflow-hidden">
-<CardHeaderclassName="border-b">
-<divclassName="flexitems-centerjustify-between">
+<divclas sName="fixedinset-0bg-black/50flexitems-centerjustify-centerp-4z-50">
+<Cardclas sName="w-fullmax-w-3xlmax-h-[90vh]overflow-hidden">
+<CardHeaderclas sName="border-b">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<CardTitleclassName="flexitems-centerspace-x-2">
-<CarclassName="h-5w-5text-primary"/>
+<CardTitleclas sName="flexitems-centerspace-x-2">
+<Carclas sName="h-5w-5text-primary"/>
 <span>RegisterNewVehicle</span>
 </CardTitle>
 <CardDescription>
 Registeranewelectricvehicleandlinktocustomer
 </CardDescription>
 </div>
-<Buttonvariant="ghost"size="sm"onClick={onClose}>
-<XclassName="h-4w-4"/>
+<Buttonvariant="ghost" size="sm" onClick={onClose}>
+<Xclas sName="h-4w-4"/>
 </Button>
 </div>
 
 {/*ProgressSteps*/}
-<divclassName="flexitems-centerspace-x-4mt-6">
+<divclas sName="flexitems-centerspace-x-4mt-6">
 {[
 {number:1,title:'VehicleInfo'},
 {number:2,title:'Specifications'},
 {number:3,title:'Warranty'}
 ].map((step)=>(
-<divkey={step.number}className="flexitems-centerspace-x-2">
-<divclassName={`flexh-8w-8items-centerjustify-centerrounded-fulltext-smfont-medium${
+<divkey={step.number}clas sName="flexitems-centerspace-x-2">
+<divclas sName={`flexh-8w-8items-centerjustify-centerrounded-fulltext-smfont-medium${
 currentStep>=step.number
 'bg-primarytext-primary-foreground'
 :'bg-mutedtext-muted-foreground'
 }`}>
 {currentStep>step.number(
-<CheckCircleclassName="h-4w-4"/>
+<CheckCircleclas sName="h-4w-4"/>
 ):(
 step.number
 )}
 </div>
-<spanclassName="text-smfont-medium">{step.title}</span>
+<spanclas sName="text-smfont-medium">{step.title}</span>
 </div>
 ))}
 </div>
 </CardHeader>
 
-<CardContentclassName="p-6overflow-y-automax-h-[calc(90vh-200px)]">
-{/*Step1:BasicVehicleInfo*/}
+<CardContentclas sName="p-6overflow-y-automax-h-[calc(90vh-200px)]">
+{/*Step1:Bas icVehicleInfo*/}
 {currentStep===1&&(
-<divclassName="space-y-6">
-<divclassName="gridmd:grid-cols-2gap-4">
+<divclas sName="space-y-6">
+<divclas sName="gridmd:grid-cols-2gap-4">
 <div>
 <LabelhtmlFor="vin">VINNumber</Label>
 <Input
 id="vin"
 placeholder="Enter17-characterVIN"
 value={vehicleData.vin}
-onChange={(e)=>setVehicleData(prev=>({...prev,vin:e.target.value.toUpperCase()}))}
+onChange={(e)=>setVehicleData(prev=>({...prev,vin:e.target.value.toUpperCas e()}))}
 maxLength={17}
 />
-<pclassName="text-xstext-muted-foregroundmt-1">
+<pclas sName="text-xstext-muted-foregroundmt-1">
 VehicleIdentificationNumber(17characters)
 </p>
 </div>
@@ -260,32 +260,32 @@ VehicleIdentificationNumber(17characters)
 </div>
 
 {/*CustomerSearch*/}
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 <Label>LinktoCustomer</Label>
-<divclassName="flexspace-x-2">
+<divclas sName="flexspace-x-2">
 <Input
 placeholder="Searchbyname,phone,oremail"
 value={customerSearch}
 onChange={(e)=>setCustomerSearch(e.target.value)}
-className="flex-1"
+clas sName="flex-1"
 />
 <ButtononClick={searchCustomer}disabled={!customerSearch}>
-<SearchclassName="h-4w-4mr-2"/>
+<Searchclas sName="h-4w-4mr-2"/>
 Search
 </Button>
 </div>
 
 {selectedCustomer&&(
-<CardclassName="border-success">
-<CardContentclassName="pt-4">
-<divclassName="flexitems-centerjustify-between">
+<Cardclas sName="border-success">
+<CardContentclas sName="pt-4">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<h3className="font-semiboldflexitems-centerspace-x-2">
-<UserclassName="h-4w-4"/>
+<h3clas sName="font-semiboldflexitems-centerspace-x-2">
+<Userclas sName="h-4w-4"/>
 <span>{selectedCustomer.name}</span>
 </h3>
-<pclassName="text-smtext-muted-foreground">{selectedCustomer.phone}</p>
-<pclassName="text-smtext-muted-foreground">{selectedCustomer.email}</p>
+<pclas sName="text-smtext-muted-foreground">{selectedCustomer.phone}</p>
+<pclas sName="text-smtext-muted-foreground">{selectedCustomer.email}</p>
 </div>
 <Badgevariant="success">Linked</Badge>
 </div>
@@ -294,15 +294,15 @@ Search
 )}
 
 {/*DemoSearchHelper*/}
-<CardclassName="bg-accent/20">
-<CardContentclassName="pt-4">
-<pclassName="text-smfont-mediummb-2">Democustomerstosearch:</p>
-<divclassName="flexflex-wrapgap-2">
+<Cardclas sName="bg-accent/20">
+<CardContentclas sName="pt-4">
+<pclas sName="text-smfont-mediummb-2">Democustomerstosearch:</p>
+<divclas sName="flexflex-wrapgap-2">
 {mockCustomers.map((customer)=>(
 <Badge
 key={customer.id}
 variant="outline"
-className="cursor-pointerhover:bg-primaryhover:text-primary-foreground"
+clas sName="cursor-pointerhover:bg-primaryhover:text-primary-foreground"
 onClick={()=>setCustomerSearch(customer.name)}
 >
 {customer.name}
@@ -317,8 +317,8 @@ onClick={()=>setCustomerSearch(customer.name)}
 
 {/*Step2:Specifications*/}
 {currentStep===2&&(
-<divclassName="space-y-6">
-<divclassName="gridmd:grid-cols-2gap-4">
+<divclas sName="space-y-6">
+<divclas sName="gridmd:grid-cols-2gap-4">
 <div>
 <Label>Color</Label>
 <Selectvalue={vehicleData.color}onValueChange={(value)=>setVehicleData(prev=>({...prev,color:value}))}>
@@ -375,10 +375,10 @@ onChange={(e)=>setVehicleData(prev=>({...prev,dealerInfo:e.target.value}))}
 {/*SpecificationsPreview*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">VehicleSpecifications</CardTitle>
+<CardTitleclas sName="text-bas e">VehicleSpecifications</CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="gridmd:grid-cols-2gap-4text-sm">
+<divclas sName="gridmd:grid-cols-2gap-4text-sm">
 <div>
 <p><strong>Model:</strong>{vehicleData.model||'Notselected'}</p>
 <p><strong>Year:</strong>{vehicleData.year||'Notselected'}</p>
@@ -397,16 +397,16 @@ onChange={(e)=>setVehicleData(prev=>({...prev,dealerInfo:e.target.value}))}
 
 {/*Step3:WarrantyInformation*/}
 {currentStep===3&&(
-<divclassName="space-y-6">
-<divclassName="gridmd:grid-cols-2gap-4">
+<divclas sName="space-y-6">
+<divclas sName="gridmd:grid-cols-2gap-4">
 <div>
-<LabelhtmlFor="purchase-date">PurchaseDate</Label>
+<LabelhtmlFor="purchas e-date">Purchas eDate</Label>
 <Input
-id="purchase-date"
+id="purchas e-date"
 type="date"
-value={vehicleData.purchaseDate}
+value={vehicleData.purchas eDate}
 onChange={(e)=>{
-setVehicleData(prev=>({...prev,purchaseDate:e.target.value}));
+setVehicleData(prev=>({...prev,purchas eDate:e.target.value}));
 calculateWarrantyDates(e.target.value);
 }}
 />
@@ -434,31 +434,31 @@ onChange={(e)=>setVehicleData(prev=>({...prev,warrantyEndDate:e.target.value}))}
 </div>
 
 {/*WarrantySummary*/}
-<CardclassName="border-primary/20bg-primary/5">
+<Cardclas sName="border-primary/20bg-primary/5">
 <CardHeader>
-<CardTitleclassName="flexitems-centerspace-x-2text-primary">
-<ShieldclassName="h-5w-5"/>
+<CardTitleclas sName="flexitems-centerspace-x-2text-primary">
+<Shieldclas sName="h-5w-5"/>
 <span>WarrantyCoverage</span>
 </CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-3">
-<divclassName="flexjustify-between">
-<spanclassName="text-sm">BatterySystem:</span>
+<divclas sName="space-y-3">
+<divclas sName="flexjustify-between">
+<spanclas sName="text-sm">BatterySystem:</span>
 <Badgevariant="success">8years/160,000km</Badge>
 </div>
-<divclassName="flexjustify-between">
-<spanclassName="text-sm">Motor&Drivetrain:</span>
+<divclas sName="flexjustify-between">
+<spanclas sName="text-sm">Motor&Drivetrain:</span>
 <Badgevariant="success">5years/100,000km</Badge>
 </div>
-<divclassName="flexjustify-between">
-<spanclassName="text-sm">Electronics:</span>
+<divclas sName="flexjustify-between">
+<spanclas sName="text-sm">Electronics:</span>
 <Badgevariant="success">3years/60,000km</Badge>
 </div>
 {vehicleData.warrantyEndDate&&(
-<divclassName="flexjustify-betweenpt-2border-t">
-<spanclassName="font-medium">Coverageuntil:</span>
-<spanclassName="font-mediumtext-primary">
+<divclas sName="flexjustify-betweenpt-2border-t">
+<spanclas sName="font-medium">Coverageuntil:</span>
+<spanclas sName="font-mediumtext-primary">
 {newDate(vehicleData.warrantyEndDate).toLocaleDateString('vi-VN')}
 </span>
 </div>
@@ -470,10 +470,10 @@ onChange={(e)=>setVehicleData(prev=>({...prev,warrantyEndDate:e.target.value}))}
 {/*RegistrationSummary*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-base">RegistrationSummary</CardTitle>
+<CardTitleclas sName="text-bas e">RegistrationSummary</CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="gridmd:grid-cols-2gap-4text-sm">
+<divclas sName="gridmd:grid-cols-2gap-4text-sm">
 <div>
 <p><strong>VIN:</strong>{vehicleData.vin}</p>
 <p><strong>Model:</strong>{vehicleData.model}({vehicleData.year})</p>
@@ -483,7 +483,7 @@ onChange={(e)=>setVehicleData(prev=>({...prev,warrantyEndDate:e.target.value}))}
 <div>
 <p><strong>Customer:</strong>{selectedCustomer.name}</p>
 <p><strong>Phone:</strong>{selectedCustomer.phone}</p>
-<p><strong>Purchase:</strong>{vehicleData.purchaseDatenewDate(vehicleData.purchaseDate).toLocaleDateString('vi-VN'):'Notset'}</p>
+<p><strong>Purchas e:</strong>{vehicleData.purchas eDatenewDate(vehicleData.purchas eDate).toLocaleDateString('vi-VN'):'Notset'}</p>
 <p><strong>Registeredby:</strong>{user.name}</p>
 </div>
 </div>
@@ -494,8 +494,8 @@ onChange={(e)=>setVehicleData(prev=>({...prev,warrantyEndDate:e.target.value}))}
 </CardContent>
 
 {/*FooterNavigation*/}
-<divclassName="border-tp-6">
-<divclassName="flexjustify-between">
+<divclas sName="border-tp-6">
+<divclas sName="flexjustify-between">
 <Button
 variant="outline"
 onClick={()=>setCurrentStep(Math.max(1,currentStep-1))}
@@ -521,13 +521,13 @@ onClick={handleSubmit}
 disabled={!isStep3Valid||isLoading}
 >
 {isLoading(
-<divclassName="flexitems-centerspace-x-2">
-<divclassName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
+<divclas sName="flexitems-centerspace-x-2">
+<divclas sName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
 <span>Registering...</span>
 </div>
 ):(
 <>
-<SaveclassName="h-4w-4mr-2"/>
+<Saveclas sName="h-4w-4mr-2"/>
 RegisterVehicle
 </>
 )}

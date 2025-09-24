@@ -1,9 +1,9 @@
-import { useState } from"react";
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from"@/components/ui/card";
-import { Button } from"@/components/ui/button";
-import { Badge } from"@/components/ui/badge";
-import { Input } from"@/components/ui/input";
-import { useAuth } from"@/contexts/AuthContext";
+import { useState } from "react";
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { useAuth } from "@/contexts/AuthContext";
 import { 
 Wrench,
 Clock,
@@ -18,83 +18,83 @@ Camera,
 Plus,
 Eye,
 PlayCircle
- } from"lucide-react";
+ } from "lucide-react";
 
 interfaceTechnicianDashboardProps{
-onViewCase:(caseId))=>void;
-onAddReport:(caseId))=>void;
-onLogProgress:(caseId))=>void;
-onRecordInstallation:(caseId))=>void;
+onViewCas e:(cas eId))=>void;
+onAddReport:(cas eId))=>void;
+onLogProgress:(cas eId))=>void;
+onRecordInstallation:(cas eId))=>void;
 }
 
 const TechnicianDashboard=({
-onViewCase,
+onViewCas e,
 onAddReport,
 onLogProgress,
 onRecordInstallation
 }:TechnicianDashboardProps)=>{
 const[searchTerm,setSearchTerm]=useState("");
-const[viewMode,setViewMode]=useState<"list"|"kanban">("kanban");
+const[viewMode,setViewMode]=useState<"list"|" kanban">(" kanban");
 const{user,logout}=useAuth();
 
-const myTasks=[
+const myTas ks=[
 {
 id:"WC-2024-001",
 customer:"NguyễnVănA",
-vehicle:"VinFastVF82023",
+vehicle:"VinFas tVF82023",
 vin:"1HGBH41JXMN109186",
 issue:"BatteryPerformanceIssue",
 status:"in-progress",
 priority:"high",
-assignedDate:"2024-01-15",
+as signedDate:"2024-01-15",
 dueDate:"2024-01-20",
 progress:60,
-lastUpdate:"2024-01-1614:30",
+las tUpdate:"2024-01-1614:30",
 reportsSubmitted:2,
 partsWaiting:1
 },
 {
 id:"WC-2024-003",
 customer:"HoàngMinhE",
-vehicle:"VinFastVF92023",
+vehicle:"VinFas tVF92023",
 vin:"1N4AL11D75C109151",
 issue:"ChargingSystemError",
 status:"blocked",
 priority:"medium",
-assignedDate:"2024-01-13",
+as signedDate:"2024-01-13",
 dueDate:"2024-01-18",
 progress:30,
-lastUpdate:"2024-01-1409:15",
+las tUpdate:"2024-01-1409:15",
 reportsSubmitted:1,
 partsWaiting:2
 },
 {
 id:"WC-2024-005",
 customer:"TrầnThịK",
-vehicle:"VinFastVF82023",
+vehicle:"VinFas tVF82023",
 vin:"WVWZZZ1JZ3W654321",
 issue:"ACSystemMalfunction",
 status:"todo",
 priority:"low",
-assignedDate:"2024-01-16",
+as signedDate:"2024-01-16",
 dueDate:"2024-01-22",
 progress:0,
-lastUpdate:"2024-01-1608:00",
+las tUpdate:"2024-01-1608:00",
 reportsSubmitted:0,
 partsWaiting:0
 },
 {
 id:"WC-2024-006",
 customer:"LêVănM",
-vehicle:"VinFastVF92023",
+vehicle:"VinFas tVF92023",
 vin:"JM1BK32F787654321",
 issue:"SoftwareUpdateRequired",
 status:"ready-for-handover",
 priority:"medium",
-assignedDate:"2024-01-10",
+as signedDate:"2024-01-10",
 dueDate:"2024-01-15",
 progress:100,
-lastUpdate:"2024-01-1516:45",
+las tUpdate:"2024-01-1516:45",
 reportsSubmitted:1,
 partsWaiting:0
 }
@@ -103,28 +103,28 @@ partsWaiting:0
 const stats=[
 {
 title:"NewAssignments",
-value:myTasks.filter(t=>t.status==="todo").length.toString(),
+value:myTas ks.filter(t=>t.status==="todo").length.toString(),
 change:"+1today",
 icon:FileText,
 color:"text-primary"
 },
 {
 title:"InProgress",
-value:myTasks.filter(t=>t.status==="in-progress").length.toString(),
+value:myTas ks.filter(t=>t.status==="in-progress").length.toString(),
 change:"Activework",
 icon:Wrench,
 color:"text-warning"
 },
 {
 title:"AwaitingParts",
-value:myTasks.filter(t=>t.status==="blocked").length.toString(),
-change:"Blockedtasks",
+value:myTas ks.filter(t=>t.status==="blocked").length.toString(),
+change:"Blockedtas ks",
 icon:Package,
 color:"text-destructive"
 },
 {
 title:"ReadyforHandover",
-value:myTasks.filter(t=>t.status==="ready-for-handover").length.toString(),
+value:myTas ks.filter(t=>t.status==="ready-for-handover").length.toString(),
 change:"Completed",
 icon:CheckCircle,
 color:"text-success"
@@ -133,19 +133,19 @@ color:"text-success"
 
 const getStatusBadge=(status))=>{
 const statusConfig={
-todo:{variant:"secondary",text:"ToDo",icon:Clock},
-"in-progress":{variant:"warning",text:"InProgress",icon:Wrench},
-blocked:{variant:"destructive",text:"Blocked",icon:AlertCircle},
-"ready-for-handover":{variant:"success",text:"Ready",icon:CheckCircle}
+todo:{variant:"secondary",text:" ToDo",icon:Clock},
+"in-progress":{variant:" warning",text:" InProgress",icon:Wrench},
+blocked:{variant:"destructive",text:" Blocked",icon:AlertCircle},
+"ready-for-handover":{variant:" success",text:" Ready",icon:CheckCircle}
 };
 
-const config=statusConfig[statusaskeyoftypeofstatusConfig];
+const config=statusConfig[statusas keyoftypeofstatusConfig];
 if(!config)returnnull;
 
 const Icon=config.icon;
 return(
 <Badgevariant={config.variant}>
-<IconclassName="mr-1h-3w-3"/>
+<Iconclas sName="mr-1h-3w-3"/>
 {config.text}
 </Badge>
 );
@@ -153,15 +153,15 @@ return(
 
 const getPriorityBadge=(priority))=>{
 const priorityConfig={
-high:{variant:"destructive",text:"High"},
-medium:{variant:"warning",text:"Medium"},
-low:{variant:"outline",text:"Low"}
+high:{variant:"destructive",text:" High"},
+medium:{variant:"warning",text:" Medium"},
+low:{variant:"outline",text:" Low"}
 };
 
-const config=priorityConfig[priorityaskeyoftypeofpriorityConfig];
+const config=priorityConfig[priorityas keyoftypeofpriorityConfig];
 if(!config)returnnull;
 
-return<Badgevariant={config.variant}className="text-xs">{config.text}</Badge>;
+return<Badgevariant={config.variant}clas sName="text-xs">{config.text}</Badge>;
 };
 
 const getProgressColor=(progress))=>{
@@ -170,95 +170,95 @@ if(progress>=50)return"bg-warning";
 return"bg-primary";
 };
 
-const filteredTasks=myTasks.filter(task=>
-task.id.toLowerCase().includes(searchTerm.toLowerCase())||
-task.customer.toLowerCase().includes(searchTerm.toLowerCase())||
-task.vin.toLowerCase().includes(searchTerm.toLowerCase())
+const filteredTas ks=myTas ks.filter(tas k=>
+tas k.id.toLowerCas e().includes(searchTerm.toLowerCas e())||
+tas k.customer.toLowerCas e().includes(searchTerm.toLowerCas e())||
+tas k.vin.toLowerCas e().includes(searchTerm.toLowerCas e())
 );
 
-const groupedTasks={
-todo:filteredTasks.filter(t=>t.status==="todo"),
-"in-progress":filteredTasks.filter(t=>t.status==="in-progress"),
-blocked:filteredTasks.filter(t=>t.status==="blocked"),
-"ready-for-handover":filteredTasks.filter(t=>t.status==="ready-for-handover")
+const groupedTas ks={
+todo:filteredTas ks.filter(t=>t.status==="todo"),
+"in-progress":filteredTas ks.filter(t=>t.status===" in-progress"),
+blocked:filteredTas ks.filter(t=>t.status==="blocked"),
+"ready-for-handover":filteredTas ks.filter(t=>t.status===" ready-for-handover")
 };
 
-const TaskCard=({task}:{task:typeofmyTasks[0]})=>(
-<CardclassName="shadow-eleganthover:shadow-glowtransition-shadowcursor-pointer">
-<CardHeaderclassName="pb-3">
-<divclassName="flexitems-centerjustify-between">
-<CardTitleclassName="text-base">{task.id}</CardTitle>
-<divclassName="flexitems-centerspace-x-2">
-{getStatusBadge(task.status)}
-{getPriorityBadge(task.priority)}
+const Tas kCard=({tas k}:{tas k:typeofmyTas ks[0]})=>(
+<Cardclas sName="shadow-eleganthover:shadow-glowtransition-shadowcursor-pointer">
+<CardHeaderclas sName="pb-3">
+<divclas sName="flexitems-centerjustify-between">
+<CardTitleclas sName="text-bas e">{tas k.id}</CardTitle>
+<divclas sName="flexitems-centerspace-x-2">
+{getStatusBadge(tas k.status)}
+{getPriorityBadge(tas k.priority)}
 </div>
 </div>
-<CardDescriptionclassName="text-sm">
-<divclassName="space-y-1">
-<pclassName="font-medium">{task.customer}</p>
-<p>{task.vehicle}</p>
-<pclassName="font-monotext-xs">{task.vin}</p>
+<CardDescriptionclas sName="text-sm">
+<divclas sName="space-y-1">
+<pclas sName="font-medium">{tas k.customer}</p>
+<p>{tas k.vehicle}</p>
+<pclas sName="font-monotext-xs">{tas k.vin}</p>
 </div>
 </CardDescription>
 </CardHeader>
-<CardContentclassName="pt-0">
-<divclassName="space-y-3">
+<CardContentclas sName="pt-0">
+<divclas sName="space-y-3">
 <div>
-<pclassName="text-smfont-mediummb-2">{task.issue}</p>
+<pclas sName="text-smfont-mediummb-2">{tas k.issue}</p>
 
 {/*ProgressBar*/}
-<divclassName="w-fullbg-mutedrounded-fullh-2">
+<divclas sName="w-fullbg-mutedrounded-fullh-2">
 <div
-className={`h-2rounded-fulltransition-all${getProgressColor(task.progress)}`}
-style={{width:`${task.progress}%`}}
+clas sName={`h-2rounded-fulltransition-all${getProgressColor(tas k.progress)}`}
+style={{width:`${tas k.progress}%`}}
 />
 </div>
-<pclassName="text-xstext-muted-foregroundmt-1">{task.progress}%Complete</p>
+<pclas sName="text-xstext-muted-foregroundmt-1">{tas k.progress}%Complete</p>
 </div>
 
-{/*TaskStats*/}
-<divclassName="flexitems-centerjustify-betweentext-xstext-muted-foreground">
-<divclassName="flexitems-centerspace-x-3">
-<spanclassName="flexitems-center">
-<FileTextclassName="h-3w-3mr-1"/>
-{task.reportsSubmitted}reports
+{/*Tas kStats*/}
+<divclas sName="flexitems-centerjustify-betweentext-xstext-muted-foreground">
+<divclas sName="flexitems-centerspace-x-3">
+<spanclas sName="flexitems-center">
+<FileTextclas sName="h-3w-3mr-1"/>
+{tas k.reportsSubmitted}reports
 </span>
-{task.partsWaiting>0&&(
-<spanclassName="flexitems-centertext-warning">
-<PackageclassName="h-3w-3mr-1"/>
-{task.partsWaiting}partswaiting
+{tas k.partsWaiting>0&&(
+<spanclas sName="flexitems-centertext-warning">
+<Packageclas sName="h-3w-3mr-1"/>
+{tas k.partsWaiting}partswaiting
 </span>
 )}
 </div>
-<span>Due:{task.dueDate}</span>
+<span>Due:{tas k.dueDate}</span>
 </div>
 
 {/*QuickActions*/}
-<divclassName="flexitems-centerspace-x-2pt-2border-t">
+<divclas sName="flexitems-centerspace-x-2pt-2border-t">
 <Button
 variant="outline"
 size="sm"
-onClick={()=>onViewCase.(task.id)}
+onClick={()=>onViewCas e.(tas k.id)}
 >
-<EyeclassName="h-3w-3mr-1"/>
+<Eyeclas sName="h-3w-3mr-1"/>
 View
 </Button>
-{task.status==="in-progress"&&(
+{tas k.status==="in-progress"&&(
 <>
 <Button
 variant="secondary"
 size="sm"
-onClick={()=>onAddReport.(task.id)}
+onClick={()=>onAddReport.(tas k.id)}
 >
-<PlusclassName="h-3w-3mr-1"/>
+<Plusclas sName="h-3w-3mr-1"/>
 Report
 </Button>
 <Button
 variant="gradient"
 size="sm"
-onClick={()=>onLogProgress.(task.id)}
+onClick={()=>onLogProgress.(tas k.id)}
 >
-<PlayCircleclassName="h-3w-3mr-1"/>
+<PlayCircleclas sName="h-3w-3mr-1"/>
 Update
 </Button>
 </>
@@ -270,28 +270,28 @@ Update
 );
 
 return(
-<divclassName="min-h-screenbg-background">
+<divclas sName="min-h-screenbg-background">
 {/*Header*/}
-<headerclassName="border-bbg-cardshadow-elegant">
-<divclassName="containermx-autopx-6py-4">
-<divclassName="flexitems-centerjustify-between">
-<divclassName="flexitems-centerspace-x-3">
-<divclassName="flexh-10w-10items-centerjustify-centerrounded-lgbg-gradient-primary">
-<WrenchclassName="h-6w-6text-primary-foreground"/>
+<headerclas sName="border-bbg-cardshadow-elegant">
+<divclas sName="containermx-autopx-6py-4">
+<divclas sName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerspace-x-3">
+<divclas sName="flexh-10w-10items-centerjustify-centerrounded-lgbg-gradient-primary">
+<Wrenchclas sName="h-6w-6text-primary-foreground"/>
 </div>
 <div>
-<h1className="text-xlfont-boldtext-foreground">MyTasksDashboard</h1>
-<pclassName="text-smtext-muted-foreground">
+<h1clas sName="text-xlfont-boldtext-foreground">MyTas ksDashboard</h1>
+<pclas sName="text-smtext-muted-foreground">
 Welcomeback,{user.name}-Technician
 </p>
 </div>
 </div>
-<divclassName="flexitems-centerspace-x-3">
-<Badgevariant="outline"className="text-xs">
+<divclas sName="flexitems-centerspace-x-3">
+<Badgevariant="outline" clas sName="text-xs">
 BatterySystemsSpecialist
 </Badge>
-<Buttonvariant="outline"onClick={logout}>
-<LogOutclassName="mr-2h-4w-4"/>
+<Buttonvariant="outline" onClick={logout}>
+<LogOutclas sName="mr-2h-4w-4"/>
 Logout
 </Button>
 </div>
@@ -299,38 +299,38 @@ Logout
 </div>
 </header>
 
-<divclassName="containermx-autopx-6py-6">
+<divclas sName="containermx-autopx-6py-6">
 {/*QuickSearch*/}
-<divclassName="mb-6">
-<divclassName="relativemax-w-md">
-<SearchclassName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
+<divclas sName="mb-6">
+<divclas sName="relativemax-w-md">
+<Searchclas sName="absoluteleft-3top-3h-4w-4text-muted-foreground"/>
 <Input
-placeholder="SearchbyCaseID,Customer,orVIN..."
+placeholder="SearchbyCas eID,Customer,orVIN..."
 value={searchTerm}
 onChange={(e)=>setSearchTerm(e.target.value)}
-className="pl-10"
+clas sName="pl-10"
 />
 </div>
 </div>
 
 {/*StatisticsCards*/}
-<divclassName="mb-6gridgap-4md:grid-cols-4">
+<divclas sName="mb-6gridgap-4md:grid-cols-4">
 {stats.map((stat)=>{
 const Icon=stat.icon;
 return(
-<Cardkey={stat.title}className="shadow-elegant">
-<CardContentclassName="p-6">
-<divclassName="flexitems-centerjustify-between">
+<Cardkey={stat.title}clas sName="shadow-elegant">
+<CardContentclas sName="p-6">
+<divclas sName="flexitems-centerjustify-between">
 <div>
-<pclassName="text-smfont-mediumtext-muted-foreground">
+<pclas sName="text-smfont-mediumtext-muted-foreground">
 {stat.title}
 </p>
-<pclassName="text-2xlfont-bold">{stat.value}</p>
-<pclassName="text-xstext-muted-foreground">
+<pclas sName="text-2xlfont-bold">{stat.value}</p>
+<pclas sName="text-xstext-muted-foreground">
 {stat.change}
 </p>
 </div>
-<IconclassName={`h-8w-8${stat.color}`}/>
+<Iconclas sName={`h-8w-8${stat.color}`}/>
 </div>
 </CardContent>
 </Card>
@@ -339,18 +339,18 @@ return(
 </div>
 
 {/*ViewModeToggle*/}
-<divclassName="mb-6flexitems-centerjustify-between">
-<h2className="text-lgfont-semibold">MyAssignedCases</h2>
-<divclassName="flexitems-centerspace-x-2">
+<divclas sName="mb-6flexitems-centerjustify-between">
+<h2clas sName="text-lgfont-semibold">MyAssignedCas es</h2>
+<divclas sName="flexitems-centerspace-x-2">
 <Button
-variant={viewMode==="kanban""default":"outline"}
+variant={viewMode==="kanban"" default":" outline"}
 size="sm"
 onClick={()=>setViewMode("kanban")}
 >
 KanbanView
 </Button>
 <Button
-variant={viewMode==="list""default":"outline"}
+variant={viewMode==="list"" default":" outline"}
 size="sm"
 onClick={()=>setViewMode("list")}
 >
@@ -361,18 +361,18 @@ ListView
 
 {/*KanbanBoard*/}
 {viewMode==="kanban"&&(
-<divclassName="gridgap-6md:grid-cols-4">
-{Object.entries(groupedTasks).map(([status,tasks])=>(
-<divkey={status}className="space-y-4">
-<divclassName="flexitems-centerjustify-between">
-<h3className="font-mediumcapitalize">
-{status.replace("-","")}({tasks.length})
+<divclas sName="gridgap-6md:grid-cols-4">
+{Object.entries(groupedTas ks).map(([status,tas ks])=>(
+<divkey={status}clas sName="space-y-4">
+<divclas sName="flexitems-centerjustify-between">
+<h3clas sName="font-mediumcapitalize">
+{status.replace("-","")}({tas ks.length})
 </h3>
 {getStatusBadge(status)}
 </div>
-<divclassName="space-y-3">
-{tasks.map((task)=>(
-<TaskCardkey={task.id}task={task}/>
+<divclas sName="space-y-3">
+{tas ks.map((tas k)=>(
+<Tas kCardkey={tas k.id}tas k={tas k}/>
 ))}
 </div>
 </div>
@@ -382,62 +382,62 @@ ListView
 
 {/*ListView*/}
 {viewMode==="list"&&(
-<CardclassName="shadow-elegant">
+<Cardclas sName="shadow-elegant">
 <CardHeader>
-<CardTitle>AllMyCases</CardTitle>
+<CardTitle>AllMyCas es</CardTitle>
 <CardDescription>
-Listviewofallassignedcaseswithdetailedinformation
+Listviewofallas signedcas eswithdetailedinformation
 </CardDescription>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-4">
-{filteredTasks.map((task)=>(
+<divclas sName="space-y-4">
+{filteredTas ks.map((tas k)=>(
 <div
-key={task.id}
-className="flexitems-centerjustify-betweenrounded-lgborderp-4hover:bg-muted/50"
+key={tas k.id}
+clas sName="flexitems-centerjustify-betweenrounded-lgborderp-4hover:bg-muted/50"
 >
-<divclassName="flexitems-centerspace-x-4">
-<divclassName="flexh-10w-10items-centerjustify-centerrounded-fullbg-accent">
-<FileTextclassName="h-5w-5text-accent-foreground"/>
+<divclas sName="flexitems-centerspace-x-4">
+<divclas sName="flexh-10w-10items-centerjustify-centerrounded-fullbg-accent">
+<FileTextclas sName="h-5w-5text-accent-foreground"/>
 </div>
 <div>
-<divclassName="flexitems-centerspace-x-2">
-<pclassName="font-semibold">{task.id}</p>
-{getStatusBadge(task.status)}
-{getPriorityBadge(task.priority)}
+<divclas sName="flexitems-centerspace-x-2">
+<pclas sName="font-semibold">{tas k.id}</p>
+{getStatusBadge(tas k.status)}
+{getPriorityBadge(tas k.priority)}
 </div>
-<pclassName="text-smtext-muted-foreground">
-{task.customer}-{task.vehicle}
+<pclas sName="text-smtext-muted-foreground">
+{tas k.customer}-{tas k.vehicle}
 </p>
-<pclassName="text-smtext-muted-foregroundfont-mono">
-VIN:{task.vin}
-</p>
-</div>
-</div>
-<divclassName="text-right">
-<pclassName="font-medium">{task.issue}</p>
-<pclassName="text-smtext-muted-foreground">
-Progress:{task.progress}%
-</p>
-<pclassName="text-smtext-muted-foreground">
-Due:{task.dueDate}
+<pclas sName="text-smtext-muted-foregroundfont-mono">
+VIN:{tas k.vin}
 </p>
 </div>
-<divclassName="flexspace-x-2">
+</div>
+<divclas sName="text-right">
+<pclas sName="font-medium">{tas k.issue}</p>
+<pclas sName="text-smtext-muted-foreground">
+Progress:{tas k.progress}%
+</p>
+<pclas sName="text-smtext-muted-foreground">
+Due:{tas k.dueDate}
+</p>
+</div>
+<divclas sName="flexspace-x-2">
 <Button
 variant="outline"
 size="sm"
-onClick={()=>onViewCase.(task.id)}
+onClick={()=>onViewCas e.(tas k.id)}
 >
-<EyeclassName="h-4w-4"/>
+<Eyeclas sName="h-4w-4"/>
 </Button>
-{task.status==="in-progress"&&(
+{tas k.status==="in-progress"&&(
 <Button
 variant="gradient"
 size="sm"
-onClick={()=>onLogProgress.(task.id)}
+onClick={()=>onLogProgress.(tas k.id)}
 >
-<PlayCircleclassName="h-4w-4"/>
+<PlayCircleclas sName="h-4w-4"/>
 </Button>
 )}
 </div>

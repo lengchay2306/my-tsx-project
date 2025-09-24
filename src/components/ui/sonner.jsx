@@ -1,5 +1,5 @@
-import { useTheme } from"next-themes";
-import { ToasterasSonner,toast } from"sonner";
+import { useTheme } from "next-themes";
+import { Toaster as Sonner, toast } from "sonner";
 
 
 
@@ -8,10 +8,10 @@ const{theme="system"}=useTheme();
 
 return(
 <Sonner
-theme={themeasToasterProps["theme"]}
-className="toastergroup"
+theme={themeas ToasterProps["theme"]}
+clas sName="toastergroup"
 toastOptions={{
-classNames:{
+clas sNames:{
 toast:
 "grouptoastgroup-[.toaster]:bg-backgroundgroup-[.toaster]:text-foregroundgroup-[.toaster]:border-bordergroup-[.toaster]:shadow-lg",
 description:"group-[.toast]:text-muted-foreground",

@@ -1,10 +1,10 @@
-import { useState } from"react";
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from"@/components/ui/card";
-import { Button } from"@/components/ui/button";
-import { Badge } from"@/components/ui/badge";
-import { Tabs,TabsContent,TabsList,TabsTrigger } from"@/components/ui/tabs";
-import { Avatar,AvatarFallback,AvatarImage } from"@/components/ui/avatar";
-import { Separator } from"@/components/ui/separator";
+import { useState } from "react";
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs,TabsContent,TabsList,TabsTrigger } from "@/components/ui/tabs";
+import { Avatar,AvatarFallback,AvatarImage } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
 import { 
 ArrowLeft,
 User,
@@ -23,51 +23,51 @@ AlertTriangle,
 Send,
 UserPlus,
 X
- } from"lucide-react";
+ } from "lucide-react";
 
 const StatusBadge=({status}:{status:string})=>{
 const statusConfig={
-"pending":{variant:"secondary",text:"Pending",className:"bg-secondary"},
-"in-repair":{variant:"default",text:"InRepair",className:"bg-primarytext-primary-foreground"},
-"awaiting-parts":{variant:"outline",text:"AwaitingParts",className:"border-warningtext-warningbg-warning/5"},
-"awaiting-handover":{variant:"outline",text:"AwaitingHandover",className:"border-infotext-infobg-info/5"},
-"manufacturer-review":{variant:"outline",text:"ManufacturerReview",className:"border-warningtext-warningbg-warning/5"},
-"approved":{variant:"outline",text:"Approved",className:"border-successtext-successbg-success/5"},
-"completed":{variant:"outline",text:"Completed",className:"border-successtext-successbg-success/10"}
+"pending":{variant:" secondary",text:" Pending",clas sName:" bg-secondary"},
+"in-repair":{variant:" default",text:" InRepair",clas sName:" bg-primarytext-primary-foreground"},
+"awaiting-parts":{variant:" outline",text:" AwaitingParts",clas sName:" border-warningtext-warningbg-warning/5"},
+"awaiting-handover":{variant:" outline",text:" AwaitingHandover",clas sName:" border-infotext-infobg-info/5"},
+"manufacturer-review":{variant:" outline",text:" ManufacturerReview",clas sName:" border-warningtext-warningbg-warning/5"},
+"approved":{variant:" outline",text:" Approved",clas sName:" border-successtext-successbg-success/5"},
+"completed":{variant:" outline",text:" Completed",clas sName:" border-successtext-successbg-success/10"}
 };
 
-const config=statusConfig[statusaskeyoftypeofstatusConfig];
+const config=statusConfig[statusas keyoftypeofstatusConfig];
 returnconfig(
-<Badgevariant={config.variant}className={`${config.className}text-smpx-3py-1`}>
+<Badgevariant={config.variant}clas sName={`${config.clas sName}text-smpx-3py-1`}>
 {config.text}
 </Badge>
 ):(
-<Badgevariant="secondary"className="text-smpx-3py-1">{status}</Badge>
+<Badgevariant="secondary" clas sName="text-smpx-3py-1">{status}</Badge>
 );
 };
 
 const ReportStatusBadge=({status}:{status:string})=>{
 const statusConfig={
-"pending":{text:"PendingReview",className:"bg-warning/10text-warningborder-warning"},
-"approved":{text:"ApprovedbyEVM",className:"bg-success/10text-successborder-success"},
-"rejected":{text:"Rejected",className:"bg-destructive/10text-destructiveborder-destructive"}
+"pending":{text:" PendingReview",clas sName:" bg-warning/10text-warningborder-warning"},
+"approved":{text:" ApprovedbyEVM",clas sName:" bg-success/10text-successborder-success"},
+"rejected":{text:" Rejected",clas sName:" bg-destructive/10text-destructiveborder-destructive"}
 };
 
-const config=statusConfig[statusaskeyoftypeofstatusConfig];
+const config=statusConfig[statusas keyoftypeofstatusConfig];
 returnconfig(
-<Badgevariant="outline"className={`${config.className}text-xspx-2py-1`}>
+<Badgevariant="outline" clas sName={`${config.clas sName}text-xspx-2py-1`}>
 {config.text}
 </Badge>
 ):(
-<Badgevariant="secondary"className="text-xspx-2py-1">{status}</Badge>
+<Badgevariant="secondary" clas sName="text-xspx-2py-1">{status}</Badge>
 );
 };
 
-const CaseDetailViewPro=()=>{
+const Cas eDetailViewPro=()=>{
 const[activeTab,setActiveTab]=useState("reports");
 
-//Mockcasedata
-const caseData={
+//Mockcas edata
+const cas eData={
 id:"WC-25-09-001",
 status:"manufacturer-review",
 customer:{
@@ -79,11 +79,11 @@ avatar:"/api/placeholder/40/40"
 vehicle:{
 model:"VF8Plus",
 vin:"VF8ABC123456789",
-purchaseDate:"2024-03-15",
+purchas eDate:"2024-03-15",
 odometer:"12,450km",
 color:"ArcticWhite"
 },
-assignedTech:{
+as signedTech:{
 name:"TrầnMinhBảo",
 phone:"+84902345678",
 expertise:"BatterySystems",
@@ -101,7 +101,7 @@ technician:"TrầnMinhBảo",
 status:"approved",
 dateCreated:"2025-01-16",
 diagnosis:"Batterypackshowingdegradedcellsinmodule3.Recommendreplacementofaffectedbatterymodule.",
-requiredParts:["BatteryModuleBM-VF8-03","CoolingSystemGasketCSG-001"],
+requiredParts:["BatteryModuleBM-VF8-03"," CoolingSystemGas ketCSG-001"],
 photos:3
 },
 {
@@ -122,7 +122,7 @@ id:"PS-2025-001",
 status:"shipped",
 shippedDate:"2025-01-18",
 expectedArrival:"2025-01-20",
-items:["BatteryModuleBM-VF8-03","CoolingSystemGasketCSG-001"],
+items:["BatteryModuleBM-VF8-03"," CoolingSystemGas ketCSG-001"],
 trackingNumber:"VT987654321"
 }
 ];
@@ -131,7 +131,7 @@ const activityLog=[
 {
 id:"1",
 user:"System",
-action:"Casestatusupdatedto'ManufacturerReview'",
+action:"Cas estatusupdatedto'ManufacturerReview'",
 timestamp:"2025-01-1714:30",
 type:"status"
 },
@@ -145,7 +145,7 @@ type:"report"
 {
 id:"3",
 user:"NguyễnThuHà",
-action:"Submittedcasetomanufacturerforapproval",
+action:"Submittedcas etomanufacturerforapproval",
 timestamp:"2025-01-1616:20",
 type:"submission"
 },
@@ -159,68 +159,68 @@ type:"progress"
 ];
 
 return(
-<divclassName="space-y-6p-6">
+<divclas sName="space-y-6p-6">
 {/*Header*/}
-<divclassName="flexitems-centerjustify-between">
-<divclassName="flexitems-centerspace-x-4">
-<Buttonvariant="ghost"size="sm">
-<ArrowLeftclassName="h-4w-4mr-2"/>
-BacktoCases
+<divclas sName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerspace-x-4">
+<Buttonvariant="ghost" size="sm">
+<ArrowLeftclas sName="h-4w-4mr-2"/>
+BacktoCas es
 </Button>
 <div>
-<divclassName="flexitems-centerspace-x-3">
-<h1className="text-3xlfont-boldtext-foreground">{caseData.id}</h1>
-<StatusBadgestatus={caseData.status}/>
+<divclas sName="flexitems-centerspace-x-3">
+<h1clas sName="text-3xlfont-boldtext-foreground">{cas eData.id}</h1>
+<StatusBadgestatus={cas eData.status}/>
 </div>
-<pclassName="text-muted-foregroundmt-1">Createdon{caseData.dateCreated}</p>
+<pclas sName="text-muted-foregroundmt-1">Createdon{cas eData.dateCreated}</p>
 </div>
 </div>
 </div>
 
-<divclassName="gridgap-6lg:grid-cols-4">
+<divclas sName="gridgap-6lg:grid-cols-4">
 {/*MainContent*/}
-<divclassName="lg:col-span-3">
-<Tabsvalue={activeTab}onValueChange={setActiveTab}className="space-y-6">
-<TabsListclassName="gridw-fullgrid-cols-3">
-<TabsTriggervalue="reports"className="flexitems-centerspace-x-2">
-<FileTextclassName="h-4w-4"/>
+<divclas sName="lg:col-span-3">
+<Tabsvalue={activeTab}onValueChange={setActiveTab}clas sName="space-y-6">
+<TabsListclas sName="gridw-fullgrid-cols-3">
+<TabsTriggervalue="reports" clas sName="flexitems-centerspace-x-2">
+<FileTextclas sName="h-4w-4"/>
 <span>DiagnosticReports</span>
 </TabsTrigger>
-<TabsTriggervalue="shipments"className="flexitems-centerspace-x-2">
-<PackageclassName="h-4w-4"/>
+<TabsTriggervalue="shipments" clas sName="flexitems-centerspace-x-2">
+<Packageclas sName="h-4w-4"/>
 <span>PartShipments</span>
 </TabsTrigger>
-<TabsTriggervalue="activity"className="flexitems-centerspace-x-2">
-<ActivityclassName="h-4w-4"/>
+<TabsTriggervalue="activity" clas sName="flexitems-centerspace-x-2">
+<Activityclas sName="h-4w-4"/>
 <span>ActivityLog</span>
 </TabsTrigger>
 </TabsList>
 
-<TabsContentvalue="reports"className="space-y-4">
+<TabsContentvalue="reports" clas sName="space-y-4">
 {diagnosticReports.length===0(
 <Card>
-<CardContentclassName="py-12text-center">
-<FileTextclassName="h-16w-16text-muted-foreground/50mx-automb-4"/>
-<h3className="text-lgfont-mediummb-2">Nodiagnosticreports</h3>
-<pclassName="text-muted-foreground">Waitingfortechniciantoadddiagnosticreports</p>
+<CardContentclas sName="py-12text-center">
+<FileTextclas sName="h-16w-16text-muted-foreground/50mx-automb-4"/>
+<h3clas sName="text-lgfont-mediummb-2">Nodiagnosticreports</h3>
+<pclas sName="text-muted-foreground">Waitingfortechniciantoadddiagnosticreports</p>
 </CardContent>
 </Card>
 ):(
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 {diagnosticReports.map((report)=>(
-<Cardkey={report.id}className="hover:shadow-mdtransition-shadow">
-<CardHeaderclassName="pb-4">
-<divclassName="flexitems-centerjustify-between">
-<divclassName="flexitems-centerspace-x-3">
-<CardTitleclassName="text-lg">{report.title}</CardTitle>
+<Cardkey={report.id}clas sName="hover:shadow-mdtransition-shadow">
+<CardHeaderclas sName="pb-4">
+<divclas sName="flexitems-centerjustify-between">
+<divclas sName="flexitems-centerspace-x-3">
+<CardTitleclas sName="text-lg">{report.title}</CardTitle>
 <ReportStatusBadgestatus={report.status}/>
 </div>
-<divclassName="text-smtext-muted-foreground">
+<divclas sName="text-smtext-muted-foreground">
 {report.dateCreated}
 </div>
 </div>
-<CardDescriptionclassName="flexitems-centerspace-x-2">
-<WrenchclassName="h-4w-4"/>
+<CardDescriptionclas sName="flexitems-centerspace-x-2">
+<Wrenchclas sName="h-4w-4"/>
 <span>By{report.technician}</span>
 {report.photos>0&&(
 <>
@@ -231,20 +231,20 @@ BacktoCases
 </CardDescription>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 <div>
-<h4className="font-mediummb-2">Diagnosis</h4>
-<pclassName="text-smtext-muted-foregroundbg-mutedp-3rounded-md">
+<h4clas sName="font-mediummb-2">Diagnosis</h4>
+<pclas sName="text-smtext-muted-foregroundbg-mutedp-3rounded-md">
 {report.diagnosis}
 </p>
 </div>
 
 {report.requiredParts.length>0&&(
 <div>
-<h4className="font-mediummb-2">RequiredParts</h4>
-<divclassName="flexflex-wrapgap-2">
+<h4clas sName="font-mediummb-2">RequiredParts</h4>
+<divclas sName="flexflex-wrapgap-2">
 {report.requiredParts.map((part,index)=>(
-<Badgekey={index}variant="outline"className="text-xs">
+<Badgekey={index}variant="outline" clas sName="text-xs">
 {part}
 </Badge>
 ))}
@@ -259,42 +259,42 @@ BacktoCases
 )}
 </TabsContent>
 
-<TabsContentvalue="shipments"className="space-y-4">
+<TabsContentvalue="shipments" clas sName="space-y-4">
 {partShipments.length===0(
 <Card>
-<CardContentclassName="py-12text-center">
-<PackageclassName="h-16w-16text-muted-foreground/50mx-automb-4"/>
-<h3className="text-lgfont-mediummb-2">Nopartshipments</h3>
-<pclassName="text-muted-foreground">Nopartshavebeenshippedforthiscaseyet</p>
+<CardContentclas sName="py-12text-center">
+<Packageclas sName="h-16w-16text-muted-foreground/50mx-automb-4"/>
+<h3clas sName="text-lgfont-mediummb-2">Nopartshipments</h3>
+<pclas sName="text-muted-foreground">Nopartshavebeenshippedforthiscas eyet</p>
 </CardContent>
 </Card>
 ):(
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 {partShipments.map((shipment)=>(
 <Cardkey={shipment.id}>
 <CardHeader>
-<divclassName="flexitems-centerjustify-between">
-<CardTitleclassName="text-lg">{shipment.id}</CardTitle>
-<Badgevariant="outline"className="capitalizeborder-successtext-successbg-success/5">
+<divclas sName="flexitems-centerjustify-between">
+<CardTitleclas sName="text-lg">{shipment.id}</CardTitle>
+<Badgevariant="outline" clas sName="capitalizeborder-successtext-successbg-success/5">
 {shipment.status}
 </Badge>
 </div>
 </CardHeader>
 <CardContent>
-<divclassName="gridgap-4md:grid-cols-2">
+<divclas sName="gridgap-4md:grid-cols-2">
 <div>
-<divclassName="flexitems-centerspace-x-2text-smtext-muted-foregroundmb-1">
-<CalendarclassName="h-4w-4"/>
+<divclas sName="flexitems-centerspace-x-2text-smtext-muted-foregroundmb-1">
+<Calendarclas sName="h-4w-4"/>
 <span>Shipped:{shipment.shippedDate}</span>
 </div>
-<divclassName="flexitems-centerspace-x-2text-smtext-muted-foreground">
-<ClockclassName="h-4w-4"/>
+<divclas sName="flexitems-centerspace-x-2text-smtext-muted-foreground">
+<Clockclas sName="h-4w-4"/>
 <span>Expected:{shipment.expectedArrival}</span>
 </div>
 </div>
 <div>
-<pclassName="text-smfont-mediummb-1">Tracking:{shipment.trackingNumber}</p>
-<pclassName="text-xstext-muted-foreground">{shipment.items.join(",")}</p>
+<pclas sName="text-smfont-mediummb-1">Tracking:{shipment.trackingNumber}</p>
+<pclas sName="text-xstext-muted-foreground">{shipment.items.join(",")}</p>
 </div>
 </div>
 </CardContent>
@@ -304,37 +304,37 @@ BacktoCases
 )}
 </TabsContent>
 
-<TabsContentvalue="activity"className="space-y-4">
+<TabsContentvalue="activity" clas sName="space-y-4">
 <Card>
 <CardHeader>
-<CardTitle>CaseActivityTimeline</CardTitle>
-<CardDescription>Chronologicalhistoryofallcaseactivities</CardDescription>
+<CardTitle>Cas eActivityTimeline</CardTitle>
+<CardDescription>Chronologicalhistoryofallcas eactivities</CardDescription>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-4">
+<divclas sName="space-y-4">
 {activityLog.map((activity,index)=>(
-<divkey={activity.id}className="flexitems-startspace-x-3">
-<divclassName="flexflex-colitems-center">
-<divclassName={`w-3h-3rounded-fullflex-shrink-0${
+<divkey={activity.id}clas sName="flexitems-startspace-x-3">
+<divclas sName="flexflex-colitems-center">
+<divclas sName={`w-3h-3rounded-fullflex-shrink-0${
 activity.type==='status''bg-primary':
 activity.type==='report''bg-success':
 activity.type==='submission''bg-warning':
 'bg-muted-foreground'
 }`}/>
 {index<activityLog.length-1&&(
-<divclassName="w-pxh-8bg-bordermt-2"/>
+<divclas sName="w-pxh-8bg-bordermt-2"/>
 )}
 </div>
-<divclassName="flex-1min-w-0pb-4">
-<divclassName="flexitems-centerjustify-between">
-<pclassName="text-smfont-mediumtext-foreground">
+<divclas sName="flex-1min-w-0pb-4">
+<divclas sName="flexitems-centerjustify-between">
+<pclas sName="text-smfont-mediumtext-foreground">
 {activity.action}
 </p>
-<pclassName="text-xstext-muted-foreground">
+<pclas sName="text-xstext-muted-foreground">
 {activity.timestamp}
 </p>
 </div>
-<pclassName="text-xstext-muted-foregroundmt-1">
+<pclas sName="text-xstext-muted-foregroundmt-1">
 by{activity.user}
 </p>
 </div>
@@ -348,33 +348,33 @@ by{activity.user}
 </div>
 
 {/*Sidebar*/}
-<divclassName="space-y-6">
+<divclas sName="space-y-6">
 {/*CustomerInformation*/}
 <Card>
-<CardHeaderclassName="pb-3">
-<CardTitleclassName="text-lgflexitems-centerspace-x-2">
-<UserclassName="h-4w-4"/>
+<CardHeaderclas sName="pb-3">
+<CardTitleclas sName="text-lgflexitems-centerspace-x-2">
+<Userclas sName="h-4w-4"/>
 <span>Customer</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-3">
-<divclassName="flexitems-centerspace-x-3">
-<AvatarclassName="h-10w-10">
-<AvatarImagesrc={caseData.customer.avatar}/>
-<AvatarFallback>{caseData.customer.name.charAt(0)}</AvatarFallback>
+<CardContentclas sName="space-y-3">
+<divclas sName="flexitems-centerspace-x-3">
+<Avatarclas sName="h-10w-10">
+<AvatarImagesrc={cas eData.customer.avatar}/>
+<AvatarFallback>{cas eData.customer.name.charAt(0)}</AvatarFallback>
 </Avatar>
-<divclassName="flex-1min-w-0">
-<pclassName="font-mediumtext-sm">{caseData.customer.name}</p>
+<divclas sName="flex-1min-w-0">
+<pclas sName="font-mediumtext-sm">{cas eData.customer.name}</p>
 </div>
 </div>
-<divclassName="space-y-2text-sm">
-<divclassName="flexitems-centerspace-x-2text-muted-foreground">
-<PhoneclassName="h-3w-3"/>
-<span>{caseData.customer.phone}</span>
+<divclas sName="space-y-2text-sm">
+<divclas sName="flexitems-centerspace-x-2text-muted-foreground">
+<Phoneclas sName="h-3w-3"/>
+<span>{cas eData.customer.phone}</span>
 </div>
-<divclassName="flexitems-centerspace-x-2text-muted-foreground">
-<MailclassName="h-3w-3"/>
-<spanclassName="truncate">{caseData.customer.email}</span>
+<divclas sName="flexitems-centerspace-x-2text-muted-foreground">
+<Mailclas sName="h-3w-3"/>
+<spanclas sName="truncate">{cas eData.customer.email}</span>
 </div>
 </div>
 </CardContent>
@@ -382,68 +382,68 @@ by{activity.user}
 
 {/*VehicleInformation*/}
 <Card>
-<CardHeaderclassName="pb-3">
-<CardTitleclassName="text-lgflexitems-centerspace-x-2">
-<CarclassName="h-4w-4"/>
+<CardHeaderclas sName="pb-3">
+<CardTitleclas sName="text-lgflexitems-centerspace-x-2">
+<Carclas sName="h-4w-4"/>
 <span>Vehicle</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-3">
+<CardContentclas sName="space-y-3">
 <div>
-<pclassName="font-medium">{caseData.vehicle.model}</p>
-<pclassName="text-xsfont-monotext-muted-foreground">{caseData.vehicle.vin}</p>
+<pclas sName="font-medium">{cas eData.vehicle.model}</p>
+<pclas sName="text-xsfont-monotext-muted-foreground">{cas eData.vehicle.vin}</p>
 </div>
-<divclassName="space-y-2text-smtext-muted-foreground">
-<div>Purchase:{caseData.vehicle.purchaseDate}</div>
-<div>Odometer:{caseData.vehicle.odometer}</div>
-<div>Color:{caseData.vehicle.color}</div>
+<divclas sName="space-y-2text-smtext-muted-foreground">
+<div>Purchas e:{cas eData.vehicle.purchas eDate}</div>
+<div>Odometer:{cas eData.vehicle.odometer}</div>
+<div>Color:{cas eData.vehicle.color}</div>
 </div>
 </CardContent>
 </Card>
 
 {/*AssignedTechnician*/}
 <Card>
-<CardHeaderclassName="pb-3">
-<CardTitleclassName="text-lgflexitems-centerspace-x-2">
-<WrenchclassName="h-4w-4"/>
+<CardHeaderclas sName="pb-3">
+<CardTitleclas sName="text-lgflexitems-centerspace-x-2">
+<Wrenchclas sName="h-4w-4"/>
 <span>AssignedTechnician</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-3">
-<divclassName="flexitems-centerspace-x-3">
-<AvatarclassName="h-10w-10">
-<AvatarImagesrc={caseData.assignedTech.avatar}/>
-<AvatarFallback>{caseData.assignedTech.name.charAt(0)}</AvatarFallback>
+<CardContentclas sName="space-y-3">
+<divclas sName="flexitems-centerspace-x-3">
+<Avatarclas sName="h-10w-10">
+<AvatarImagesrc={cas eData.as signedTech.avatar}/>
+<AvatarFallback>{cas eData.as signedTech.name.charAt(0)}</AvatarFallback>
 </Avatar>
-<divclassName="flex-1min-w-0">
-<pclassName="font-mediumtext-sm">{caseData.assignedTech.name}</p>
-<pclassName="text-xstext-muted-foreground">{caseData.assignedTech.expertise}</p>
+<divclas sName="flex-1min-w-0">
+<pclas sName="font-mediumtext-sm">{cas eData.as signedTech.name}</p>
+<pclas sName="text-xstext-muted-foreground">{cas eData.as signedTech.expertise}</p>
 </div>
 </div>
-<Buttonvariant="outline"size="sm"className="w-full">
-<UserPlusclassName="h-3w-3mr-2"/>
-Reassign
+<Buttonvariant="outline" size="sm" clas sName="w-full">
+<UserPlusclas sName="h-3w-3mr-2"/>
+Reas sign
 </Button>
 </CardContent>
 </Card>
 
 {/*ActionButtons*/}
 <Card>
-<CardHeaderclassName="pb-3">
-<CardTitleclassName="text-lg">Actions</CardTitle>
+<CardHeaderclas sName="pb-3">
+<CardTitleclas sName="text-lg">Actions</CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-3">
-<ButtonclassName="w-full" size="sm">
-<SendclassName="h-4w-4mr-2"/>
+<CardContentclas sName="space-y-3">
+<Buttonclas sName="w-full" size=" sm">
+<Sendclas sName="h-4w-4mr-2"/>
 SubmittoManufacturer
 </Button>
-<Buttonvariant="outline"className="w-full" size="sm">
-<CheckCircle2className="h-4w-4mr-2"/>
-MarkasCompleted
+<Buttonvariant="outline" clas sName="w-full" size=" sm">
+<CheckCircle2clas sName="h-4w-4mr-2"/>
+Markas Completed
 </Button>
-<Buttonvariant="destructive"className="w-full" size="sm">
-<XclassName="h-4w-4mr-2"/>
-CloseCase
+<Buttonvariant="destructive" clas sName="w-full" size=" sm">
+<Xclas sName="h-4w-4mr-2"/>
+CloseCas e
 </Button>
 </CardContent>
 </Card>
@@ -453,4 +453,4 @@ CloseCase
 );
 };
 
-exportdefaultCaseDetailViewPro;
+exportdefaultCas eDetailViewPro;

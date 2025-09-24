@@ -1,13 +1,13 @@
-import { useState } from'react';
-import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle } from'@/components/ui/dialog';
-import { Button } from'@/components/ui/button';
-import { Input } from'@/components/ui/input';
-import { Label } from'@/components/ui/label';
-import { Textarea } from'@/components/ui/textarea';
-import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from'@/components/ui/select';
-import { Card,CardContent,CardDescription,CardHeader,CardTitle } from'@/components/ui/card';
-import { Badge } from'@/components/ui/badge';
-import { useToast } from'@/hooks/use-toast';
+import { useState } from 'react';
+import { Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue } from '@/components/ui/select';
+import { Card,CardContent,CardDescription,CardHeader,CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
 import { 
 Settings,
 Save,
@@ -18,8 +18,8 @@ MapPin,
 AlertTriangle,
 CheckCircle,
 Plus,
-Trash2
- } from'lucide-react';
+Tras h2
+ } from 'lucide-react';
 
 interfaceConfigureWarrantyPolicyProps{
 policyType:string;
@@ -53,7 +53,7 @@ exclusions:['Physicaldamage','Waterdamage','Modificationdamage']
 {
 id:'2',
 component:policyType==='battery''BatteryManagementSystem':policyType==='motor''MotorController':'DisplaySystems',
-coverage:'Repairorreplacementasneeded',
+coverage:'Repairorreplacementas needed',
 exclusions:['Softwaremodifications','Unauthorizedrepairs']
 }
 ]);
@@ -64,7 +64,7 @@ battery:{duration:'8',mileage:'160000',description:'Comprehensivebatterywarranty
 motor:{duration:'5',mileage:'100000',description:'Motoranddrivetrainwarrantycoveringmanufacturingdefects'},
 electronics:{duration:'3',mileage:'60000',description:'Electronicsandinfotainmentsystemwarranty'}
 };
-returndefaults[policyTypeaskeyoftypeofdefaults]||defaults.electronics;
+returndefaults[policyTypeas keyoftypeofdefaults]||defaults.electronics;
 };
 
 useState(()=>{
@@ -80,7 +80,7 @@ if(!newCoverage.component||!newCoverage.coverage){
 toast({
 variant:"destructive",
 title:"Error",
-description:"Pleasefillincomponentandcoveragedetails"
+description:"Pleas efillincomponentandcoveragedetails"
 });
 return;
 }
@@ -106,7 +106,7 @@ if(!duration||!mileage){
 toast({
 variant:"destructive",
 title:"Error",
-description:"Pleasefillinallrequiredfields"
+description:"Pleas efillinallrequiredfields"
 });
 return;
 }
@@ -119,7 +119,7 @@ awaitnewPromise(resolve=>setTimeout(resolve,2000));
 
 toast({
 title:"Success",
-description:`${policyType.charAt(0).toUpperCase()+policyType.slice(1)}warrantypolicyupdatedsuccessfully`
+description:`${policyType.charAt(0).toUpperCas e()+policyType.slice(1)}warrantypolicyupdatedsuccessfully`
 });
 
 onClose();
@@ -127,7 +127,7 @@ onClose();
 toast({
 variant:"destructive",
 title:"Error",
-description:"Failedtoupdatewarrantypolicy.Pleasetryagain."
+description:"Failedtoupdatewarrantypolicy.Pleas etryagain."
 });
 }finally{
 setIsLoading(false);
@@ -140,35 +140,35 @@ battery:'🔋',
 motor:'⚡',
 electronics:'📱'
 };
-returnicons[policyTypeaskeyoftypeoficons]||'🛡️';
+returnicons[policyTypeas keyoftypeoficons]||'🛡️';
 };
 
 return(
 <Dialogopen={true}onOpenChange={onClose}>
-<DialogContentclassName="max-w-4xlmax-h-[90vh]overflow-y-auto">
+<DialogContentclas sName="max-w-4xlmax-h-[90vh]overflow-y-auto">
 <DialogHeader>
-<DialogTitleclassName="flexitems-centerspace-x-2">
-<SettingsclassName="h-5w-5text-primary"/>
-<span>Configure{policyType.charAt(0).toUpperCase()+policyType.slice(1)}WarrantyPolicy</span>
-<spanclassName="text-2xl">{getPolicyIcon()}</span>
+<DialogTitleclas sName="flexitems-centerspace-x-2">
+<Settingsclas sName="h-5w-5text-primary"/>
+<span>Configure{policyType.charAt(0).toUpperCas e()+policyType.slice(1)}WarrantyPolicy</span>
+<spanclas sName="text-2xl">{getPolicyIcon()}</span>
 </DialogTitle>
 <DialogDescription>
 Setwarrantyterms,coveragedetails,andconditionsfor{policyType}components
 </DialogDescription>
 </DialogHeader>
 
-<divclassName="space-y-6">
-{/*BasicTerms*/}
+<divclas sName="space-y-6">
+{/*Bas icTerms*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-baseflexitems-centerspace-x-2">
-<CalendarclassName="h-4w-4"/>
+<CardTitleclas sName="text-bas eflexitems-centerspace-x-2">
+<Calendarclas sName="h-4w-4"/>
 <span>WarrantyTerms</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
-<divclassName="gridgrid-cols-2gap-4">
-<divclassName="space-y-2">
+<CardContentclas sName="space-y-4">
+<divclas sName="gridgrid-cols-2gap-4">
+<divclas sName="space-y-2">
 <LabelhtmlFor="duration">Duration(Years)*</Label>
 <Input
 id="duration"
@@ -178,7 +178,7 @@ value={duration}
 onChange={(e)=>setDuration(e.target.value)}
 />
 </div>
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="mileage">MileageLimit(KM)*</Label>
 <Input
 id="mileage"
@@ -190,8 +190,8 @@ onChange={(e)=>setMileage(e.target.value)}
 </div>
 </div>
 
-<divclassName="gridgrid-cols-2gap-4">
-<divclassName="space-y-2">
+<divclas sName="gridgrid-cols-2gap-4">
+<divclas sName="space-y-2">
 <LabelhtmlFor="region">ApplicableRegion</Label>
 <Selectvalue={region}onValueChange={setRegion}>
 <SelectTrigger>
@@ -199,12 +199,12 @@ onChange={(e)=>setMileage(e.target.value)}
 </SelectTrigger>
 <SelectContent>
 <SelectItemvalue="vietnam">Vietnam</SelectItem>
-<SelectItemvalue="asean">ASEANRegion</SelectItem>
+<SelectItemvalue="as ean">ASEANRegion</SelectItem>
 <SelectItemvalue="global">Global</SelectItem>
 </SelectContent>
 </Select>
 </div>
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="transferable">Transferable</Label>
 <Selectvalue={transferable}onValueChange={setTransferable}>
 <SelectTrigger>
@@ -219,14 +219,14 @@ onChange={(e)=>setMileage(e.target.value)}
 </div>
 </div>
 
-<divclassName="space-y-2">
+<divclas sName="space-y-2">
 <LabelhtmlFor="description">PolicyDescription</Label>
 <Textarea
 id="description"
 placeholder="Describethewarrantypolicytermsandconditions..."
 value={description}
 onChange={(e)=>setDescription(e.target.value)}
-className="min-h-[80px]"
+clas sName="min-h-[80px]"
 />
 </div>
 </CardContent>
@@ -235,22 +235,22 @@ className="min-h-[80px]"
 {/*CoverageDetails*/}
 <Card>
 <CardHeader>
-<CardTitleclassName="text-baseflexitems-centerspace-x-2">
-<ShieldclassName="h-4w-4"/>
+<CardTitleclas sName="text-bas eflexitems-centerspace-x-2">
+<Shieldclas sName="h-4w-4"/>
 <span>CoverageDetails</span>
 </CardTitle>
 </CardHeader>
-<CardContentclassName="space-y-4">
+<CardContentclas sName="space-y-4">
 {coverageItems.map((item)=>(
-<Cardkey={item.id}className="border-l-4border-l-primary">
-<CardContentclassName="pt-4">
-<divclassName="flexitems-startjustify-between">
-<divclassName="flex-1">
-<h4className="font-semiboldtext-sm">{item.component}</h4>
-<pclassName="text-smtext-muted-foregroundmt-1">{item.coverage}</p>
-<divclassName="flexflex-wrapgap-1mt-2">
+<Cardkey={item.id}clas sName="border-l-4border-l-primary">
+<CardContentclas sName="pt-4">
+<divclas sName="flexitems-startjustify-between">
+<divclas sName="flex-1">
+<h4clas sName="font-semiboldtext-sm">{item.component}</h4>
+<pclas sName="text-smtext-muted-foregroundmt-1">{item.coverage}</p>
+<divclas sName="flexflex-wrapgap-1mt-2">
 {item.exclusions.map((exclusion,idx)=>(
-<Badgekey={idx}variant="secondary"className="text-xs">
+<Badgekey={idx}variant="secondary" clas sName="text-xs">
 {exclusion}
 </Badge>
 ))}
@@ -260,9 +260,9 @@ className="min-h-[80px]"
 variant="ghost"
 size="sm"
 onClick={()=>handleRemoveCoverage(item.id)}
-className="text-destructivehover:text-destructive"
+clas sName="text-destructivehover:text-destructive"
 >
-<Trash2className="h-4w-4"/>
+<Tras h2clas sName="h-4w-4"/>
 </Button>
 </div>
 </CardContent>
@@ -270,10 +270,10 @@ className="text-destructivehover:text-destructive"
 ))}
 
 {/*AddNewCoverage*/}
-<CardclassName="border-dashed">
-<CardContentclassName="pt-4">
-<divclassName="space-y-3">
-<divclassName="gridgrid-cols-2gap-3">
+<Cardclas sName="border-das hed">
+<CardContentclas sName="pt-4">
+<divclas sName="space-y-3">
+<divclas sName="gridgrid-cols-2gap-3">
 <Input
 placeholder="Componentname"
 value={newCoverage.component}
@@ -286,12 +286,12 @@ onChange={(e)=>setNewCoverage({...newCoverage,coverage:e.target.value})}
 />
 </div>
 <Input
-placeholder="Exclusions(commaseparated)"
+placeholder="Exclusions(commas eparated)"
 value={newCoverage.exclusions}
 onChange={(e)=>setNewCoverage({...newCoverage,exclusions:e.target.value})}
 />
-<Buttonvariant="outline"size="sm"onClick={handleAddCoverage}>
-<PlusclassName="h-4w-4mr-1"/>
+<Buttonvariant="outline" size="sm" onClick={handleAddCoverage}>
+<Plusclas sName="h-4w-4mr-1"/>
 AddCoverageItem
 </Button>
 </div>
@@ -301,17 +301,17 @@ AddCoverageItem
 </Card>
 
 {/*PolicyPreview*/}
-<CardclassName="bg-accent/5">
+<Cardclas sName="bg-accent/5">
 <CardHeader>
-<CardTitleclassName="text-baseflexitems-centerspace-x-2">
-<CheckCircleclassName="h-4w-4text-success"/>
+<CardTitleclas sName="text-bas eflexitems-centerspace-x-2">
+<CheckCircleclas sName="h-4w-4text-success"/>
 <span>PolicyPreview</span>
 </CardTitle>
 </CardHeader>
 <CardContent>
-<divclassName="space-y-2text-sm">
+<divclas sName="space-y-2text-sm">
 <p><strong>CoveragePeriod:</strong>{duration}yearsor{Number(mileage).toLocaleString()}km(whichevercomesfirst)</p>
-<p><strong>Region:</strong>{region.charAt(0).toUpperCase()+region.slice(1)}</p>
+<p><strong>Region:</strong>{region.charAt(0).toUpperCas e()+region.slice(1)}</p>
 <p><strong>Transferable:</strong>{transferable==='yes''Yes':transferable==='no''No':'Limited'}</p>
 <p><strong>ComponentsCovered:</strong>{coverageItems.length}items</p>
 </div>
@@ -320,20 +320,20 @@ AddCoverageItem
 </div>
 
 {/*Footer*/}
-<divclassName="flexjustify-betweenpt-4border-t">
-<Buttonvariant="outline"onClick={onClose}>
-<XclassName="mr-2h-4w-4"/>
+<divclas sName="flexjustify-betweenpt-4border-t">
+<Buttonvariant="outline" onClick={onClose}>
+<Xclas sName="mr-2h-4w-4"/>
 Cancel
 </Button>
-<Buttonvariant="gradient"onClick={handleSave}disabled={isLoading}>
+<Buttonvariant="gradient" onClick={handleSave}disabled={isLoading}>
 {isLoading(
-<divclassName="flexitems-centerspace-x-2">
-<divclassName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
+<divclas sName="flexitems-centerspace-x-2">
+<divclas sName="h-4w-4animate-spinrounded-fullborder-2border-primary-foregroundborder-t-transparent"/>
 <span>Saving...</span>
 </div>
 ):(
 <>
-<SaveclassName="mr-2h-4w-4"/>
+<Saveclas sName="mr-2h-4w-4"/>
 SavePolicy
 </>
 )}
